@@ -46,6 +46,9 @@
     <Compile Include="DAL_MonAn.cs" />
     <Compile Include="DAL_HoaDon.cs" />
     <Compile Include="DAL_NguoiDung.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="DAL_BanAn.cs" />
+    <Compile Include="DBConnect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
