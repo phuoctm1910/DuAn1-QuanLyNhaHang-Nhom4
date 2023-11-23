@@ -59,6 +59,7 @@ namespace GUI_QLNhaHang
             // 
             // dvDanhSachBanAn
             // 
+            this.dvDanhSachBanAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvDanhSachBanAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvDanhSachBanAn.Location = new System.Drawing.Point(324, 147);
             this.dvDanhSachBanAn.Name = "dvDanhSachBanAn";
@@ -66,6 +67,7 @@ namespace GUI_QLNhaHang
             this.dvDanhSachBanAn.RowTemplate.Height = 24;
             this.dvDanhSachBanAn.Size = new System.Drawing.Size(385, 190);
             this.dvDanhSachBanAn.TabIndex = 70;
+            this.dvDanhSachBanAn.DoubleClick += new System.EventHandler(this.dvDanhSachBanAn_DoubleClick);
             // 
             // txtTenBanAn
             // 
@@ -142,6 +144,7 @@ namespace GUI_QLNhaHang
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLamMoi
             // 
@@ -158,6 +161,7 @@ namespace GUI_QLNhaHang
             this.btnLamMoi.Text = "Làm Mới";
             this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLamMoi.UseVisualStyleBackColor = false;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnSua
             // 
@@ -174,6 +178,7 @@ namespace GUI_QLNhaHang
             this.btnSua.Text = "Sửa";
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -190,6 +195,7 @@ namespace GUI_QLNhaHang
             this.btnThem.Text = "Thêm";
             this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // BanAn
             // 
@@ -212,6 +218,7 @@ namespace GUI_QLNhaHang
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "BanAn";
             this.Text = "BanAn";
+            this.Load += new System.EventHandler(this.BanAn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvDanhSachBanAn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
