@@ -22,16 +22,5 @@ namespace GUI_QLNhaHang.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-VTSCJTEF;Initial Catalog=QLNhaHang_DuAn1_Nhom4;Persist Securit" +
-            "y Info=True;User ID=sa;Password=123123")]
-        public string QLNhaHang_DuAn1_Nhom4ConnectionString {
-            get {
-                return ((string)(this["QLNhaHang_DuAn1_Nhom4ConnectionString"]));
-            }
-        }
     }
 }

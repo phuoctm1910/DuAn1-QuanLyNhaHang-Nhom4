@@ -55,14 +55,13 @@ namespace GUI_QLNhaHang
         private void ResetValues()
         {
             txtMaBanAn.Enabled = false;
+            btnThem.Enabled = true;
             txtMaBanAn.Clear(); 
             txtTenBanAn.Clear(); 
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-          
-
             if (string.IsNullOrEmpty(txtMaBanAn.Text)) //chinh lai bat loi
             {
                 MessageBox.Show("Bạn chưa nhập tên bàn ăn");
