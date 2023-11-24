@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BUS_QLNhaHang;
+using DTO_QLNhaHang;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace GUI_QLNhaHang
 {
     public partial class NhanVien : Form
     {
+        BUS_NguoiDung busND = new BUS_NguoiDung();
+        DTO_NguoiDung ND = new DTO_NguoiDung();
         public NhanVien()
         {
             InitializeComponent();
@@ -19,7 +23,309 @@ namespace GUI_QLNhaHang
 
         private void NhanVien_Load(object sender, EventArgs e)
         {
+            LoadDataND();
+            ResetValue();
+            txtManv.Enabled = false;
 
+        }
+
+        private void LoadDataND()
+        {
+            dtvDanhSachNhanVien.DataSource = busND.DanhSachNguoiDung();
+            dtvDanhSachNhanVien.Columns[0].HeaderText = "Mã Nhân Viên";
+            dtvDanhSachNhanVien.Columns[1].HeaderText = "Tài Khoản";
+            dtvDanhSachNhanVien.Columns[2].HeaderText = "Mật Khẩu";
+            dtvDanhSachNhanVien.Columns[3].HeaderText = "Tên Nhân Viên";
+            dtvDanhSachNhanVien.Columns[4].HeaderText = "Giới Tính";
+            dtvDanhSachNhanVien.Columns[5].HeaderText = "Địa Chỉ";
+            dtvDanhSachNhanVien.Columns[6].HeaderText = "SĐT";
+            dtvDanhSachNhanVien.Columns[7].HeaderText = "Ngày Sinh";
+            dtvDanhSachNhanVien.Columns[8].HeaderText = "Ngày Vào Làm";
+            dtvDanhSachNhanVien.Columns[9].HeaderText = "Chức Vụ";
+            dtvDanhSachNhanVien.Columns[10].HeaderText = "Lương";
+
+            dtpNgaySinh.Text = null;
+            cboNgayVaoLam.Text = null;
+            cboLuong.SelectedIndex = -1;
+            cboChucVu.SelectedIndex = -1;
+        }
+
+        private void ResetValue()
+        {
+            txtTenNhanVien.Clear();
+            txtManv.Clear();
+            txtTaiKhoan.Clear();
+            txtMatKhau.Clear();
+            txtSDT.Clear();
+            rtbDiaChi.Clear();
+
+            dtpNgaySinh = null;
+
+            cboNgayVaoLam.Text = null;
+            cboLuong.SelectedIndex = -1;
+            cboChucVu.SelectedIndex = -1;
+        }
+
+        private void dtvDanhSachNhanVien_DoubleClick(object sender, EventArgs e)
+        {
+            txtMatKhau.Enabled = false;
+            txtManv.Enabled = false;
+            int lst = dtvDanhSachNhanVien.CurrentRow.Index;
+            txtManv.Text = dtvDanhSachNhanVien.Rows[lst].Cells[0].Value.ToString();
+            txtTaiKhoan.Text = dtvDanhSachNhanVien.Rows[lst].Cells[1].Value.ToString();
+            txtMatKhau.Text = dtvDanhSachNhanVien.Rows[lst].Cells[2].Value.ToString();
+            txtTenNhanVien.Text = dtvDanhSachNhanVien.Rows[lst].Cells[3].Value.ToString();
+            string phai = dtvDanhSachNhanVien.Rows[lst].Cells[4].Value.ToString();
+            if (phai == "Nam")
+            {
+                radNam.Checked = true;
+            }
+            else
+            {
+                radNu.Checked = true;
+            }
+            rtbDiaChi.Text = dtvDanhSachNhanVien.Rows[lst].Cells[5].Value.ToString();
+            txtSDT.Text = dtvDanhSachNhanVien.Rows[lst].Cells[6].Value.ToString();
+            dtpNgaySinh.Text = dtvDanhSachNhanVien.Rows[lst].Cells[7].Value.ToString();
+            string chucvu = dtvDanhSachNhanVien.Rows[lst].Cells[9].Value.ToString();
+            if (chucvu == "0")
+            {
+                cboChucVu.SelectedIndex = 0;
+            }
+            else
+            {
+                cboChucVu.SelectedIndex = 1;
+            }
+
+            string luong = dtvDanhSachNhanVien.Rows[lst].Cells[10].Value.ToString();
+            if (luong == "0")
+            {
+                cboLuong.SelectedIndex = 0;
+            }
+            else
+            {
+                cboLuong.SelectedIndex = 1;
+            }
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            float intDienThoai;
+            bool isInt = float.TryParse(txtSDT.Text.Trim().ToString(), out intDienThoai);
+            string phai;
+            
+
+
+            if (radNam.Checked)
+            { phai = radNam.Text; }
+            else
+            { phai = radNu.Text; }
+            if (string.IsNullOrEmpty(txtTenNhanVien.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập tên nhân viên");
+                txtTenNhanVien.Focus();
+            }
+            else if (string.IsNullOrEmpty(txtTaiKhoan.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập tài khoản");
+                txtTaiKhoan.Focus();
+            }
+            else if (string.IsNullOrEmpty(txtMatKhau.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập mật khẩu");
+                txtMatKhau.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboChucVu.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn chức vụ");
+                cboChucVu.Focus();
+            }
+            else if (radNam.Checked == false && radNu.Checked == false)
+            {
+                MessageBox.Show("Bạn chưa chọn giới tính nhân viên");
+                cboChucVu.Focus();
+            }
+            else if (string.IsNullOrEmpty(rtbDiaChi.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập địa chỉ");
+                rtbDiaChi.Focus();
+            }
+            else if (!isInt || float.Parse(txtSDT.Text) < 0)
+            {
+                MessageBox.Show("Bạn phải nhập số lớn hơn 0 và phải là số nguyên");
+                txtSDT.Focus();
+            }
+            else if (txtSDT.TextLength < 10)
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại đủ 10-11 số");
+                txtSDT.Focus();
+            }
+            else if (string.IsNullOrEmpty(dtpNgaySinh.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn ngày sinh");
+                dtpNgaySinh.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboNgayVaoLam.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn ngày vào làm");
+                cboNgayVaoLam.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboLuong.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn mức độ lương cho nhân viên");
+                cboLuong.Focus();
+            }
+            else
+            {
+
+                ND = new DTO_NguoiDung(txtTaiKhoan.Text, txtMatKhau.Text, txtTenNhanVien.Text, phai, rtbDiaChi.Text,
+                    txtSDT.Text, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex , cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
+                if (busND.ThemNguoiDung(ND))
+                {
+                    MessageBox.Show("Thêm nhân viên thành công!");
+                    LoadDataND();
+                    ResetValue();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại!!!");
+                }
+            }
+        }
+
+
+
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            float intDienThoai;
+            bool isInt = float.TryParse(txtSDT.Text.Trim().ToString(), out intDienThoai);
+            string phai;
+
+
+            if (radNam.Checked)
+            { phai = radNam.Text; }
+            else
+            { phai = radNu.Text; }
+            if (string.IsNullOrEmpty(txtTenNhanVien.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập tên nhân viên");
+                txtTenNhanVien.Focus();
+            }
+            else if (string.IsNullOrEmpty(txtTaiKhoan.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập tài khoản");
+                txtTaiKhoan.Focus();
+            }
+            else if (string.IsNullOrEmpty(txtMatKhau.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập mật khẩu");
+                txtMatKhau.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboChucVu.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn chức vụ");
+                cboChucVu.Focus();
+            }
+            else if (radNam.Checked == false && radNu.Checked == false)
+            {
+                MessageBox.Show("Bạn chưa chọn giới tính nhân viên");
+                cboChucVu.Focus();
+            }
+            else if (string.IsNullOrEmpty(rtbDiaChi.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập địa chỉ");
+                rtbDiaChi.Focus();
+            }
+            else if (!isInt || float.Parse(txtSDT.Text) < 0)
+            {
+                MessageBox.Show("Bạn phải nhập số lớn hơn 0 và phải là số nguyên");
+                txtSDT.Focus();
+            }
+            else if (txtSDT.TextLength < 10)
+            {
+                MessageBox.Show("Bạn phải nhập số điện thoại đủ 10-11 số");
+                txtSDT.Focus();
+            }
+            else if (string.IsNullOrEmpty(dtpNgaySinh.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn ngày sinh");
+                dtpNgaySinh.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboNgayVaoLam.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn ngày vào làm");
+                cboNgayVaoLam.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboLuong.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn mức độ lương cho nhân viên");
+                cboLuong.Focus();
+            }
+            else
+            {
+
+
+
+                ND = new DTO_NguoiDung(txtTaiKhoan.Text, txtMatKhau.Text, txtTenNhanVien.Text, phai, rtbDiaChi.Text,
+                    txtSDT.Text, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
+                DialogResult result = MessageBox.Show("Bạn có thật sự muốn sửa không", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (busND.CapNhatNguoiDung(ND, txtManv.Text))
+                {
+                    MessageBox.Show("Sữa thông tin nhân viên thành công!");
+                    LoadDataND();
+                    ResetValue();
+                }
+                else
+                {
+                    MessageBox.Show("Sữa thông tin thất bại!!!");
+                }
+            }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            ResetValue();
+            LoadDataND();
+        }
+
+
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có thật sự muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                if (busND.XoaNguoiDung(ND, txtManv.Text))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    ResetValue();
+                    LoadDataND();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa không thành công");
+                }
+            }
+            else
+            {
+                ResetValue();
+            }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            DataTable dtSearch = busND.SearchNguoiDung(ND, txtManv.Text);
+            if (dtSearch.Rows.Count > 0)
+            {
+                MessageBox.Show("Tìm thành công");
+                dtvDanhSachNhanVien.DataSource = dtSearch;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy Người Dùng");
+            }
+            ResetValue();
         }
     }
 }
