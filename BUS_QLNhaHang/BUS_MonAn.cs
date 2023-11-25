@@ -14,6 +14,10 @@ namespace BUS_QLNhaHang
     {
         DAL_MonAn dalMA = new DAL_MonAn();
 
+        public DataTable DanhSachNhomMonAn()
+        {
+            return dalMA.DanhSachNhomMonAn();
+        }
         public DataTable DanhSachMonAn()
         {
             return dalMA.DanhSachMonAn();

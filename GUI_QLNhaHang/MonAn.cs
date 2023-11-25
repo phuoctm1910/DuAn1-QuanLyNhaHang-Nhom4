@@ -22,7 +22,7 @@ namespace GUI_QLNhaHang
         }
 
 
-        private void LoadNV()
+        private void LoadData()
         {
             dvDanhSachMonAn.DataSource = busMA.DanhSachMonAn();
             dvDanhSachMonAn.Columns[0].HeaderText = "Nhóm Món Ăn";
@@ -40,9 +40,10 @@ namespace GUI_QLNhaHang
 
         private void MonAn_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLNhaHang_DuAn1_Nhom4DataSet.tblNhomMonAn' table. You can move, or remove it, as needed.
-            this.tblNhomMonAnTableAdapter.Fill(this.qLNhaHang_DuAn1_Nhom4DataSet.tblNhomMonAn);
-            LoadNV();
+            LoadData();
+            cboNhomMonAn.DataSource = busMA.DanhSachNhomMonAn();
+            cboNhomMonAn.DisplayMember = "TenNhom";
+            cboNhomMonAn.ValueMember = "MaNhomMonAn";
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -70,7 +71,7 @@ namespace GUI_QLNhaHang
                 {
                     MessageBox.Show("Thêm thành công");
                     ResetValues();
-                    LoadNV();
+                    LoadData();
                 }
                 else
                 {
@@ -108,7 +109,7 @@ namespace GUI_QLNhaHang
                     {
                         MessageBox.Show("Sửa thành công");
                         ResetValues();
-                        LoadNV();
+                        LoadData();
                     }
                     else
                     {
@@ -143,7 +144,7 @@ namespace GUI_QLNhaHang
                     {
                         MessageBox.Show("Xóa thành công");
                         ResetValues();
-                        LoadNV();
+                        LoadData();
                     }
                     else
                     {

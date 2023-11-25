@@ -11,6 +11,26 @@ namespace DAL_QLNhaHang
 {
     public class DAL_MonAn : DBConnect
     {
+        public DataTable DanhSachNhomMonAn()
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = _conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DanhSachNhomMonAn";
+                cmd.Connection = _conn;
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
         public DataTable DanhSachMonAn()
         {
             try

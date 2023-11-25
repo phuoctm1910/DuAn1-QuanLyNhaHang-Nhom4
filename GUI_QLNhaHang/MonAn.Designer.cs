@@ -29,7 +29,6 @@ namespace GUI_QLNhaHang
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMaNV = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,13 +46,8 @@ namespace GUI_QLNhaHang
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.qLNhaHang_DuAn1_Nhom4DataSet = new GUI_QLNhaHang.QLNhaHang_DuAn1_Nhom4DataSet();
-            this.tblNhomMonAnBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tblNhomMonAnTableAdapter = new GUI_QLNhaHang.QLNhaHang_DuAn1_Nhom4DataSetTableAdapters.tblNhomMonAnTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dvDanhSachMonAn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNhaHang_DuAn1_Nhom4DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblNhomMonAnBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -94,14 +88,11 @@ namespace GUI_QLNhaHang
             // 
             // cboNhomMonAn
             // 
-            this.cboNhomMonAn.DataSource = this.tblNhomMonAnBindingSource;
-            this.cboNhomMonAn.DisplayMember = "TenNhom";
             this.cboNhomMonAn.FormattingEnabled = true;
             this.cboNhomMonAn.Location = new System.Drawing.Point(176, 101);
             this.cboNhomMonAn.Name = "cboNhomMonAn";
             this.cboNhomMonAn.Size = new System.Drawing.Size(180, 24);
             this.cboNhomMonAn.TabIndex = 48;
-            this.cboNhomMonAn.ValueMember = "MaNhomMonAn";
             // 
             // txtMaMonAn
             // 
@@ -260,20 +251,6 @@ namespace GUI_QLNhaHang
             this.pictureBox1.TabIndex = 77;
             this.pictureBox1.TabStop = false;
             // 
-            // qLNhaHang_DuAn1_Nhom4DataSet
-            // 
-            this.qLNhaHang_DuAn1_Nhom4DataSet.DataSetName = "QLNhaHang_DuAn1_Nhom4DataSet";
-            this.qLNhaHang_DuAn1_Nhom4DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tblNhomMonAnBindingSource
-            // 
-            this.tblNhomMonAnBindingSource.DataMember = "tblNhomMonAn";
-            this.tblNhomMonAnBindingSource.DataSource = this.qLNhaHang_DuAn1_Nhom4DataSet;
-            // 
-            // tblNhomMonAnTableAdapter
-            // 
-            this.tblNhomMonAnTableAdapter.ClearBeforeFill = true;
-            // 
             // MonAn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -303,8 +280,6 @@ namespace GUI_QLNhaHang
             this.Load += new System.EventHandler(this.MonAn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvDanhSachMonAn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLNhaHang_DuAn1_Nhom4DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tblNhomMonAnBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,8 +304,5 @@ namespace GUI_QLNhaHang
         private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private QLNhaHang_DuAn1_Nhom4DataSet qLNhaHang_DuAn1_Nhom4DataSet;
-        private System.Windows.Forms.BindingSource tblNhomMonAnBindingSource;
-        private QLNhaHang_DuAn1_Nhom4DataSetTableAdapters.tblNhomMonAnTableAdapter tblNhomMonAnTableAdapter;
     }
 }
