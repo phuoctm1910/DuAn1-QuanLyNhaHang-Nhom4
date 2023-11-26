@@ -224,6 +224,7 @@ namespace GUI_QLNhaHang
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = false;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnInHD
             // 
@@ -258,6 +259,7 @@ namespace GUI_QLNhaHang
             this.btnLuu.Text = "Lưu";
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // HoaDonChiTiet
             // 
@@ -286,6 +288,7 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.label2);
             this.Name = "HoaDonChiTiet";
             this.Text = "Hóa Đơn Chi Tiết";
+            this.Load += new System.EventHandler(this.HoaDonChiTiet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvgThongTinCTHD)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

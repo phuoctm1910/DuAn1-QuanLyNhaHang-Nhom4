@@ -132,7 +132,7 @@ namespace GUI_QLNhaHang
         {
             if (string.IsNullOrEmpty(txtTenMonAn.Text))
             {
-                MessageBox.Show("Bạn chưa nhập Email");
+                MessageBox.Show("Bạn chưa nhập tên món ăn");
                 txtTenMonAn.Focus();
             }
             else

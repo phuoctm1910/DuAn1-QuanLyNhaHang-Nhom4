@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DTO_KhachHang.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="DTO_HoaDonChiTiet.cs" />
     <Compile Include="DTO_MonAn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
