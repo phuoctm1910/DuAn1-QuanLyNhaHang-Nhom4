@@ -16,6 +16,9 @@ namespace GUI_QLNhaHang
     {
         BUS_HoaDonChiTiet busHDCT = new BUS_HoaDonChiTiet();
         DTO_HoaDonChiTiet hdct = new DTO_HoaDonChiTiet();
+        public static string mahdct;
+        public static string MaHD;
+        public static int tongtien;
         public HoaDonChiTiet()
         {
             InitializeComponent();
@@ -23,30 +26,29 @@ namespace GUI_QLNhaHang
 
         private void LoadData()
         {
+            txtThanhTien.ReadOnly = true;
+            txtTongTienHDBangChu.ReadOnly = true;
             dvgThongTinCTHD.DataSource = busHDCT.DanhSachHoaDonChiTiet();
-            dvgThongTinCTHD.Columns[0].HeaderText = "Mã Hóa Đơn";
-            dvgThongTinCTHD.Columns[1].HeaderText = "Tên Món Ăn";
-            dvgThongTinCTHD.Columns[2].HeaderText = "Số Lượng";
+            dvgThongTinCTHD.Columns[0].HeaderText = "Mã HDCT";
+            dvgThongTinCTHD.Columns[1].HeaderText = "Mã Hóa Đơn";
+            dvgThongTinCTHD.Columns[2].HeaderText = "Tên Món Ăn";
             dvgThongTinCTHD.Columns[3].HeaderText = "Đơn Giá";
-            dvgThongTinCTHD.Columns[4].HeaderText = "Thành Tiền";
-            dvgThongTinCTHD.Columns[5].HeaderText = "Tổng Tiền Hóa Đơn Bằng Chữ";
+            dvgThongTinCTHD.Columns[4].HeaderText = "Số Lượng";
         }
         private void ResetValues()
         {
-            txtMaHD.Clear();
             txtDonGia.Clear();
             txtSoLuong.Clear();
-            txtThanhTien.Clear();
-            txtTongTienHDBangChu.Clear();
             cboTenMonAn.SelectedIndex = -1;
         }
 
         private void HoaDonChiTiet_Load(object sender, EventArgs e)
         {
             LoadData();
-            cboTenMonAn.DataSource = busHDCT.DanhSachHoaDonChiTiet();
-            cboTenMonAn.DisplayMember = "TenMon";
+            cboTenMonAn.DataSource = busHDCT.LayMonAn();
+            cboTenMonAn.DisplayMember = "TenMonAn";
             cboTenMonAn.ValueMember = "MaMonAn";
+
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -72,19 +74,9 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn Chưa Nhập Đơn Giá");
                 txtDonGia.Focus();
             }
-            else if (string.IsNullOrEmpty(txtThanhTien.Text))
-            {
-                MessageBox.Show("Bạn Chưa Nhập Thành Tiền");
-                txtThanhTien.Focus();
-            }
-            else if (string.IsNullOrEmpty(txtTongTienHDBangChu.Text))
-            {
-                MessageBox.Show("Bạn Chưa Nhập Tổng Tiền Hóa Đơn (Băng Chữ)");
-                txtTongTienHDBangChu.Focus();
-            }
             else
             {
-                hdct = new DTO_HoaDonChiTiet(txtMaHD.Text,txtDonGia.Text, txtSoLuong.Text, tenMA);
+                hdct = new DTO_HoaDonChiTiet(txtMaHD.Text, tenMA, int.Parse(txtDonGia.Text), int.Parse(txtSoLuong.Text));
                 if (busHDCT.ThemHoaDonChiTiet(hdct))
                 {
                     MessageBox.Show("Thêm thành công");

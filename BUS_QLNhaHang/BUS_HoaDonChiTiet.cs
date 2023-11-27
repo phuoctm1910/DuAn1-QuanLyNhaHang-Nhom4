@@ -14,7 +14,10 @@ namespace BUS_QLNhaHang
     {
 
         DAL_HoaDonChiTiet dalHDCT = new DAL_HoaDonChiTiet();
-
+        public DataTable LayMonAn()
+        {
+            return dalHDCT.LayMonAn();
+        }
         public DataTable DanhSachHoaDonChiTiet()
         {
             return dalHDCT.DanhSachHoaDonChiTiet();

@@ -11,6 +11,26 @@ namespace DAL_QLNhaHang
 {
     public class DAL_HoaDonChiTiet : DBConnect
     {
+        public DataTable LayMonAn()
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = _conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[DanhSachMonAn]";
+                cmd.Connection = _conn;
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
         public DataTable DanhSachHoaDonChiTiet()
         {
             try
@@ -42,7 +62,6 @@ namespace DAL_QLNhaHang
                 cmd.Connection = _conn;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "InsertHoaDonChiTiet";
-                cmd.Parameters.AddWithValue("mahdct", hdct.MaHDCT);
                 cmd.Parameters.AddWithValue("mahd", hdct.MaHD);
                 cmd.Parameters.AddWithValue("mamonan", hdct.MaMonAn);
                 cmd.Parameters.AddWithValue("dongia", hdct.DonGia);
@@ -61,7 +80,7 @@ namespace DAL_QLNhaHang
 
         }
 
-        public bool XoaHoaDonChiTiet(string mahdct)
+        public bool XoaHoaDonChiTiet(string mahd)
         {
             try
             {
@@ -71,7 +90,7 @@ namespace DAL_QLNhaHang
                 cmd.Connection = _conn;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "DeleteHoaDonChiTiet";
-                cmd.Parameters.AddWithValue("mahdct", mahdct);
+                cmd.Parameters.AddWithValue("mahd", mahd);
 
                 if (cmd.ExecuteNonQuery() > 0)
                 {
