@@ -10,61 +10,9 @@ using DTO_QLNhaHang;
 
 namespace DAL_QLNhaHang
 {
-    public class DAL_NguoiDung : DBConnect
+    public class DAL_HoaDon : DBConnect
     {
-
-        public DataTable LayLichLam()
-        {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[DanhSachLichLam]";
-                cmd.Connection = _conn;
-                DataTable dt = new DataTable();
-                dt.Load(cmd.ExecuteReader());
-                return dt;
-            }
-            finally { _conn.Close(); }
-        }
-
-
-
-        public DataTable LayCapDoLuong()
-        {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[LayCapDoLuong]";
-                cmd.Connection = _conn;
-                DataTable dt = new DataTable();
-                dt.Load(cmd.ExecuteReader());
-                return dt;
-            }
-            finally { _conn.Close(); }
-        }
-
-
-
-        public DataTable LayVaiTro()
-        {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[LayVaiTro]";
-                cmd.Connection = _conn;
-                DataTable dt = new DataTable();
-                dt.Load(cmd.ExecuteReader());
-                return dt;
-            }
-            finally { _conn.Close(); }
-        }
-        public DataTable DanhSachNguoiDung()
+        public DataTable LayNguoiDung()
         {
             try
             {
@@ -84,28 +32,77 @@ namespace DAL_QLNhaHang
             finally { _conn.Close(); }
         }
 
-
-
-
-        public bool ThemNguoiDung(DTO_NguoiDung ND)
+        public DataTable LayKhachHang()
         {
             try
             {
                 _conn.Open();
                 SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[DanhSachKhachHang]";
+                cmd.Connection = _conn;
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+            finally { _conn.Close(); }
+
+        }
+
+
+        public DataTable LayBanAn()
+        {
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[DanhSachBanAn]";
+                cmd.Connection = _conn;
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+            finally { _conn.Close(); }
+
+        }
+
+
+        public DataTable DanhSachHoaDon()
+        {
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[DanhSachHoaDon]";
+                cmd.Connection = _conn;
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+            finally { _conn.Close(); }
+
+        }
+
+
+        public bool ThemHoaDon(DTO_HoaDon HD, int tongtien)
+        {
+            try
+            {
+
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand();
                 cmd.Connection = _conn;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[InsertNguoiDung]";
-                cmd.Parameters.AddWithValue("taikhoan", ND.taikhoan);
-                cmd.Parameters.AddWithValue("matkhau", ND.matkhau);
-                cmd.Parameters.AddWithValue("tenNv", ND.tenNV);
-                cmd.Parameters.AddWithValue("Gioitinh", ND.gioitinh);
-                cmd.Parameters.AddWithValue("Diachi", ND.diachi);
-                cmd.Parameters.AddWithValue("soDT", ND.sdt);
-                cmd.Parameters.AddWithValue("ngaysinh", ND.ngaysinh);
-                cmd.Parameters.AddWithValue("ngayvaolam", ND.ngayvaolam);
-                cmd.Parameters.AddWithValue("chucvu", ND.chucvu);
-                cmd.Parameters.AddWithValue("luong", ND.luong);
+                cmd.CommandText = "[InsertHoaDon]";
+                cmd.Parameters.AddWithValue("maNV", HD.MaNV);
+                cmd.Parameters.AddWithValue("maKH", HD.MaKH);
+                cmd.Parameters.AddWithValue("MaBanAn", HD.MaBanAn);
+                cmd.Parameters.AddWithValue("ngayLap", HD.NgayLap);
+                cmd.Parameters.AddWithValue("trangThai", HD.TrangThai);
+                cmd.Parameters.AddWithValue("giamgia", HD.GiamGia);
+                cmd.Parameters.AddWithValue("tongtien", tongtien);
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     return true;
@@ -118,7 +115,8 @@ namespace DAL_QLNhaHang
         }
 
 
-        public bool CapNhatNguoiDung(DTO_NguoiDung ND, string manv)
+
+        public bool CapNhatHoaDon(DTO_HoaDon HD, string mahd)
         {
             try
             {
@@ -126,18 +124,14 @@ namespace DAL_QLNhaHang
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = _conn;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[UpdateNguoiDung]";
-                cmd.Parameters.AddWithValue("taikhoan", ND.taikhoan);
-                cmd.Parameters.AddWithValue("matkhau", ND.matkhau);
-                cmd.Parameters.AddWithValue("tenNV", ND.tenNV);
-                cmd.Parameters.AddWithValue("Gioitinh", ND.gioitinh);
-                cmd.Parameters.AddWithValue("Diachi", ND.diachi);
-                cmd.Parameters.AddWithValue("soDT", ND.sdt);
-                cmd.Parameters.AddWithValue("ngaysinh", ND.ngaysinh);
-                cmd.Parameters.AddWithValue("ngayvaolam", ND.ngayvaolam);
-                cmd.Parameters.AddWithValue("chucvu", ND.chucvu);
-                cmd.Parameters.AddWithValue("luong", ND.luong);
-                cmd.Parameters.AddWithValue("maNV", manv);
+                cmd.CommandText = "[UpdateHoaDon]";
+                cmd.Parameters.AddWithValue("MaHD", mahd);
+                cmd.Parameters.AddWithValue("MaNV", HD.MaNV);
+                cmd.Parameters.AddWithValue("MaKH", HD.MaKH);
+                cmd.Parameters.AddWithValue("MaBanAn", HD.MaBanAn);
+                cmd.Parameters.AddWithValue("NgayLap", HD.NgayLap);
+                cmd.Parameters.AddWithValue("TrangThai", HD.TrangThai);
+                cmd.Parameters.AddWithValue("GiamGia", HD.GiamGia);
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     return true;
@@ -149,7 +143,8 @@ namespace DAL_QLNhaHang
         }
 
 
-        public bool XoaNguoiDung(DTO_NguoiDung ND, string manv)
+
+        public bool XoaHoaDon(DTO_HoaDon hoaDon, string mahd)
         {
             try
             {
@@ -157,8 +152,8 @@ namespace DAL_QLNhaHang
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = _conn;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[DeleteNguoiDung]";
-                cmd.Parameters.AddWithValue("MaNV", manv);
+                cmd.CommandText = "[DeleteHoaDon]";
+                cmd.Parameters.AddWithValue("MaHD", mahd);
                 if (cmd.ExecuteNonQuery() > 0)
                 {
 
@@ -171,7 +166,7 @@ namespace DAL_QLNhaHang
         }
 
 
-        public DataTable SearchNguoiDung(DTO_NguoiDung ND, string manv)
+        public DataTable SearchHoaDon(DTO_HoaDon HD, string mahd)
         {
             try
             {
@@ -179,13 +174,14 @@ namespace DAL_QLNhaHang
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = _conn;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[SearchNguoiDung]";
-                cmd.Parameters.AddWithValue("MaNV", manv);
+                cmd.CommandText = "[SearchHoaDon]";
+                cmd.Parameters.AddWithValue("MaHD", mahd);
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 return dt;
             }
             finally { _conn.Close(); }
         }
+
     }
 }

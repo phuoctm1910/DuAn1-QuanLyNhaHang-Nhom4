@@ -44,11 +44,23 @@ namespace GUI_QLNhaHang
             dtvDanhSachNhanVien.Columns[9].HeaderText = "Chức Vụ";
             dtvDanhSachNhanVien.Columns[10].HeaderText = "Lương";
 
-            dtpNgaySinh.Text = null;
-            cboNgayVaoLam.Text = null;
+            cboNgayVaoLam.SelectedIndex = -1;
             cboLuong.SelectedIndex = -1;
             cboChucVu.SelectedIndex = -1;
+            dtvDanhSachNhanVien.CellFormatting += dtvDanhSachNhanVien_CellFormatting;
         }
+
+
+
+        private void dtvDanhSachNhanVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 2 && e.Value != null) // Kiểm tra nếu là cột Mật Khẩu
+            {
+                e.Value = new string('*', e.Value.ToString().Length); // Thay thế giá trị bằng ***
+            }
+        }
+
+
 
         private void ResetValue()
         {
@@ -58,6 +70,7 @@ namespace GUI_QLNhaHang
             txtMatKhau.Clear();
             txtSDT.Clear();
             rtbDiaChi.Clear();
+                        txtTimKiem.Text = "Nhập tên NV";
 
             dtpNgaySinh = null;
 
@@ -87,6 +100,16 @@ namespace GUI_QLNhaHang
             rtbDiaChi.Text = dtvDanhSachNhanVien.Rows[lst].Cells[5].Value.ToString();
             txtSDT.Text = dtvDanhSachNhanVien.Rows[lst].Cells[6].Value.ToString();
             dtpNgaySinh.Text = dtvDanhSachNhanVien.Rows[lst].Cells[7].Value.ToString();
+            string ngaylam = dtvDanhSachNhanVien.Rows[lst].Cells[8].Value.ToString();
+            if (ngaylam == "0")
+            {
+                cboNgayVaoLam.SelectedIndex = 0;
+            }
+            else
+            {
+                cboNgayVaoLam.SelectedIndex = 1;
+            }
+
             string chucvu = dtvDanhSachNhanVien.Rows[lst].Cells[9].Value.ToString();
             if (chucvu == "0")
             {
@@ -327,5 +350,7 @@ namespace GUI_QLNhaHang
             }
             ResetValue();
         }
+
+      
     }
 }

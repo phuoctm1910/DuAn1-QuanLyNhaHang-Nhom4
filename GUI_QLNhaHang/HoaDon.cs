@@ -1,9 +1,13 @@
-﻿using System;
+﻿using BUS_QLNhaHang;
+using DTO_QLNhaHang;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,9 +16,275 @@ namespace GUI_QLNhaHang
 {
     public partial class HoaDon : Form
     {
+        BUS_HoaDon busHD = new BUS_HoaDon();
+        DTO_HoaDon HD = new DTO_HoaDon();
         public HoaDon()
         {
             InitializeComponent();
+            LayNhanVien();
+            LayKhachHang();
+            LayBanAn();
+        }
+
+        private void LoadDataHD()
+        {
+            dtvDanhSachHoaDon.DataSource = busHD.DanhSachHoaDon();
+            dtvDanhSachHoaDon.Columns[0].HeaderText = "Mã Hóa Đơn";
+            dtvDanhSachHoaDon.Columns[1].HeaderText = "Mã Nhân Viên";
+            dtvDanhSachHoaDon.Columns[2].HeaderText = "Mã Khách Hàng";
+            dtvDanhSachHoaDon.Columns[3].HeaderText = "Mã Bàn Ăn";
+            dtvDanhSachHoaDon.Columns[4].HeaderText = "Ngày Lập";
+            dtvDanhSachHoaDon.Columns[5].HeaderText = "Mã Trạng Thái";
+            dtvDanhSachHoaDon.Columns[6].HeaderText = "Tổng Tiền";
+            dtvDanhSachHoaDon.Columns[7].HeaderText = "Giảm Giá";
+
+        }
+        void LayNhanVien()
+        {
+            cboNhanVien.DataSource = busHD.LayNguoiDung();
+            cboNhanVien.DisplayMember = "TenNV";
+            cboNhanVien.ValueMember = "MaNV";
+        }
+
+
+        void LayKhachHang()
+        {
+            cboKhachHang.DataSource = busHD.LayKhachHang();
+            cboKhachHang.DisplayMember = "TenKH";
+            cboKhachHang.ValueMember = "MaKH";
+        }
+
+        void LayBanAn()
+        {
+            cboBanAn.DataSource = busHD.LayBanAn();
+            cboBanAn.DisplayMember = "TenBanAn";
+            cboBanAn.ValueMember = "MaBanAn";
+        }
+
+        private void ResetValue()
+        {
+            txtMaHoaDon.Clear();
+            txtGiamGia.Clear();
+            txtTimKiem.Text = "Nhập mã hóa đơn";
+
+            txtTrangThai.Text = "Chưa in";
+            txtMaHoaDon.Enabled = false;
+            cboBanAn.Text = cboKhachHang.Text = cboNhanVien.Text = null;
+
+            cboBanAn.Enabled = true;
+            cboKhachHang.Enabled = true;
+            cboNhanVien.Enabled = true;
+            txtMaHoaDon.Enabled = true;
+
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+            btnXoa.Enabled = false;
+
+        }
+
+        private void HoaDon_Load(object sender, EventArgs e)
+        {
+            LoadDataHD();
+            ResetValue();
+            txtMaHoaDon.Enabled = false;    
+            txtTrangThai.Text = "Chưa in";
+            txtTrangThai.ReadOnly = true;
+            btnThem.Enabled = true;
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
+        }
+
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            ResetValue();
+        }
+
+
+        private void dtvDanhSachHoaDon_DoubleClick(object sender, EventArgs e)
+        {
+            cboBanAn.Enabled = false;
+            cboKhachHang.Enabled = false;
+            cboNhanVien.Enabled = false;
+            txtMaHoaDon.Enabled = false;
+            btnSua.Enabled = true;
+          
+            btnXoa.Enabled = true;
+            
+            int lst = dtvDanhSachHoaDon.CurrentRow.Index;
+            txtMaHoaDon.Text = dtvDanhSachHoaDon.Rows[lst].Cells[0].Value.ToString();
+            cboNhanVien.Text = dtvDanhSachHoaDon.Rows[lst].Cells[1].Value.ToString();
+            cboKhachHang.Text = dtvDanhSachHoaDon.Rows[lst].Cells[2].Value.ToString();
+            cboBanAn.Text = dtvDanhSachHoaDon.Rows[lst].Cells[3].Value.ToString();
+            dtpNgayLap.Text = dtvDanhSachHoaDon.Rows[lst].Cells[4].Value.ToString();
+            txtTrangThai.Text = dtvDanhSachHoaDon.Rows[lst].Cells[5].Value.ToString();
+            txtGiamGia.Text = dtvDanhSachHoaDon.Rows[lst].Cells[7].Value.ToString();
+        }
+
+
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            float giamGia;
+            float.TryParse(txtGiamGia.Text, out giamGia);
+
+            if (string.IsNullOrEmpty(dtpNgayLap.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập ngày lập hóa đơn ");
+                dtpNgayLap.Focus();
+            }
+            if (string.IsNullOrEmpty(txtTrangThai.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn trạng thái");
+                txtTrangThai.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboNhanVien.Text))
+            {
+               
+                MessageBox.Show("Bạn chưa chọn nhân viên");
+                cboNhanVien.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboKhachHang.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn khách hàng");
+                cboKhachHang.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboBanAn.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn bàn ăn");
+                cboBanAn.Focus();
+            }
+            else
+            {
+                string cbond = cboNhanVien.SelectedValue.ToString();
+                string cbokh = cboKhachHang.SelectedValue.ToString();
+                string cboba = cboBanAn.SelectedValue.ToString();
+                HD = new DTO_HoaDon(cbond, cbokh, cboba, dtpNgayLap.Text, txtTrangThai.Text, giamGia);
+
+                if (busHD.ThemHoaDon(HD, 0))
+                {
+                    MessageBox.Show("Thêm hóa đơn thành công!");
+                    LoadDataHD();
+                    ResetValue();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm hóa đơn thất bại!!!");
+                }
+            }
+        }
+
+
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            float giamGia;
+            float.TryParse(txtGiamGia.Text, out giamGia);
+
+            if (string.IsNullOrEmpty(dtpNgayLap.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập ngày lập hóa đơn ");
+                dtpNgayLap.Focus();
+            }
+            if (string.IsNullOrEmpty(txtTrangThai.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn trạng thái");
+                txtTrangThai.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboNhanVien.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn nhân viên");
+                cboNhanVien.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboKhachHang.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn khách hàng");
+                cboKhachHang.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboBanAn.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn bàn ăn");
+                cboBanAn.Focus();
+            }
+            else if (string.IsNullOrEmpty(txtGiamGia.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập giảm giá");
+                txtGiamGia.Focus();
+            }
+
+            else
+            {
+
+
+                HD = new DTO_HoaDon(cboNhanVien.Text, cboKhachHang.Text, cboBanAn.Text, dtpNgayLap.Text, txtTrangThai.Text, giamGia);
+                if (busHD.CapNhatHoaDon(HD, txtMaHoaDon.Text))
+                {
+                    MessageBox.Show("Cập nhật hóa đơn thành công!");
+                    LoadDataHD();
+                    ResetValue();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật hóa đơn thất bại!!!");
+                }
+            }
+        }
+
+
+
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaHoaDon.Text))
+            {
+                MessageBox.Show("Vui lòng chọn bản ghi cần xóa");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show("Bạn có thật sự muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                if (busHD.XoaHoaDon(HD, txtMaHoaDon.Text))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    ResetValue();
+                    LoadDataHD();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa không thành công");
+                }
+            }
+            else
+            {
+                ResetValue();
+            }
+        }
+
+
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            DataTable dtSearch = busHD.SearchHoaDon(HD, txtMaHoaDon.Text);
+            if (dtSearch.Rows.Count > 0)
+            {
+                MessageBox.Show("Tìm thành công");
+                dtvDanhSachHoaDon.DataSource = dtSearch;
+                ResetValue();
+                LoadDataHD();
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy Người Dùng");
+            }
+        }
+
+        private void txtTimKiem_Click(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            textBox.BackColor = Color.White;
+            textBox.Text = ""; 
         }
     }
 }
