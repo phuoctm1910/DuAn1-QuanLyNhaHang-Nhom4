@@ -14,6 +14,21 @@ namespace BUS_QLNhaHang
     {
         DAL_NguoiDung dalnguoidung = new DAL_NguoiDung();
 
+        public DataTable LayVaiTro()
+        {
+            return dalnguoidung.LayVaiTro();
+        }
+
+        public DataTable LayCapDoLuong()
+        {
+            return dalnguoidung.LayCapDoLuong();
+        }
+
+        public DataTable LayLichLam()
+        {
+            return dalnguoidung.LayLichLam();
+        }
+
         public DataTable DanhSachNguoiDung()
         {
             return dalnguoidung.DanhSachNguoiDung();

@@ -49,7 +49,6 @@
             this.radNu = new System.Windows.Forms.RadioButton();
             this.rtbDiaChi = new System.Windows.Forms.RichTextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
-            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.cboLuong = new System.Windows.Forms.ComboBox();
             this.dtvDanhSachNhanVien = new System.Windows.Forms.DataGridView();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
@@ -60,6 +59,7 @@
             this.btnThem = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.cboNgayVaoLam = new System.Windows.Forms.ComboBox();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dtvDanhSachNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -221,6 +221,7 @@
             // 
             this.txtMatKhau.Location = new System.Drawing.Point(163, 210);
             this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(179, 20);
             this.txtMatKhau.TabIndex = 16;
             // 
@@ -273,15 +274,6 @@
             this.txtSDT.Size = new System.Drawing.Size(179, 20);
             this.txtSDT.TabIndex = 21;
             // 
-            // dtpNgaySinh
-            // 
-            this.dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
-            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(793, 67);
-            this.dtpNgaySinh.Name = "dtpNgaySinh";
-            this.dtpNgaySinh.Size = new System.Drawing.Size(235, 20);
-            this.dtpNgaySinh.TabIndex = 22;
-            // 
             // cboLuong
             // 
             this.cboLuong.FormattingEnabled = true;
@@ -298,6 +290,7 @@
             this.dtvDanhSachNhanVien.RowHeadersWidth = 51;
             this.dtvDanhSachNhanVien.Size = new System.Drawing.Size(1043, 246);
             this.dtvDanhSachNhanVien.TabIndex = 25;
+            this.dtvDanhSachNhanVien.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtvDanhSachNhanVien_CellFormatting);
             this.dtvDanhSachNhanVien.DoubleClick += new System.EventHandler(this.dtvDanhSachNhanVien_DoubleClick);
             // 
             // txtTimKiem
@@ -317,7 +310,7 @@
             this.btnSua.Image = global::GUI_QLNhaHang.Properties.Resources.profile;
             this.btnSua.Location = new System.Drawing.Point(421, 602);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnSua.Padding = new System.Windows.Forms.Padding(5);
             this.btnSua.Size = new System.Drawing.Size(95, 45);
             this.btnSua.TabIndex = 29;
             this.btnSua.Text = "Sữa";
@@ -329,7 +322,7 @@
             // 
             this.pictureBox1.Image = global::GUI_QLNhaHang.Properties.Resources.z4818527692435_6add3f2bb755ba21434309235e05916c_removebg_preview;
             this.pictureBox1.Location = new System.Drawing.Point(28, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(151, 45);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -346,7 +339,7 @@
             this.btnLamMoi.Image = global::GUI_QLNhaHang.Properties.Resources.loading_arrow;
             this.btnLamMoi.Location = new System.Drawing.Point(547, 602);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnLamMoi.Padding = new System.Windows.Forms.Padding(5);
             this.btnLamMoi.Size = new System.Drawing.Size(138, 45);
             this.btnLamMoi.TabIndex = 31;
             this.btnLamMoi.Text = "Làm Mới";
@@ -364,7 +357,7 @@
             this.btnXoa.Image = global::GUI_QLNhaHang.Properties.Resources.delete_user;
             this.btnXoa.Location = new System.Drawing.Point(707, 602);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnXoa.Padding = new System.Windows.Forms.Padding(5);
             this.btnXoa.Size = new System.Drawing.Size(95, 45);
             this.btnXoa.TabIndex = 30;
             this.btnXoa.Text = "Xóa";
@@ -382,7 +375,7 @@
             this.btnThem.Image = global::GUI_QLNhaHang.Properties.Resources.add_user__1_;
             this.btnThem.Location = new System.Drawing.Point(279, 602);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnThem.Padding = new System.Windows.Forms.Padding(5);
             this.btnThem.Size = new System.Drawing.Size(111, 45);
             this.btnThem.TabIndex = 28;
             this.btnThem.Text = "Thêm";
@@ -417,6 +410,15 @@
             this.cboNgayVaoLam.Size = new System.Drawing.Size(200, 21);
             this.cboNgayVaoLam.TabIndex = 78;
             // 
+            // dtpNgaySinh
+            // 
+            this.dtpNgaySinh.CustomFormat = "";
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(794, 70);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(234, 20);
+            this.dtpNgaySinh.TabIndex = 83;
+            // 
             // NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,6 +426,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1067, 661);
+            this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.cboNgayVaoLam);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLamMoi);
@@ -434,7 +437,6 @@
             this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.dtvDanhSachNhanVien);
             this.Controls.Add(this.cboLuong);
-            this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.rtbDiaChi);
             this.Controls.Add(this.radNu);
@@ -491,7 +493,6 @@
         private System.Windows.Forms.RadioButton radNu;
         private System.Windows.Forms.RichTextBox rtbDiaChi;
         private System.Windows.Forms.TextBox txtSDT;
-        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.ComboBox cboLuong;
         private System.Windows.Forms.DataGridView dtvDanhSachNhanVien;
         private System.Windows.Forms.TextBox txtTimKiem;
@@ -502,5 +503,6 @@
         private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cboNgayVaoLam;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
     }
 }
