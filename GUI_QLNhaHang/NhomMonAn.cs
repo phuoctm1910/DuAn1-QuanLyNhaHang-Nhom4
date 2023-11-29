@@ -116,5 +116,26 @@ namespace GUI_QLNhaHang
         {
             ResetValues();
         }
+
+        private void dvDanhSachNhomMonAn_DoubleClick(object sender, EventArgs e)
+        {
+            if (dvDanhSachNhomMonAn.Rows.Count <= 0)
+            {
+                MessageBox.Show("Bảng không có dữ liệu");
+            }
+
+            if (string.IsNullOrEmpty(txtMaNhomMonAn.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn nhóm món ăn");
+            }
+            else
+            {
+                txtMaNhomMonAn.Enabled = false;
+                int lst = dvDanhSachNhomMonAn.CurrentRow.Index;
+                txtMaNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[0].Value.ToString();
+                txtTenNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[1].Value.ToString();
+            }
+
+        }
     }
 }
