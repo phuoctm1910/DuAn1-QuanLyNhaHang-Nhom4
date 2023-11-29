@@ -211,5 +211,35 @@ namespace GUI_QLNhaHang
             }
 
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaKH.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn khách hàng");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Bạn có thật sự muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if (result == DialogResult.Yes)
+                {
+                    if (busKH.XoaKhachHang(txtMaKH.Text))
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        ResetValues();
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại");
+                    }
+                }
+                else
+                {
+                    ResetValues();
+                }
+
+            }
+        }
     }
 }
