@@ -40,5 +40,27 @@ namespace GUI_QLNhaHang
             ResetValues();
         }
 
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTenNhomMonAn.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập tên nhóm món ăn");
+                txtTenNhomMonAn.Focus();
+            }
+            else
+            {
+                nma = new DTO_NhomMonAn(txtTenNhomMonAn.Text);
+                if (busNMA.ThemNhomMonAn(nma))
+                {
+                    MessageBox.Show("Thêm thành công");
+                    ResetValues();
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                }
+            }
+        }
     }
 }
