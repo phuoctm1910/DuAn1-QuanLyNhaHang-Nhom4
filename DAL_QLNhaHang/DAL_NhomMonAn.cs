@@ -9,7 +9,7 @@ using DTO_QLNhaHang;
 
 namespace DAL_QLNhaHang
 {
-    public class DAL_NhomMonAn : DBconnect
+    public class DAL_NhomMonAn : DBConnect
     {
         public DataTable DanhSachNhomMonAn()
         {
