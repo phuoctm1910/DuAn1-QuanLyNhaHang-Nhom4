@@ -110,6 +110,7 @@ namespace GUI_QLNhaHang
             this.btnSua.Text = "Sữa";
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnThem
             // 
@@ -322,6 +323,7 @@ namespace GUI_QLNhaHang
             this.dvThongTinKH.RowHeadersWidth = 51;
             this.dvThongTinKH.Size = new System.Drawing.Size(879, 535);
             this.dvThongTinKH.TabIndex = 65;
+            this.dvThongTinKH.DoubleClick += new System.EventHandler(this.dvThongTinKH_DoubleClick);
             // 
             // pictureBox1
             // 
