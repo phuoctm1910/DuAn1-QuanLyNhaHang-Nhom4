@@ -149,6 +149,7 @@ namespace GUI_QLNhaHang
             this.btnLamMoi.Text = "Làm Mới";
             this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLamMoi.UseVisualStyleBackColor = false;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
             // btnSua
             // 
