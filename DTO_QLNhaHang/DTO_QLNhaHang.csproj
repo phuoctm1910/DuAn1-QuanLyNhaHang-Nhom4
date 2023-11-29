@@ -44,7 +44,6 @@
     <Compile Include="DTO_KhachHang.cs" />
     <Compile Include="DTO_HoaDonChiTiet.cs" />
     <Compile Include="DTO_MonAn.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="DTO_HoaDon.cs" />
     <Compile Include="DTO_NguoiDung.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
