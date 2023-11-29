@@ -30,6 +30,7 @@ namespace GUI_QLNhaHang
             dvThongTinKH.Columns[4].HeaderText = "Địa chỉ";
             dvThongTinKH.Columns[5].HeaderText = "Số điện thoại";
         }
+
         void ResetValues()
         {
             txtMaKH.Clear();
@@ -240,6 +241,41 @@ namespace GUI_QLNhaHang
                 }
 
             }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            ResetValues();
+        }
+
+        private void txtTimKiem_Click(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            textBox.BackColor = Color.White;
+            textBox.Text = "";
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            DataTable dtSearch = busKH.TimKhachHang(txtTimKiem.Text);
+            if (dtSearch.Rows.Count < 0)
+            {
+                MessageBox.Show("Không tìm thấy Nhân Viên");
+            }
+            else
+            {
+                MessageBox.Show("Tìm thành công");
+                dvThongTinKH.DataSource = dtSearch;
+                dvThongTinKH.Columns[0].HeaderText = "Mã KH";
+                dvThongTinKH.Columns[1].HeaderText = "Tên KH";
+                dvThongTinKH.Columns[2].HeaderText = "Ngày Sinh";
+                dvThongTinKH.Columns[3].HeaderText = "Giới tính";
+                dvThongTinKH.Columns[4].HeaderText = "Địa chỉ";
+                dvThongTinKH.Columns[5].HeaderText = "Số điện thoại";
+            }
+            txtTimKiem.Text = "Nhập sdt khách hàng";
+            txtTimKiem.BackColor = Color.LightGray;
+            ResetValues();
         }
     }
 }
