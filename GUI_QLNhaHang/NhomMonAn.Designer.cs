@@ -212,6 +212,7 @@ namespace GUI_QLNhaHang
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NhomMonAn";
             this.Text = "Nhóm Món Ăn";
+            this.Load += new System.EventHandler(this.NhomMonAn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvDanhSachNhomMonAn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
