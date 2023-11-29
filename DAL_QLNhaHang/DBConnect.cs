@@ -9,6 +9,6 @@ namespace DAL_QLNhaHang
 {
     public class DBConnect
     {
-        protected SqlConnection _conn = new SqlConnection(@"Data Source=TUAN-KIET;Initial Catalog=QLNhaHang_DuAn1_Nhom4;Integrated Security=True");
+        protected SqlConnection _conn = new SqlConnection(@"Data Source=minhphuoc\sqlexpress;Initial Catalog=QLNhaHang_DuAn1_Nhom4;Integrated Security=True");
     }
 }
