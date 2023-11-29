@@ -116,6 +116,7 @@ namespace GUI_QLNhaHang
             this.dvDanhSachNhomMonAn.RowTemplate.Height = 24;
             this.dvDanhSachNhomMonAn.Size = new System.Drawing.Size(385, 190);
             this.dvDanhSachNhomMonAn.TabIndex = 57;
+            this.dvDanhSachNhomMonAn.DoubleClick += new System.EventHandler(this.dvDanhSachNhomMonAn_DoubleClick);
             // 
             // btnXoa
             // 
