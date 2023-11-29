@@ -51,6 +51,7 @@
     <Compile Include="BUS_NguoiDung.cs" />
     <Compile Include="BUS_BanAn.cs" />
     <Compile Include="BUS_LichLam.cs" />
+    <Compile Include="BUS_NhomMonAn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

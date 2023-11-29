@@ -49,6 +49,7 @@
     <Compile Include="DAL_BanAn.cs" />
     <Compile Include="DAL_LichLam.cs" />
     <Compile Include="DBConnect.cs" />
+    <Compile Include="DAL_NhomMonAn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
