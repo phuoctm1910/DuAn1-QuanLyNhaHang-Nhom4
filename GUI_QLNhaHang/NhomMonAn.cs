@@ -89,5 +89,27 @@ namespace GUI_QLNhaHang
                 }
             }
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có thật sự muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                if (busNMA.XoaNhomMonAn(txtMaNhomMonAn.Text))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    ResetValues();
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
+            }
+            else
+            {
+                ResetValues();
+            }
+        }
     }
 }
