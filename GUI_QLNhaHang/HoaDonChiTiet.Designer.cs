@@ -96,6 +96,7 @@ namespace GUI_QLNhaHang
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.Size = new System.Drawing.Size(204, 22);
             this.txtThanhTien.TabIndex = 61;
+            this.txtThanhTien.TextChanged += new System.EventHandler(this.txtThanhTien_TextChanged);
             // 
             // label7
             // 

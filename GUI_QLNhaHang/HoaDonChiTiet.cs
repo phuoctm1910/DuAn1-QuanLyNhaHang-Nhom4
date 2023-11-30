@@ -168,5 +168,87 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
             }
         }
+        private string ChuyenSoSangChu(long so)
+        {
+            if (so == 0) return "Không";
+
+            string[] chuSo = { "Không", "Một", "Hai", "Ba", "Bốn", "Năm", "Sáu", "Bảy", "Tám", "Chín" };
+            string[] donViLon = { "", " Ngàn", " Triệu", " Tỷ" };
+            string[] donViNho = { "", " Mươi", " Trăm" };
+
+            string ketQua = "";
+            int viTriDonViLon = 0;
+
+            while (so > 0)
+            {
+                long baChuSo = so % 1000;
+                so /= 1000;
+
+                string baChuSoChu = "";
+
+                if (baChuSo > 0)
+                {
+                    int tram = (int)(baChuSo / 100);
+                    baChuSo %= 100;
+
+                    if (tram > 0)
+                    {
+                        baChuSoChu += chuSo[tram] + donViNho[2];
+                        if (baChuSo > 0) baChuSoChu += " và ";
+                    }
+
+                    int chuc = (int)(baChuSo / 10);
+                    baChuSo %= 10;
+
+                    if (chuc > 1)
+                    {
+                        baChuSoChu += chuSo[chuc] + donViNho[1] + " ";
+                        if (baChuSo == 1) baChuSoChu += "Mốt";
+                        else if (baChuSo > 0) baChuSoChu += chuSo[baChuSo];
+                    }
+                    else if (chuc == 1)
+                    {
+                        baChuSoChu += "Mười ";
+                        if (baChuSo > 0) baChuSoChu += chuSo[baChuSo];
+                    }
+                    else if (baChuSo > 0)
+                    {
+                        if (tram != 0) baChuSoChu += "Lẻ ";
+                        baChuSoChu += chuSo[baChuSo];
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(baChuSoChu))
+                {
+                    ketQua = baChuSoChu + donViLon[viTriDonViLon] + " " + ketQua;
+                }
+
+                viTriDonViLon++;
+            }
+
+            return ketQua.Trim();
+        }
+        private void CapNhatTongTienBangChu()
+        {
+            if (long.TryParse(txtThanhTien.Text, out long so))
+            {
+                txtTongTienHDBangChu.Text = ChuyenSoSangChu(so);
+            }
+            else
+            {
+                txtTongTienHDBangChu.Text = "Giá trị không hợp lệ";
+            }
+        }
+        private void txtThanhTien_TextChanged(object sender, EventArgs e)
+        {
+            if (long.TryParse(txtThanhTien.Text, out long so))
+            {
+                txtTongTienHDBangChu.Text = ChuyenSoSangChu(so);
+            }
+            else
+            {
+                txtTongTienHDBangChu.Text = "Giá trị không hợp lệ";
+            }
+        }
     }
 }
