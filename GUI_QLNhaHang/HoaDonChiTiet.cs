@@ -55,7 +55,6 @@ namespace GUI_QLNhaHang
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string tenMA = cboTenMonAn.SelectedValue.ToString();
             if (string.IsNullOrEmpty(txtMaHD.Text))
             {
                 MessageBox.Show("Bạn Chưa Nhập Mã Hóa Đơn");
@@ -78,12 +77,16 @@ namespace GUI_QLNhaHang
             }
             else
             {
-                hdct = new DTO_HoaDonChiTiet(txtMaHD.Text, tenMA, int.Parse(txtDonGia.Text), int.Parse(txtSoLuong.Text));
+                hdct = new DTO_HoaDonChiTiet(txtMaHD.Text, cboTenMonAn.SelectedValue.ToString(), int.Parse(txtDonGia.Text), int.Parse(txtSoLuong.Text));
                 if (busHDCT.ThemHoaDonChiTiet(hdct))
                 {
                     MessageBox.Show("Thêm thành công");
                     ResetValues();
                     LoadData();
+                    if (busHDCT.CapNhatHoaDon(txtMaHD.Text, int.Parse(txtThanhTien.Text)))
+                    {
+                        OnCapNhatDuLieu?.Invoke();
+                    }
                 }
                 else
                 {
