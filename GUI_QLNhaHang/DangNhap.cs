@@ -39,7 +39,7 @@ namespace GUI_QLNhaHang
                     if (dt.Rows.Count > 0 && dt.Columns.Count > 0)
                     {
                         vaiTro = dt.Rows[0][0].ToString();
-                        frmMain frmMain = new frmMain(txtTaiKhoan.Text, vaiTro, 1);
+                        Main frmMain = new Main(txtTaiKhoan.Text, vaiTro, 1);
                         MessageBox.Show("Đăng nhập thành công", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
                         frmMain.ShowDialog();
