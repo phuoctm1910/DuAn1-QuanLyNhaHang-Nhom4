@@ -63,6 +63,7 @@ namespace GUI_QLNhaHang
             this.dvgThongTinCTHD.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgThongTinCTHD_CellValueChanged);
             this.dvgThongTinCTHD.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dvgThongTinCTHD_RowsAdded);
             this.dvgThongTinCTHD.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dvgThongTinCTHD_RowsRemoved);
+            this.dvgThongTinCTHD.DoubleClick += new System.EventHandler(this.dvgThongTinCTHD_DoubleClick);
             // 
             // txtTongTienHDBangChu
             // 

@@ -265,5 +265,10 @@ namespace GUI_QLNhaHang
             InHoaDon inhoadon = new InHoaDon(txtMaHD.Text, TenKH, int.Parse(txtThanhTien.Text));
             inhoadon.Show();
         }
+        private void dvgThongTinCTHD_DoubleClick(object sender, EventArgs e)
+        {
+            int lst = dvgThongTinCTHD.CurrentRow.Index;
+            mahdct = dvgThongTinCTHD.Rows[lst].Cells[0].Value.ToString();
+        }
     }
 }
