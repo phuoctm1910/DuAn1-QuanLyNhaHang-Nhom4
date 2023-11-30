@@ -7,20 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS_QLNhaHang;
+using Microsoft.Reporting.WinForms;
 
 namespace GUI_QLNhaHang
 {
     public partial class InHoaDon : Form
     {
-        public InHoaDon()
+        public static string MaHD;
+        public static string TenKH;
+        public static int TongTien;
+        BUS_HoaDonChiTiet busHDCT = new BUS_HoaDonChiTiet();
+        public InHoaDon(string mahd, string tenkh, int tongtien)
         {
             InitializeComponent();
+            MaHD = mahd;
+            TenKH = tenkh;
+            TongTien = tongtien;
         }
-
         private void InHoaDon_Load(object sender, EventArgs e)
         {
+            LoadHoaDonChiTiet();
+        }
+        private void LoadHoaDonChiTiet()
+        {
+            DataTable dt = busHDCT.DanhSachHoaDonChiTiet(MaHD);
+            ReportParameter[] reportParameters = new ReportParameter[]
+            {
+                new ReportParameter("TenKhachHang", TenKH),
+                new ReportParameter("TongTien", TongTien.ToString())
+            };
+            reportInHoaDon.LocalReport.DataSources.Clear();
+            ReportDataSource source = new ReportDataSource("InHoaDon", dt);
+            reportInHoaDon.LocalReport.ReportPath = @"D:\FPT POLYTECHNIC\Hoc Ki 4\DuAn1-QuanLyNhaHang-Nhom4\GUI_QLNhaHang\Report1.rdlc";
+            reportInHoaDon.LocalReport.SetParameters(reportParameters);
+            reportInHoaDon.LocalReport.DataSources.Add(source);
+            reportInHoaDon.RefreshReport();
 
-            this.reportViewerInHoaDon.RefreshReport();
         }
     }
 }

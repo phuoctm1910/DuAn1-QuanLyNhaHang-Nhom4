@@ -29,18 +29,18 @@ namespace GUI_QLNhaHang
         /// </summary>
         private void InitializeComponent()
         {
-            this.reportViewerInHoaDon = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportInHoaDon = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
-            // reportViewerInHoaDon
+            // reportInHoaDon
             // 
-            this.reportViewerInHoaDon.AutoSize = true;
-            this.reportViewerInHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewerInHoaDon.Location = new System.Drawing.Point(0, 0);
-            this.reportViewerInHoaDon.Name = "reportViewerInHoaDon";
-            this.reportViewerInHoaDon.ServerReport.BearerToken = null;
-            this.reportViewerInHoaDon.Size = new System.Drawing.Size(867, 548);
-            this.reportViewerInHoaDon.TabIndex = 0;
+            this.reportInHoaDon.AutoSize = true;
+            this.reportInHoaDon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportInHoaDon.Location = new System.Drawing.Point(0, 0);
+            this.reportInHoaDon.Name = "reportInHoaDon";
+            this.reportInHoaDon.ServerReport.BearerToken = null;
+            this.reportInHoaDon.Size = new System.Drawing.Size(867, 548);
+            this.reportInHoaDon.TabIndex = 0;
             // 
             // InHoaDon
             // 
@@ -48,7 +48,7 @@ namespace GUI_QLNhaHang
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(867, 548);
-            this.Controls.Add(this.reportViewerInHoaDon);
+            this.Controls.Add(this.reportInHoaDon);
             this.Name = "InHoaDon";
             this.Text = "InHoaDon";
             this.Load += new System.EventHandler(this.InHoaDon_Load);
@@ -59,6 +59,6 @@ namespace GUI_QLNhaHang
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewerInHoaDon;
+        private Microsoft.Reporting.WinForms.ReportViewer reportInHoaDon;
     }
 }

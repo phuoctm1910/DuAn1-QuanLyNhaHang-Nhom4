@@ -16,7 +16,7 @@ namespace GUI_QLNhaHang
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new KhachHang());
+            Application.Run(new HoaDon());
         }
     }
 }
