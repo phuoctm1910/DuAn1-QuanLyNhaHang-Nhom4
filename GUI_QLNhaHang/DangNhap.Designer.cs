@@ -75,6 +75,7 @@ namespace GUI_QLNhaHang
             this.txtMatKhau.Location = new System.Drawing.Point(371, 146);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(219, 22);
             this.txtMatKhau.TabIndex = 5;
             // 

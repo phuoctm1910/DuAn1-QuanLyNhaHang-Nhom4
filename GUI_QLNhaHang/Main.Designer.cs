@@ -46,6 +46,7 @@ namespace GUI_QLNhaHang
             this.quảnLýLịchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýLịchLàmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýLịchSựKiệnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblXinChao = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -190,6 +191,17 @@ namespace GUI_QLNhaHang
             this.quảnLýLịchSựKiệnToolStripMenuItem.Size = new System.Drawing.Size(262, 28);
             this.quảnLýLịchSựKiệnToolStripMenuItem.Text = "Quản Lý Lịch Sự Kiện";
             // 
+            // lblXinChao
+            // 
+            this.lblXinChao.AutoSize = true;
+            this.lblXinChao.BackColor = System.Drawing.Color.PeachPuff;
+            this.lblXinChao.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblXinChao.Location = new System.Drawing.Point(1104, 9);
+            this.lblXinChao.Name = "lblXinChao";
+            this.lblXinChao.Size = new System.Drawing.Size(52, 17);
+            this.lblXinChao.TabIndex = 1;
+            this.lblXinChao.Text = "label1";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -197,6 +209,7 @@ namespace GUI_QLNhaHang
             this.BackgroundImage = global::GUI_QLNhaHang.Properties.Resources.themes_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1445, 814);
+            this.Controls.Add(this.lblXinChao);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
@@ -229,6 +242,7 @@ namespace GUI_QLNhaHang
         private System.Windows.Forms.ToolStripMenuItem quảnLýLịchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýLịchLàmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quảnLýLịchSựKiệnToolStripMenuItem;
+        private System.Windows.Forms.Label lblXinChao;
     }
 }
 
