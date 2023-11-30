@@ -82,6 +82,7 @@ namespace GUI_QLNhaHang
             this.btnXuatThongKe.Text = "Xuất Thống Kê";
             this.btnXuatThongKe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXuatThongKe.UseVisualStyleBackColor = false;
+            this.btnXuatThongKe.Click += new System.EventHandler(this.btnXuatThongKe_Click);
             // 
             // ThongKe
             // 
@@ -96,6 +97,7 @@ namespace GUI_QLNhaHang
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ThongKe";
             this.Text = "ThongKe";
+            this.Load += new System.EventHandler(this.ThongKe_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvThongKe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
