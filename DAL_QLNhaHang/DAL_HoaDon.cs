@@ -12,6 +12,21 @@ namespace DAL_QLNhaHang
 {
     public class DAL_HoaDon : DBConnect
     {
+        public DataTable ThongKe()
+        {
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[ThongKe]";
+                cmd.Connection = _conn;
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+            finally { _conn.Close(); }
+        }
         public DataTable LayNguoiDung()
         {
             try
@@ -159,6 +174,10 @@ namespace DAL_QLNhaHang
 
                     return true;
                 }
+            }
+            catch (Exception)
+            {
+                throw;
             }
             finally { _conn.Close(); }
             return false;

@@ -14,7 +14,10 @@ namespace BUS_QLNhaHang
     public class BUS_HoaDon
     {
         DAL_HoaDon dalHoaDon = new DAL_HoaDon();
-
+        public DataTable ThongKe()
+        {
+            return dalHoaDon.ThongKe();
+        }
         public DataTable DanhSachHoaDon()
         {
             return dalHoaDon.DanhSachHoaDon();
