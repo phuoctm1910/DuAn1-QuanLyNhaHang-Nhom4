@@ -60,16 +60,14 @@ namespace BUS_QLNhaHang
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
             byte[] encrypt;
             UTF8Encoding encoding = new UTF8Encoding();
-            //mã hóa chuỗi mật khẩu đc cho thành Encrypt data
             encrypt = md5.ComputeHash(encoding.GetBytes(password));
             StringBuilder encryptdata = new StringBuilder();
-            //tạo một chuỗi mới bằng cách sử dụng Encrypting data
+
             for (int i = 0; i < encrypt.Length; i++)
             {
-                encryptdata.Append(encrypt[i].ToString());
+                encryptdata.Append(encrypt[i].ToString("x2"));
             }
             return encryptdata.ToString();
         }
-
     }
 }

@@ -198,7 +198,6 @@ namespace DAL_QLNhaHang
             }
             return false;
         }
-
         public DataTable VaiTroNV(string taikhoan)
         {
             try
