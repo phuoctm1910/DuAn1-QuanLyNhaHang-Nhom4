@@ -26,14 +26,10 @@ namespace GUI_QLNhaHang
         }
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            DTO_NguoiDung nd = new DTO_NguoiDung();
-
-            nd.taikhoan = txtTaiKhoan.Text;
-            nd.matkhau = bus_nd.Encryption(txtMatKhau.Text);
             if (!string.IsNullOrWhiteSpace(txtTaiKhoan.Text) &&
                 !string.IsNullOrWhiteSpace(txtMatKhau.Text))
             {
-                if (bus_nd.NguoiDungDangNhap(txtTaiKhoan.Text, txtMatKhau.Text))
+                if (bus_nd.NguoiDungDangNhap(txtTaiKhoan.Text, bus_nd.Encryption(txtMatKhau.Text)))
                 {
                     DataTable dt = bus_nd.VaiTroNguoiDung(txtTaiKhoan.Text);
                     if (dt.Rows.Count > 0 && dt.Columns.Count > 0)

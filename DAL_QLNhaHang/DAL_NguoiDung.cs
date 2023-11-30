@@ -179,22 +179,26 @@ namespace DAL_QLNhaHang
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = _conn;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "DangNhap";
-                cmd.Parameters.AddWithValue("taikhoan", taikhoan);
-                cmd.Parameters.AddWithValue("matkhau", matkhau);
-                if (Convert.ToInt32(cmd.ExecuteScalar()) > 0)
+                cmd.CommandText = "[Login]";
+                cmd.Parameters.AddWithValue("@taikhoan", taikhoan);
+                cmd.Parameters.AddWithValue("@matkhau", matkhau);
+
+                if (Convert.ToInt32(cmd.ExecuteScalar()) == 1)
                 {
                     return true;
                 }
             }
             catch (Exception e)
-            { }
+            {
+                Console.WriteLine(e.Message);
+            }
             finally
             {
                 _conn.Close();
             }
             return false;
         }
+
         public DataTable VaiTroNV(string taikhoan)
         {
             try
