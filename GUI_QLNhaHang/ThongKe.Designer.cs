@@ -44,7 +44,7 @@ namespace GUI_QLNhaHang
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 210);
+            this.dataGridView1.Size = new System.Drawing.Size(807, 210);
             this.dataGridView1.TabIndex = 0;
             // 
             // label1
@@ -88,7 +88,7 @@ namespace GUI_QLNhaHang
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(800, 364);
+            this.ClientSize = new System.Drawing.Size(831, 364);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnXuatThongKe);
             this.Controls.Add(this.label1);
