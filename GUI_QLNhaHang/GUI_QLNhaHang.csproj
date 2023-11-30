@@ -100,6 +100,11 @@
     <Compile Include="HoaDonChiTiet.Designer.cs">
       <DependentUpon>HoaDonChiTiet.cs</DependentUpon>
     </Compile>
+    <Compile Include="HoaDonChiTietDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HoaDonChiTietDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="InHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +199,17 @@
     <EmbeddedResource Include="ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="HoaDonChiTietDataSet.xsc">
+      <DependentUpon>HoaDonChiTietDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HoaDonChiTietDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HoaDonChiTietDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="HoaDonChiTietDataSet.xss">
+      <DependentUpon>HoaDonChiTietDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
