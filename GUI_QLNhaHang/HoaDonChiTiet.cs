@@ -52,7 +52,6 @@ namespace GUI_QLNhaHang
             cboTenMonAn.DisplayMember = "TenMonAn";
             cboTenMonAn.ValueMember = "MaMonAn";
         }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtMaHD.Text))
@@ -94,12 +93,11 @@ namespace GUI_QLNhaHang
                 }
             }
         }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaHD.Text))
+            if (string.IsNullOrEmpty(mahdct))
             {
-                MessageBox.Show("Bạn chưa nhập mã hóa đơn");
+                MessageBox.Show("Bạn chưa chọn mã hóa đơn chi tiết");
                 txtMaHD.Focus();
             }
             else
@@ -107,11 +105,15 @@ namespace GUI_QLNhaHang
                 DialogResult result = MessageBox.Show("Bạn có thật sự muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
-                    if (busHDCT.XoaHoaDonChiTiet(txtMaHD.Text))
+                    if (busHDCT.XoaHoaDonChiTiet(mahdct))
                     {
                         MessageBox.Show("Xóa thành công");
                         ResetValues();
                         LoadData();
+                        if (busHDCT.CapNhatHoaDon(txtMaHD.Text, int.Parse(txtThanhTien.Text)))
+                        {
+                            OnCapNhatDuLieu?.Invoke();
+                        }
                     }
                     else
                     {
