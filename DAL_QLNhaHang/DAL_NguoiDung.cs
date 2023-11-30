@@ -28,9 +28,6 @@ namespace DAL_QLNhaHang
             }
             finally { _conn.Close(); }
         }
-
-
-
         public DataTable LayCapDoLuong()
         {
             try
@@ -46,9 +43,6 @@ namespace DAL_QLNhaHang
             }
             finally { _conn.Close(); }
         }
-
-
-
         public DataTable LayVaiTro()
         {
             try
@@ -83,10 +77,6 @@ namespace DAL_QLNhaHang
             }
             finally { _conn.Close(); }
         }
-
-
-
-
         public bool ThemNguoiDung(DTO_NguoiDung ND)
         {
             try
@@ -116,8 +106,6 @@ namespace DAL_QLNhaHang
             return false;
 
         }
-
-
         public bool CapNhatNguoiDung(DTO_NguoiDung ND, string manv)
         {
             try
@@ -147,8 +135,6 @@ namespace DAL_QLNhaHang
             finally { _conn.Close(); }
             return false;
         }
-
-
         public bool XoaNguoiDung(DTO_NguoiDung ND, string manv)
         {
             try
@@ -169,8 +155,6 @@ namespace DAL_QLNhaHang
             return false;
 
         }
-
-
         public DataTable SearchNguoiDung(DTO_NguoiDung ND, string manv)
         {
             try
@@ -184,6 +168,51 @@ namespace DAL_QLNhaHang
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 return dt;
+            }
+            finally { _conn.Close(); }
+        }
+        public bool NguoiDungDangNhap(string taikhoan, string matkhau)
+        {
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = _conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "DangNhap";
+                cmd.Parameters.AddWithValue("taikhoan", taikhoan);
+                cmd.Parameters.AddWithValue("matkhau", matkhau);
+                if (Convert.ToInt32(cmd.ExecuteScalar()) > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            { }
+            finally
+            {
+                _conn.Close();
+            }
+            return true;
+        }
+        public DataTable VaiTroNV(string taikhoan)
+        {
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = _conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[LayVaiTroND]";
+                cmd.Parameters.AddWithValue("taikhoan", taikhoan);
+                DataTable dtNhanvien = new DataTable();
+                dtNhanvien.Load(cmd.ExecuteReader());
+                return dtNhanvien;
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
             finally { _conn.Close(); }
         }

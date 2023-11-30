@@ -19,42 +19,42 @@ namespace BUS_QLNhaHang
         {
             return dalnguoidung.LayVaiTro();
         }
-
         public DataTable LayCapDoLuong()
         {
             return dalnguoidung.LayCapDoLuong();
         }
-
         public DataTable LayLichLam()
         {
             return dalnguoidung.LayLichLam();
         }
-
         public DataTable DanhSachNguoiDung()
         {
             return dalnguoidung.DanhSachNguoiDung();
         }
-
         public bool ThemNguoiDung(DTO_NguoiDung ND)
         {
             return dalnguoidung.ThemNguoiDung(ND);
         }
-
         public bool CapNhatNguoiDung(DTO_NguoiDung ND, string manv)
         {
             return dalnguoidung.CapNhatNguoiDung(ND, manv);
         }
-
         public bool XoaNguoiDung(DTO_NguoiDung ND, string manv)
         {
             return dalnguoidung.XoaNguoiDung(ND, manv);
         }
-
         public DataTable SearchNguoiDung(DTO_NguoiDung ND, string manv)
         {
             return dalnguoidung.SearchNguoiDung(ND, manv);
         }
-
+        public bool NguoiDungDangNhap(string taikhoan, string matkhau)
+        {
+            return dalnguoidung.NguoiDungDangNhap(taikhoan, matkhau);
+        }
+        public DataTable VaiTroNguoiDung(string taikhoan)
+        {
+            return dalnguoidung.VaiTroNV(taikhoan);
+        }
         public string Encryption(string password)
         {
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
@@ -70,5 +70,6 @@ namespace BUS_QLNhaHang
             }
             return encryptdata.ToString();
         }
+
     }
 }
