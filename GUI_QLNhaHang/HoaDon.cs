@@ -64,6 +64,7 @@ namespace GUI_QLNhaHang
             btnThem.Enabled = true;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
+            txtTimKiem.Text = "Nhập mã hóa đơn muốn tìm";
             txtTrangThai.Text = "Chưa in";
             txtTrangThai.ReadOnly = true;
             cboBanAn.SelectedIndex = cboKhachHang.SelectedIndex = cboNhanVien.SelectedIndex = -1;
@@ -80,8 +81,6 @@ namespace GUI_QLNhaHang
         {
             ResetValue();
         }
-
-
         private void dtvDanhSachHoaDon_DoubleClick(object sender, EventArgs e)
         {
             cboBanAn.Enabled = false;
@@ -89,9 +88,9 @@ namespace GUI_QLNhaHang
             cboNhanVien.Enabled = false;
             txtMaHoaDon.Enabled = false;
             btnSua.Enabled = true;
-          
+            btnThem.Enabled = false;
             btnXoa.Enabled = true;
-            
+
             int lst = dtvDanhSachHoaDon.CurrentRow.Index;
             txtMaHoaDon.Text = dtvDanhSachHoaDon.Rows[lst].Cells[0].Value.ToString();
             cboNhanVien.Text = dtvDanhSachHoaDon.Rows[lst].Cells[1].Value.ToString();
@@ -101,9 +100,6 @@ namespace GUI_QLNhaHang
             txtTrangThai.Text = dtvDanhSachHoaDon.Rows[lst].Cells[5].Value.ToString();
             txtGiamGia.Text = dtvDanhSachHoaDon.Rows[lst].Cells[7].Value.ToString();
         }
-
-
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             float giamGia;
@@ -121,7 +117,6 @@ namespace GUI_QLNhaHang
             }
             else if (string.IsNullOrEmpty(cboNhanVien.Text))
             {
-               
                 MessageBox.Show("Bạn chưa chọn nhân viên");
                 cboNhanVien.Focus();
             }
@@ -154,9 +149,6 @@ namespace GUI_QLNhaHang
                 }
             }
         }
-
-
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             float giamGia;
@@ -210,10 +202,6 @@ namespace GUI_QLNhaHang
                 }
             }
         }
-
-
-
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtMaHoaDon.Text))
@@ -241,9 +229,6 @@ namespace GUI_QLNhaHang
                 ResetValue();
             }
         }
-
-
-
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             DataTable dtSearch = busHD.SearchHoaDon(HD, txtMaHoaDon.Text);
@@ -259,7 +244,6 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Không tìm thấy Người Dùng");
             }
         }
-
         private void txtTimKiem_Click(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
