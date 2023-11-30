@@ -20,11 +20,20 @@ namespace GUI_QLNhaHang
         public static string MaHD;
         public static string TenKH;
         public static int tongtien;
+        public delegate void CapNhatDuLieuHandler();
+        public event CapNhatDuLieuHandler OnCapNhatDuLieu;
+        public delegate void HuyHoaDonHandler();
+        public event HuyHoaDonHandler OnHuyHoaDon;
         public HoaDonChiTiet(string mahd, string tenkh)
         {
             InitializeComponent();
             MaHD = mahd;
             TenKH = tenkh;
+
+            this.txtThanhTien.TextChanged += new EventHandler(txtThanhTien_TextChanged);
+            this.dvgThongTinCTHD.CellValueChanged += new DataGridViewCellEventHandler(dvgThongTinCTHD_CellValueChanged);
+            this.dvgThongTinCTHD.RowsRemoved += new DataGridViewRowsRemovedEventHandler(dvgThongTinCTHD_RowsRemoved);
+            this.dvgThongTinCTHD.RowsAdded += new DataGridViewRowsAddedEventHandler(dvgThongTinCTHD_RowsAdded);
         }
         private void LoadData()
         {
