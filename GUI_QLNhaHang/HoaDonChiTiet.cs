@@ -270,5 +270,27 @@ namespace GUI_QLNhaHang
             int lst = dvgThongTinCTHD.CurrentRow.Index;
             mahdct = dvgThongTinCTHD.Rows[lst].Cells[0].Value.ToString();
         }
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có thật sự muốn hủy hóa đơn này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (result == DialogResult.Yes)
+            {
+                if (busHDCT.HuyHoaDonChiTiet(txtMaHD.Text))
+                {
+                    MessageBox.Show("Hủy thành công");
+                    OnHuyHoaDon?.Invoke();
+
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Hủy không thành công");
+                }
+            }
+            else
+            {
+                ResetValues();
+            }
+        }
     }
 }
