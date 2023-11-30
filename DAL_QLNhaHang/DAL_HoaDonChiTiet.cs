@@ -31,7 +31,7 @@ namespace DAL_QLNhaHang
                 _conn.Close();
             }
         }
-        public DataTable DanhSachHoaDonChiTiet()
+        public DataTable DanhSachHoaDonChiTiet(string mahd)
         {
             try
             {
@@ -41,6 +41,28 @@ namespace DAL_QLNhaHang
                 cmd.Connection = _conn;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "[DanhSachHoaDonChiTiet]";
+                cmd.Parameters.AddWithValue("mahd", mahd);
+                cmd.Connection = _conn;
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+        public DataTable DanhSachHoaDonChiTietFull(string mahd)
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = _conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[DanhSachHoaDonChiTietFull]";
+                cmd.Parameters.AddWithValue("mahd", mahd);
                 cmd.Connection = _conn;
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
@@ -80,7 +102,7 @@ namespace DAL_QLNhaHang
 
         }
 
-        public bool XoaHoaDonChiTiet(string mahd)
+        public bool XoaHoaDonChiTiet(string mahdct)
         {
             try
             {
@@ -90,6 +112,81 @@ namespace DAL_QLNhaHang
                 cmd.Connection = _conn;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "DeleteHoaDonChiTiet";
+                cmd.Parameters.AddWithValue("mahdct", mahdct);
+
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return false;
+        }
+
+        public bool CapNhatHoaDon(string mahd, int tongtien)
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = _conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "UpdateInHoaDon";
+                cmd.Parameters.AddWithValue("mahd", mahd);
+                cmd.Parameters.AddWithValue("tongtien", tongtien);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return false;
+
+        }
+        public bool CapNhatTrangThai(string mahd)
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = _conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "UpdateTrangThaiHoaDon";
+                cmd.Parameters.AddWithValue("mahd", mahd);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    return true;
+                }
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return false;
+        }
+        public bool HuyHoaDonChiTiet(string mahd)
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = _conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "CancelHoaDonChiTiet";
                 cmd.Parameters.AddWithValue("mahd", mahd);
 
                 if (cmd.ExecuteNonQuery() > 0)

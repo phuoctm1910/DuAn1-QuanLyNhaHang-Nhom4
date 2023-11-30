@@ -18,9 +18,13 @@ namespace BUS_QLNhaHang
         {
             return dalHDCT.LayMonAn();
         }
-        public DataTable DanhSachHoaDonChiTiet()
+        public DataTable DanhSachHoaDonChiTiet(string mahd)
         {
-            return dalHDCT.DanhSachHoaDonChiTiet();
+            return dalHDCT.DanhSachHoaDonChiTiet(mahd);
+        }
+        public DataTable DanhSachHoaDonChiTietFull(string mahd)
+        {
+            return dalHDCT.DanhSachHoaDonChiTietFull(mahd);
         }
 
         public bool ThemHoaDonChiTiet(DTO_HoaDonChiTiet hdct)
@@ -31,6 +35,18 @@ namespace BUS_QLNhaHang
         public bool XoaHoaDonChiTiet(string mahdct)
         {
             return dalHDCT.XoaHoaDonChiTiet(mahdct);
+        }
+        public bool HuyHoaDonChiTiet(string mahd)
+        {
+            return dalHDCT.HuyHoaDonChiTiet(mahd);
+        }
+        public bool CapNhatTrangThai(string mahd)
+        {
+            return dalHDCT.CapNhatTrangThai(mahd);
+        }
+        public bool CapNhatHoaDon(string mahd, int tongtien)
+        {
+            return dalHDCT.CapNhatHoaDon(mahd, tongtien);
         }
     }
 }
