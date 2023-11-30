@@ -250,5 +250,20 @@ namespace GUI_QLNhaHang
                 txtTongTienHDBangChu.Text = "Giá trị không hợp lệ";
             }
         }
+        private void btnInHD_Click(object sender, EventArgs e)
+        {
+            if (busHDCT.CapNhatTrangThai(txtMaHD.Text))
+            {
+                MessageBox.Show("Thành công");
+                OnCapNhatDuLieu?.Invoke();
+            }
+            else
+            {
+                MessageBox.Show("Thất bại");
+
+            }
+            InHoaDon inhoadon = new InHoaDon(txtMaHD.Text, TenKH, int.Parse(txtThanhTien.Text));
+            inhoadon.Show();
+        }
     }
 }

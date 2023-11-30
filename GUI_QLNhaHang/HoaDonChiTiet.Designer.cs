@@ -246,6 +246,7 @@ namespace GUI_QLNhaHang
             this.btnInHD.Text = "In Hóa Đơn";
             this.btnInHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInHD.UseVisualStyleBackColor = false;
+            this.btnInHD.Click += new System.EventHandler(this.btnInHD_Click);
             // 
             // btnLuu
             // 
