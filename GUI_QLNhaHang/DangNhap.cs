@@ -20,12 +20,10 @@ namespace GUI_QLNhaHang
         {
             InitializeComponent();
         }
-
         private void DangNhap_Load(object sender, EventArgs e)
         {
             chbLuuTTDN.Checked = true;
         }
-
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             DTO_NguoiDung nd = new DTO_NguoiDung();
@@ -63,6 +61,14 @@ namespace GUI_QLNhaHang
             else
             {
                 MessageBox.Show("Không được bỏ trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát hệ thống không?", "Hỏi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
     }
