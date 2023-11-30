@@ -29,23 +29,23 @@ namespace GUI_QLNhaHang
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dvThongKe = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnXuatThongKe = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvThongKe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dvThongKe
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 77);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(807, 210);
-            this.dataGridView1.TabIndex = 0;
+            this.dvThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvThongKe.Location = new System.Drawing.Point(12, 77);
+            this.dvThongKe.Name = "dvThongKe";
+            this.dvThongKe.RowHeadersWidth = 51;
+            this.dvThongKe.RowTemplate.Height = 24;
+            this.dvThongKe.Size = new System.Drawing.Size(807, 210);
+            this.dvThongKe.TabIndex = 0;
             // 
             // label1
             // 
@@ -92,11 +92,11 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnXuatThongKe);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dvThongKe);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ThongKe";
             this.Text = "ThongKe";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dvThongKe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -105,7 +105,7 @@ namespace GUI_QLNhaHang
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dvThongKe;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnXuatThongKe;
         private System.Windows.Forms.PictureBox pictureBox1;
