@@ -250,5 +250,29 @@ namespace GUI_QLNhaHang
             textBox.BackColor = Color.White;
             textBox.Text = ""; 
         }
+        private void btnChiTietHD_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMaHoaDon.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn hóa đơn để xem chi tiết");
+            }
+            else
+            {
+                int lst = dtvDanhSachHoaDon.CurrentRow.Index;
+                string trangthai = dtvDanhSachHoaDon.Rows[lst].Cells[5].Value.ToString();
+                if (trangthai == "Đã hủy hóa đơn")
+                {
+                    MessageBox.Show("Hóa đơn này đã được hủy");
+                }
+                else
+                {
+
+                    HoaDonChiTiet hdct = new HoaDonChiTiet(txtMaHoaDon.Text, dtvDanhSachHoaDon.Rows[lst].Cells[2].Value.ToString());
+                    hdct.OnCapNhatDuLieu += LoadDataHD;
+                    hdct.OnHuyHoaDon += LoadDataHD;
+                    hdct.Show();
+                }
+            }
+        }
     }
 }
