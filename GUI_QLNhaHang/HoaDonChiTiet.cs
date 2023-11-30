@@ -18,18 +18,22 @@ namespace GUI_QLNhaHang
         DTO_HoaDonChiTiet hdct = new DTO_HoaDonChiTiet();
         public static string mahdct;
         public static string MaHD;
+        public static string TenKH;
         public static int tongtien;
-        public HoaDonChiTiet()
+        public HoaDonChiTiet(string mahd, string tenkh)
         {
             InitializeComponent();
+            MaHD = mahd;
+            TenKH = tenkh;
         }
-
         private void LoadData()
         {
+            txtMaHD.Text = MaHD;
+            txtMaHD.ReadOnly = true;
             txtThanhTien.ReadOnly = true;
             txtTongTienHDBangChu.ReadOnly = true;
-            dvgThongTinCTHD.DataSource = busHDCT.DanhSachHoaDonChiTiet();
-            dvgThongTinCTHD.Columns[0].HeaderText = "Mã HDCT";
+            dvgThongTinCTHD.DataSource = busHDCT.DanhSachHoaDonChiTietFull(MaHD);
+            dvgThongTinCTHD.Columns[0].HeaderText = "Mã Hóa Đơn Chi Tiết";
             dvgThongTinCTHD.Columns[1].HeaderText = "Mã Hóa Đơn";
             dvgThongTinCTHD.Columns[2].HeaderText = "Tên Món Ăn";
             dvgThongTinCTHD.Columns[3].HeaderText = "Đơn Giá";
@@ -41,14 +45,12 @@ namespace GUI_QLNhaHang
             txtSoLuong.Clear();
             cboTenMonAn.SelectedIndex = -1;
         }
-
         private void HoaDonChiTiet_Load(object sender, EventArgs e)
         {
             LoadData();
             cboTenMonAn.DataSource = busHDCT.LayMonAn();
             cboTenMonAn.DisplayMember = "TenMonAn";
             cboTenMonAn.ValueMember = "MaMonAn";
-
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
