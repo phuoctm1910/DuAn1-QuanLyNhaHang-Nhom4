@@ -240,7 +240,7 @@
             this.radNam.ForeColor = System.Drawing.Color.Black;
             this.radNam.Location = new System.Drawing.Point(476, 69);
             this.radNam.Name = "radNam";
-            this.radNam.Size = new System.Drawing.Size(55, 20);
+            this.radNam.Size = new System.Drawing.Size(54, 20);
             this.radNam.TabIndex = 18;
             this.radNam.TabStop = true;
             this.radNam.Text = "Nam";
@@ -253,7 +253,7 @@
             this.radNu.ForeColor = System.Drawing.Color.Black;
             this.radNu.Location = new System.Drawing.Point(555, 69);
             this.radNu.Name = "radNu";
-            this.radNu.Size = new System.Drawing.Size(43, 20);
+            this.radNu.Size = new System.Drawing.Size(42, 20);
             this.radNu.TabIndex = 19;
             this.radNu.TabStop = true;
             this.radNu.Text = "Nữ";
@@ -412,12 +412,12 @@
             // 
             // dtpNgaySinh
             // 
-            this.dtpNgaySinh.CustomFormat = "";
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(794, 70);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(803, 70);
+            this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(2);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
-            this.dtpNgaySinh.Size = new System.Drawing.Size(234, 20);
-            this.dtpNgaySinh.TabIndex = 83;
+            this.dtpNgaySinh.Size = new System.Drawing.Size(225, 20);
+            this.dtpNgaySinh.TabIndex = 90;
             // 
             // NhanVien
             // 

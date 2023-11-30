@@ -19,6 +19,31 @@ namespace GUI_QLNhaHang
         public NhanVien()
         {
             InitializeComponent();
+            LayVaiTro();
+            LayCapDoLuong();
+            LayLichLam();
+        }
+
+        void LayVaiTro()
+        {
+            cboChucVu.DataSource = busND.LayVaiTro();
+            cboChucVu.DisplayMember = "TenChucVu";
+            cboChucVu.ValueMember = "id";
+
+        }
+
+        void LayCapDoLuong()
+        {
+            cboLuong.DataSource = busND.LayCapDoLuong();
+            cboLuong.DisplayMember = "Luong";
+            cboLuong.ValueMember = "id";
+        }
+
+        void LayLichLam()
+        {
+            cboNgayVaoLam.DataSource = busND.LayLichLam();
+            cboNgayVaoLam.DisplayMember = "LichLam";
+            cboNgayVaoLam.ValueMember = "id";
         }
 
         private void NhanVien_Load(object sender, EventArgs e)
@@ -50,8 +75,6 @@ namespace GUI_QLNhaHang
             dtvDanhSachNhanVien.CellFormatting += dtvDanhSachNhanVien_CellFormatting;
         }
 
-
-
         private void dtvDanhSachNhanVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex == 2 && e.Value != null) // Kiểm tra nếu là cột Mật Khẩu
@@ -59,8 +82,6 @@ namespace GUI_QLNhaHang
                 e.Value = new string('*', e.Value.ToString().Length); // Thay thế giá trị bằng ***
             }
         }
-
-
 
         private void ResetValue()
         {
@@ -70,9 +91,7 @@ namespace GUI_QLNhaHang
             txtMatKhau.Clear();
             txtSDT.Clear();
             rtbDiaChi.Clear();
-                        txtTimKiem.Text = "Nhập tên NV";
-
-            dtpNgaySinh = null;
+            txtTimKiem.Text = "Nhập tên NV";
 
             cboNgayVaoLam.Text = null;
             cboLuong.SelectedIndex = -1;
@@ -136,7 +155,6 @@ namespace GUI_QLNhaHang
             float intDienThoai;
             bool isInt = float.TryParse(txtSDT.Text.Trim().ToString(), out intDienThoai);
             string phai;
-            
 
 
             if (radNam.Checked)
@@ -201,8 +219,9 @@ namespace GUI_QLNhaHang
             else
             {
 
-                ND = new DTO_NguoiDung(txtTaiKhoan.Text, txtMatKhau.Text, txtTenNhanVien.Text, phai, rtbDiaChi.Text,
-                    txtSDT.Text, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex , cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
+                string matkhaumd5 = busND.Encryption(txtMatKhau.Text);
+                ND = new DTO_NguoiDung(txtTaiKhoan.Text, matkhaumd5, txtTenNhanVien.Text, phai, rtbDiaChi.Text,
+                    txtSDT.Text, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
                 if (busND.ThemNguoiDung(ND))
                 {
                     MessageBox.Show("Thêm nhân viên thành công!");
@@ -215,9 +234,6 @@ namespace GUI_QLNhaHang
                 }
             }
         }
-
-
-
 
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -287,10 +303,8 @@ namespace GUI_QLNhaHang
             }
             else
             {
-
-
-
-                ND = new DTO_NguoiDung(txtTaiKhoan.Text, txtMatKhau.Text, txtTenNhanVien.Text, phai, rtbDiaChi.Text,
+                string matkhaumd5 = busND.Encryption(txtMatKhau.Text);
+                ND = new DTO_NguoiDung(txtTaiKhoan.Text, matkhaumd5, txtTenNhanVien.Text, phai, rtbDiaChi.Text,
                     txtSDT.Text, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
                 DialogResult result = MessageBox.Show("Bạn có thật sự muốn sửa không", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (busND.CapNhatNguoiDung(ND, txtManv.Text))
@@ -311,8 +325,6 @@ namespace GUI_QLNhaHang
             ResetValue();
             LoadDataND();
         }
-
-
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
