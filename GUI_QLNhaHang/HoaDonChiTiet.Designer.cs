@@ -60,6 +60,9 @@ namespace GUI_QLNhaHang
             this.dvgThongTinCTHD.RowTemplate.Height = 24;
             this.dvgThongTinCTHD.Size = new System.Drawing.Size(697, 219);
             this.dvgThongTinCTHD.TabIndex = 65;
+            this.dvgThongTinCTHD.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvgThongTinCTHD_CellValueChanged);
+            this.dvgThongTinCTHD.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dvgThongTinCTHD_RowsAdded);
+            this.dvgThongTinCTHD.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dvgThongTinCTHD_RowsRemoved);
             // 
             // txtTongTienHDBangChu
             // 

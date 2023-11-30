@@ -127,5 +127,46 @@ namespace GUI_QLNhaHang
 
             }
         }
+        private void dvgThongTinCTHD_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 3 || e.ColumnIndex == 4)
+            {
+                TinhTongTien();
+            }
+        }
+        private void dvgThongTinCTHD_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            TinhTongTien();
+        }
+        private void dvgThongTinCTHD_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            TinhTongTien();
+        }
+        private void TinhTongTien()
+        {
+            try
+            {
+                tongtien = 0;
+
+                foreach (DataGridViewRow row in dvgThongTinCTHD.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        if (row.Cells[3].Value != null && row.Cells[4].Value != null
+                            && int.TryParse(row.Cells[3].Value.ToString(), out int donGia)
+                            && int.TryParse(row.Cells[4].Value.ToString(), out int soLuong))
+                        {
+                            tongtien += donGia * soLuong;
+                        }
+                    }
+                }
+
+                txtThanhTien.Text = tongtien.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
+            }
+        }
     }
 }
