@@ -29,10 +29,11 @@ namespace GUI_QLNhaHang
             if (!string.IsNullOrWhiteSpace(txtTaiKhoan.Text) &&
                 !string.IsNullOrWhiteSpace(txtMatKhau.Text))
             {
-                if (bus_nd.NguoiDungDangNhap(txtTaiKhoan.Text, bus_nd.Encryption(txtMatKhau.Text)))
+                string encryptedPassword = bus_nd.Encryption(txtMatKhau.Text);
+                if (bus_nd.NguoiDungDangNhap(txtTaiKhoan.Text, encryptedPassword))
                 {
                     DataTable dt = bus_nd.VaiTroNguoiDung(txtTaiKhoan.Text);
-                    if (dt.Rows.Count > 0 && dt.Columns.Count > 0)
+                    if (dt.Rows.Count > 0)
                     {
                         vaiTro = dt.Rows[0][0].ToString();
                         Main frmMain = new Main(txtTaiKhoan.Text, vaiTro, 1);
