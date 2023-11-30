@@ -237,17 +237,6 @@ namespace GUI_QLNhaHang
 
             return ketQua.Trim();
         }
-        private void CapNhatTongTienBangChu()
-        {
-            if (long.TryParse(txtThanhTien.Text, out long so))
-            {
-                txtTongTienHDBangChu.Text = ChuyenSoSangChu(so);
-            }
-            else
-            {
-                txtTongTienHDBangChu.Text = "Giá trị không hợp lệ";
-            }
-        }
         private void txtThanhTien_TextChanged(object sender, EventArgs e)
         {
             if (long.TryParse(txtThanhTien.Text, out long so))
@@ -263,13 +252,7 @@ namespace GUI_QLNhaHang
         {
             if (busHDCT.CapNhatTrangThai(txtMaHD.Text))
             {
-                MessageBox.Show("Thành công");
                 OnCapNhatDuLieu?.Invoke();
-            }
-            else
-            {
-                MessageBox.Show("Thất bại");
-
             }
             InHoaDon inhoadon = new InHoaDon(txtMaHD.Text, TenKH, int.Parse(txtThanhTien.Text));
             inhoadon.Show();
@@ -300,6 +283,10 @@ namespace GUI_QLNhaHang
             {
                 ResetValues();
             }
+        }
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
