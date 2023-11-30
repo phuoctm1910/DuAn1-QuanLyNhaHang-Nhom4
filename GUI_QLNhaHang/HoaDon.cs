@@ -25,19 +25,17 @@ namespace GUI_QLNhaHang
             LayKhachHang();
             LayBanAn();
         }
-
         private void LoadDataHD()
         {
             dtvDanhSachHoaDon.DataSource = busHD.DanhSachHoaDon();
             dtvDanhSachHoaDon.Columns[0].HeaderText = "Mã Hóa Đơn";
-            dtvDanhSachHoaDon.Columns[1].HeaderText = "Mã Nhân Viên";
-            dtvDanhSachHoaDon.Columns[2].HeaderText = "Mã Khách Hàng";
-            dtvDanhSachHoaDon.Columns[3].HeaderText = "Mã Bàn Ăn";
+            dtvDanhSachHoaDon.Columns[1].HeaderText = "Tên Nhân Viên";
+            dtvDanhSachHoaDon.Columns[2].HeaderText = "Tên Khách Hàng";
+            dtvDanhSachHoaDon.Columns[3].HeaderText = "Tên Bàn Ăn";
             dtvDanhSachHoaDon.Columns[4].HeaderText = "Ngày Lập";
-            dtvDanhSachHoaDon.Columns[5].HeaderText = "Mã Trạng Thái";
+            dtvDanhSachHoaDon.Columns[5].HeaderText = "Trạng Thái";
             dtvDanhSachHoaDon.Columns[6].HeaderText = "Tổng Tiền";
             dtvDanhSachHoaDon.Columns[7].HeaderText = "Giảm Giá";
-
         }
         void LayNhanVien()
         {
@@ -45,57 +43,39 @@ namespace GUI_QLNhaHang
             cboNhanVien.DisplayMember = "TenNV";
             cboNhanVien.ValueMember = "MaNV";
         }
-
-
         void LayKhachHang()
         {
             cboKhachHang.DataSource = busHD.LayKhachHang();
             cboKhachHang.DisplayMember = "TenKH";
             cboKhachHang.ValueMember = "MaKH";
         }
-
         void LayBanAn()
         {
             cboBanAn.DataSource = busHD.LayBanAn();
             cboBanAn.DisplayMember = "TenBanAn";
             cboBanAn.ValueMember = "MaBanAn";
         }
-
         private void ResetValue()
         {
             txtMaHoaDon.Clear();
             txtGiamGia.Clear();
-            txtTimKiem.Text = "Nhập mã hóa đơn";
-
-            txtTrangThai.Text = "Chưa in";
+            txtTimKiem.Clear();
             txtMaHoaDon.Enabled = false;
-            cboBanAn.Text = cboKhachHang.Text = cboNhanVien.Text = null;
-
-            cboBanAn.Enabled = true;
-            cboKhachHang.Enabled = true;
-            cboNhanVien.Enabled = true;
-            txtMaHoaDon.Enabled = true;
-
             btnThem.Enabled = true;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
-            btnXoa.Enabled = false;
-
+            txtTrangThai.Text = "Chưa in";
+            txtTrangThai.ReadOnly = true;
+            cboBanAn.SelectedIndex = cboKhachHang.SelectedIndex = cboNhanVien.SelectedIndex = -1;
+            cboBanAn.Enabled = true;
+            cboKhachHang.Enabled = true;
+            cboNhanVien.Enabled = true;
         }
-
         private void HoaDon_Load(object sender, EventArgs e)
         {
             LoadDataHD();
             ResetValue();
-            txtMaHoaDon.Enabled = false;    
-            txtTrangThai.Text = "Chưa in";
-            txtTrangThai.ReadOnly = true;
-            btnThem.Enabled = true;
-            btnSua.Enabled = false;
-            btnXoa.Enabled = false;
         }
-
-
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             ResetValue();
