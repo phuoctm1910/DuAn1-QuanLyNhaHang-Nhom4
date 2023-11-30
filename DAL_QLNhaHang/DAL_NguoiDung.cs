@@ -183,7 +183,7 @@ namespace DAL_QLNhaHang
                 cmd.Parameters.AddWithValue("@taikhoan", taikhoan);
                 cmd.Parameters.AddWithValue("@matkhau", matkhau);
 
-                if (Convert.ToInt32(cmd.ExecuteScalar()) == 1)
+                if (Convert.ToInt32(cmd.ExecuteScalar()) > 0)
                 {
                     return true;
                 }
