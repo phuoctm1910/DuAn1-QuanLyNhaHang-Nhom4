@@ -253,7 +253,7 @@ namespace GUI_QLNhaHang
         }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            DataTable dtSearch = busHD.SearchHoaDon(HD, txtMaHoaDon.Text);
+            DataTable dtSearch = busHD.SearchHoaDon(txtTimKiem.Text);
             if (dtSearch.Rows.Count > 0)
             {
                 MessageBox.Show("Tìm thành công");

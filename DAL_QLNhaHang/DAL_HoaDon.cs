@@ -185,7 +185,7 @@ namespace DAL_QLNhaHang
         }
 
 
-        public DataTable SearchHoaDon(DTO_HoaDon HD, string mahd)
+        public DataTable SearchHoaDon(string mahd)
         {
             try
             {

@@ -50,9 +50,9 @@ namespace BUS_QLNhaHang
         }
 
 
-        public DataTable SearchHoaDon(DTO_HoaDon HD, string mahd)
+        public DataTable SearchHoaDon(string mahd)
         {
-            return dalHoaDon.SearchHoaDon(HD, mahd);
+            return dalHoaDon.SearchHoaDon(mahd);
         }
 
         public bool CapNhatHoaDon(DTO_HoaDon HD, string mahd)

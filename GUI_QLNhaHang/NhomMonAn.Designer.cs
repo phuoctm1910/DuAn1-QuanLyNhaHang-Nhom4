@@ -50,7 +50,7 @@ namespace GUI_QLNhaHang
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Chocolate;
-            this.label1.Location = new System.Drawing.Point(213, 21);
+            this.label1.Location = new System.Drawing.Point(227, 12);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(364, 34);
@@ -100,7 +100,7 @@ namespace GUI_QLNhaHang
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Chocolate;
-            this.label5.Location = new System.Drawing.Point(341, 93);
+            this.label5.Location = new System.Drawing.Point(355, 95);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(378, 34);
@@ -109,12 +109,13 @@ namespace GUI_QLNhaHang
             // 
             // dvDanhSachNhomMonAn
             // 
+            this.dvDanhSachNhomMonAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvDanhSachNhomMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dvDanhSachNhomMonAn.Location = new System.Drawing.Point(335, 142);
             this.dvDanhSachNhomMonAn.Name = "dvDanhSachNhomMonAn";
             this.dvDanhSachNhomMonAn.RowHeadersWidth = 51;
             this.dvDanhSachNhomMonAn.RowTemplate.Height = 24;
-            this.dvDanhSachNhomMonAn.Size = new System.Drawing.Size(385, 190);
+            this.dvDanhSachNhomMonAn.Size = new System.Drawing.Size(436, 190);
             this.dvDanhSachNhomMonAn.TabIndex = 57;
             this.dvDanhSachNhomMonAn.DoubleClick += new System.EventHandler(this.dvDanhSachNhomMonAn_DoubleClick);
             // 
@@ -201,7 +202,7 @@ namespace GUI_QLNhaHang
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(732, 453);
+            this.ClientSize = new System.Drawing.Size(783, 453);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnLamMoi);
