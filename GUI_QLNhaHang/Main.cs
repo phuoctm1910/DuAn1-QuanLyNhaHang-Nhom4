@@ -89,5 +89,121 @@ namespace GUI_QLNhaHang
                 ActiveChildForm("DoiMatKhau");
             }
         }
+        private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NhanVien nv = new NhanVien();
+            if (!CheckExistForm("NhanVien"))
+            {
+                nv.MdiParent = this;
+                nv.Show();
+                nv.FormClosed += new FormClosedEventHandler(frm_FromClose);
+            }
+            else
+            {
+                ActiveChildForm("NhanVien");
+            }
+        }
+        private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            KhachHang kh = new KhachHang(vaiTro);
+            if (!CheckExistForm("KhachHang"))
+            {
+                kh.MdiParent = this;
+                kh.Show();
+                kh.FormClosed += new FormClosedEventHandler(frm_FromClose);
+            }
+            else
+            {
+                ActiveChildForm("KhachHang");
+            }
+        }
+        private void quảnLýBànĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BanAn sp = new BanAn();
+            if (!CheckExistForm("BanAn"))
+            {
+                sp.MdiParent = this;
+                sp.Show();
+                sp.FormClosed += new FormClosedEventHandler(frm_FromClose);
+            }
+            else
+            {
+                ActiveChildForm("BanAn");
+            }
+        }
+        private void quảnLýMónĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MonAn sp = new MonAn();
+            if (!CheckExistForm("MonAn"))
+            {
+                sp.MdiParent = this;
+                sp.Show();
+                sp.FormClosed += new FormClosedEventHandler(frm_FromClose);
+            }
+            else
+            {
+                ActiveChildForm("MonAn");
+            }
+        }
+        private void quảnLýNhómMónĂnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NhomMonAn sp = new NhomMonAn();
+            if (!CheckExistForm("NhomMonAn"))
+            {
+                sp.MdiParent = this;
+                sp.Show();
+                sp.FormClosed += new FormClosedEventHandler(frm_FromClose);
+            }
+            else
+            {
+                ActiveChildForm("NhomMonAn");
+            }
+        }
+        private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HoaDon sp = new HoaDon();
+            if (!CheckExistForm("HoaDon"))
+            {
+                sp.MdiParent = this;
+                sp.Show();
+                sp.FormClosed += new FormClosedEventHandler(frm_FromClose);
+            }
+            else
+            {
+                ActiveChildForm("HoaDon");
+            }
+        }
+        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ThongKe sp = new ThongKe();
+            if (!CheckExistForm("ThongKe"))
+            {
+                sp.MdiParent = this;
+                sp.Show();
+                sp.FormClosed += new FormClosedEventHandler(frm_FromClose);
+            }
+            else
+            {
+                ActiveChildForm("ThongKe");
+            }
+        }
+        private void quảnLýLịchLàmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LichLam sp = new LichLam();
+            if (!CheckExistForm("LichLam"))
+            {
+                sp.MdiParent = this;
+                sp.Show();
+                sp.FormClosed += new FormClosedEventHandler(frm_FromClose);
+            }
+            else
+            {
+                ActiveChildForm("LichLam");
+            }
+        }
+        private void Main_Load(object sender, EventArgs e)
+        {
+            ResetValue();
+        }
     }
 }

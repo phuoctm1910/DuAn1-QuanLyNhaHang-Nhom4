@@ -117,18 +117,21 @@ namespace GUI_QLNhaHang
             this.quảnLýNhânViênToolStripMenuItem.Name = "quảnLýNhânViênToolStripMenuItem";
             this.quảnLýNhânViênToolStripMenuItem.Size = new System.Drawing.Size(260, 28);
             this.quảnLýNhânViênToolStripMenuItem.Text = "Quản Lý Nhân Viên";
+            this.quảnLýNhânViênToolStripMenuItem.Click += new System.EventHandler(this.quảnLýNhânViênToolStripMenuItem_Click);
             // 
             // quảnLýKháchHàngToolStripMenuItem
             // 
             this.quảnLýKháchHàngToolStripMenuItem.Name = "quảnLýKháchHàngToolStripMenuItem";
             this.quảnLýKháchHàngToolStripMenuItem.Size = new System.Drawing.Size(260, 28);
             this.quảnLýKháchHàngToolStripMenuItem.Text = "Quản Lý Khách Hàng";
+            this.quảnLýKháchHàngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýKháchHàngToolStripMenuItem_Click);
             // 
             // quảnLýBànĂnToolStripMenuItem
             // 
             this.quảnLýBànĂnToolStripMenuItem.Name = "quảnLýBànĂnToolStripMenuItem";
             this.quảnLýBànĂnToolStripMenuItem.Size = new System.Drawing.Size(260, 28);
             this.quảnLýBànĂnToolStripMenuItem.Text = "Quản Lý Bàn Ăn";
+            this.quảnLýBànĂnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýBànĂnToolStripMenuItem_Click);
             // 
             // thựcĐơnToolStripMenuItem
             // 
@@ -146,12 +149,14 @@ namespace GUI_QLNhaHang
             this.quảnLýMónĂnToolStripMenuItem.Name = "quảnLýMónĂnToolStripMenuItem";
             this.quảnLýMónĂnToolStripMenuItem.Size = new System.Drawing.Size(281, 28);
             this.quảnLýMónĂnToolStripMenuItem.Text = "Quản Lý Món Ăn";
+            this.quảnLýMónĂnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýMónĂnToolStripMenuItem_Click);
             // 
             // quảnLýNhómMónĂnToolStripMenuItem
             // 
             this.quảnLýNhómMónĂnToolStripMenuItem.Name = "quảnLýNhómMónĂnToolStripMenuItem";
             this.quảnLýNhómMónĂnToolStripMenuItem.Size = new System.Drawing.Size(281, 28);
             this.quảnLýNhómMónĂnToolStripMenuItem.Text = "Quản Lý Nhóm Món Ăn";
+            this.quảnLýNhómMónĂnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýNhómMónĂnToolStripMenuItem_Click);
             // 
             // hóaĐơnToolStripMenuItem
             // 
@@ -160,6 +165,7 @@ namespace GUI_QLNhaHang
             this.hóaĐơnToolStripMenuItem.Name = "hóaĐơnToolStripMenuItem";
             this.hóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(95, 27);
             this.hóaĐơnToolStripMenuItem.Text = "Hóa Đơn";
+            this.hóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.hóaĐơnToolStripMenuItem_Click);
             // 
             // thốngKêToolStripMenuItem
             // 
@@ -168,6 +174,7 @@ namespace GUI_QLNhaHang
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
             this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(100, 27);
             this.thốngKêToolStripMenuItem.Text = "Thống Kê";
+            this.thốngKêToolStripMenuItem.Click += new System.EventHandler(this.thốngKêToolStripMenuItem_Click);
             // 
             // quảnLýLịchToolStripMenuItem
             // 
@@ -185,6 +192,7 @@ namespace GUI_QLNhaHang
             this.quảnLýLịchLàmToolStripMenuItem.Name = "quảnLýLịchLàmToolStripMenuItem";
             this.quảnLýLịchLàmToolStripMenuItem.Size = new System.Drawing.Size(262, 28);
             this.quảnLýLịchLàmToolStripMenuItem.Text = "Quản Lý Lịch Làm";
+            this.quảnLýLịchLàmToolStripMenuItem.Click += new System.EventHandler(this.quảnLýLịchLàmToolStripMenuItem_Click);
             // 
             // quảnLýLịchSựKiệnToolStripMenuItem
             // 
@@ -217,6 +225,7 @@ namespace GUI_QLNhaHang
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Main";
             this.Text = "Trang Chủ";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
