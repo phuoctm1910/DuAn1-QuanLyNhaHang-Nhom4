@@ -48,10 +48,6 @@ namespace GUI_QLNhaHang
             }
             return check;
         }
-        void HienThiVaiTroNV()
-        {
-            quảnLýNhómMónĂnToolStripMenuItem.Visible = false;
-        }
         void ResetValue()
         {
             if (Session == 1)
@@ -66,7 +62,8 @@ namespace GUI_QLNhaHang
                 đổiMậtKhẩuToolStripMenuItem.Visible = true;
                 if (int.Parse(vaiTro) == 0)
                 {
-                    HienThiVaiTroNV();
+                    quảnLýNhómMónĂnToolStripMenuItem.Visible = false;
+                    thốngKêToolStripMenuItem.Visible = false;
                 }
             }
 
@@ -91,7 +88,7 @@ namespace GUI_QLNhaHang
         }
         private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NhanVien nv = new NhanVien();
+            NhanVien nv = new NhanVien(vaiTro, lblXinChao.Text);
             if (!CheckExistForm("NhanVien"))
             {
                 nv.MdiParent = this;
@@ -119,7 +116,7 @@ namespace GUI_QLNhaHang
         }
         private void quảnLýBànĂnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            BanAn sp = new BanAn();
+            BanAn sp = new BanAn(vaiTro);
             if (!CheckExistForm("BanAn"))
             {
                 sp.MdiParent = this;
@@ -133,7 +130,7 @@ namespace GUI_QLNhaHang
         }
         private void quảnLýMónĂnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MonAn sp = new MonAn();
+            MonAn sp = new MonAn(vaiTro);
             if (!CheckExistForm("MonAn"))
             {
                 sp.MdiParent = this;
@@ -147,7 +144,7 @@ namespace GUI_QLNhaHang
         }
         private void quảnLýNhómMónĂnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NhomMonAn sp = new NhomMonAn();
+            NhomMonAn sp = new NhomMonAn(vaiTro);
             if (!CheckExistForm("NhomMonAn"))
             {
                 sp.MdiParent = this;
@@ -161,7 +158,7 @@ namespace GUI_QLNhaHang
         }
         private void hóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HoaDon sp = new HoaDon();
+            HoaDon sp = new HoaDon(vaiTro);
             if (!CheckExistForm("HoaDon"))
             {
                 sp.MdiParent = this;
@@ -189,7 +186,7 @@ namespace GUI_QLNhaHang
         }
         private void quảnLýLịchLàmToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LichLam sp = new LichLam();
+            LichLam sp = new LichLam(vaiTro);
             if (!CheckExistForm("LichLam"))
             {
                 sp.MdiParent = this;

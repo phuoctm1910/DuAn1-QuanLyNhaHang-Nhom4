@@ -31,6 +31,10 @@ namespace BUS_QLNhaHang
         {
             return dalnguoidung.DanhSachNguoiDung();
         }
+        public DataTable DanhSachNguoiDungNV(string taikhoan)
+        {
+            return dalnguoidung.DanhSachNguoiDungNV(taikhoan);
+        }
         public bool ThemNguoiDung(DTO_NguoiDung ND)
         {
             return dalnguoidung.ThemNguoiDung(ND);

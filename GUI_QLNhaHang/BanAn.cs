@@ -17,10 +17,11 @@ namespace GUI_QLNhaHang
     {
         BUS_BanAn busBA = new BUS_BanAn();
         DTO_BanAn ba = new DTO_BanAn();
-
-        public BanAn()
+        public static string vaiTro;
+        public BanAn(string vaitro)
         {
             InitializeComponent();
+            vaiTro = vaitro;
         }
 
         void LoadData()
@@ -57,7 +58,12 @@ namespace GUI_QLNhaHang
             txtMaBanAn.Enabled = false;
             btnThem.Enabled = true;
             txtMaBanAn.Clear(); 
-            txtTenBanAn.Clear(); 
+            txtTenBanAn.Clear();
+            if (int.Parse(vaiTro) == 0)
+            {
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
+                txtMaBanAn.Enabled = txtTenBanAn.Enabled = false;
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -152,11 +158,18 @@ namespace GUI_QLNhaHang
             }
             else
             {
-                btnThem.Enabled = false;
-                txtMaBanAn.Enabled = false;
-                int lst = dvDanhSachBanAn.CurrentRow.Index;
-                txtMaBanAn.Text = dvDanhSachBanAn.Rows[lst].Cells[0].Value.ToString();
-                txtTenBanAn.Text = dvDanhSachBanAn.Rows[lst].Cells[1].Value.ToString();
+                if (int.Parse(vaiTro) == 0)
+                {
+                    MessageBox.Show("Bạn không thể sử dụng chức năng này vì bạn là nhân viên");
+                }
+                else
+                {
+                    btnThem.Enabled = false;
+                    txtMaBanAn.Enabled = false;
+                    int lst = dvDanhSachBanAn.CurrentRow.Index;
+                    txtMaBanAn.Text = dvDanhSachBanAn.Rows[lst].Cells[0].Value.ToString();
+                    txtTenBanAn.Text = dvDanhSachBanAn.Rows[lst].Cells[1].Value.ToString();
+                }
             }
         }
     }

@@ -77,6 +77,26 @@ namespace DAL_QLNhaHang
             }
             finally { _conn.Close(); }
         }
+        public DataTable DanhSachNguoiDungNV(string taikhoan)
+        {
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[DanhSachNguoiDungNV]";
+                cmd.Parameters.AddWithValue("@taikhoan", taikhoan);
+                cmd.Connection = _conn;
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { _conn.Close(); }
+        }
         public bool ThemNguoiDung(DTO_NguoiDung ND)
         {
             try

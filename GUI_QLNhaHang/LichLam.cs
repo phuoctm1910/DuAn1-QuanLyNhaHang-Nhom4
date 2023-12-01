@@ -17,10 +17,11 @@ namespace GUI_QLNhaHang
     {
         BUS_LichLam busLL = new BUS_LichLam();
         DTO_LichLam ll = new DTO_LichLam();
-
-        public LichLam()
+        public static string vaiTro;
+        public LichLam(string vaitro)
         {
             InitializeComponent();
+            vaiTro = vaitro;
         }
         void LoadData()
         {
@@ -33,7 +34,6 @@ namespace GUI_QLNhaHang
             txtIDLichLam.Enabled = false;
             LoadData();
         }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(dtpLichLam.Text)) 
@@ -58,7 +58,6 @@ namespace GUI_QLNhaHang
                 }
             }
         }
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtIDLichLam.Text)) //chinh lai bat loi
@@ -97,21 +96,26 @@ namespace GUI_QLNhaHang
                 }
             }
         }
-
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             ResetValues();
-        }
-
-        
+        }  
         private void ResetValues()
         {
-            txtIDLichLam.Enabled = false;
-            btnThem.Enabled = true;
-            txtIDLichLam.Clear();
-            txtIDLichLam.Clear();
+            if (int.Parse(vaiTro) == 0)
+            {
+                btnThem.Enabled = btnSua.Enabled = false;
+                txtIDLichLam.Enabled = dtpLichLam.Enabled = false;
+            }
+            else
+            {
+                txtIDLichLam.Enabled = false;
+                btnThem.Enabled = true;
+                btnSua.Enabled = false;
+                txtIDLichLam.Clear();
+                txtIDLichLam.Clear();
+            }
         }
-
         private void dvDanhSachLichLam_DoubleClick(object sender, EventArgs e)
         {
             if (dvDanhSachLichLam.Rows.Count <= 0)
@@ -120,11 +124,18 @@ namespace GUI_QLNhaHang
             }
             else
             {
-                btnThem.Enabled = false;
-                txtIDLichLam.Enabled = false;
-                int lst = dvDanhSachLichLam.CurrentRow.Index;
-                txtIDLichLam.Text = dvDanhSachLichLam.Rows[lst].Cells[0].Value.ToString();
-                dtpLichLam.Text = dvDanhSachLichLam.Rows[lst].Cells[1].Value.ToString();
+                if (int.Parse(vaiTro) == 0)
+                {
+                    MessageBox.Show("Bạn không thể sử dụng chức năng này vì bạn là nhân viên");
+                }
+                else
+                {
+                    btnThem.Enabled = false;
+                    txtIDLichLam.Enabled = false;
+                    int lst = dvDanhSachLichLam.CurrentRow.Index;
+                    txtIDLichLam.Text = dvDanhSachLichLam.Rows[lst].Cells[0].Value.ToString();
+                    dtpLichLam.Text = dvDanhSachLichLam.Rows[lst].Cells[1].Value.ToString();
+                }
             }
         }
     }

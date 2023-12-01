@@ -16,9 +16,11 @@ namespace GUI_QLNhaHang
     {
         BUS_MonAn busMA = new BUS_MonAn();
         DTO_MonAn ma = new DTO_MonAn();
-        public MonAn()
+        public static string vaiTro;
+        public MonAn(string vaitro)
         {
             InitializeComponent();
+            vaiTro = vaitro;
         }
 
 
@@ -32,12 +34,21 @@ namespace GUI_QLNhaHang
         }
         private void ResetValues()
         {
-            txtTenMonAn.Clear();
-            txtDonViTinh.Clear();
-            txtMaMonAn.Clear();
-            cboNhomMonAn.SelectedIndex = -1;
+            if (int.Parse(vaiTro) == 0)
+            {
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
+                txtTenMonAn.Enabled = txtMaMonAn.Enabled = txtDonViTinh.Enabled = false;
+                cboNhomMonAn.Enabled = false;
+                btnNhomMonAn.Enabled = false;
+            }
+            else
+            {
+                txtTenMonAn.Clear();
+                txtDonViTinh.Clear();
+                txtMaMonAn.Clear();
+                cboNhomMonAn.SelectedIndex = -1;
+            }   
         }
-
         private void MonAn_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -167,24 +178,37 @@ namespace GUI_QLNhaHang
             }
             else
             {
-                btnThem.Enabled = false;
-                txtTenMonAn.Enabled = txtDonViTinh.Enabled = true;
-                cboNhomMonAn.Enabled = true;
-                btnSua.Enabled = btnXoa.Enabled = true;
-                int lst = dvDanhSachMonAn.CurrentRow.Index;
-                txtMaMonAn.Text = dvDanhSachMonAn.Rows[lst].Cells[0].Value.ToString();
-                txtTenMonAn.Text = dvDanhSachMonAn.Rows[lst].Cells[1].Value.ToString();
-                txtDonViTinh.Text = dvDanhSachMonAn.Rows[lst].Cells[2].Value.ToString();
-                string nMA = dvDanhSachMonAn.Rows[lst].Cells[3].Value.ToString();
-                if (nMA == "0")
+                if (int.Parse(vaiTro) == 0)
                 {
-                    cboNhomMonAn.SelectedIndex = 0;
+                    MessageBox.Show("Bạn không thể sử dụng chức năng này vì bạn là nhân viên");
                 }
                 else
                 {
-                    cboNhomMonAn.SelectedIndex = 1;
+                    btnThem.Enabled = false;
+                    txtTenMonAn.Enabled = txtDonViTinh.Enabled = true;
+                    cboNhomMonAn.Enabled = true;
+                    btnSua.Enabled = btnXoa.Enabled = true;
+                    int lst = dvDanhSachMonAn.CurrentRow.Index;
+                    txtMaMonAn.Text = dvDanhSachMonAn.Rows[lst].Cells[0].Value.ToString();
+                    txtTenMonAn.Text = dvDanhSachMonAn.Rows[lst].Cells[1].Value.ToString();
+                    txtDonViTinh.Text = dvDanhSachMonAn.Rows[lst].Cells[2].Value.ToString();
+                    string nMA = dvDanhSachMonAn.Rows[lst].Cells[3].Value.ToString();
+                    if (nMA == "0")
+                    {
+                        cboNhomMonAn.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        cboNhomMonAn.SelectedIndex = 1;
+                    }
                 }
             }
+        }
+
+        private void btnNhomMonAn_Click(object sender, EventArgs e)
+        {
+            NhomMonAn nma = new NhomMonAn(vaiTro);
+            nma.Show();
         }
     }
 }

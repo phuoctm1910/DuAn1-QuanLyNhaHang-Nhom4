@@ -18,12 +18,14 @@ namespace GUI_QLNhaHang
     {
         BUS_HoaDon busHD = new BUS_HoaDon();
         DTO_HoaDon HD = new DTO_HoaDon();
-        public HoaDon()
+        public static string vaiTro;
+        public HoaDon(string vaitro)
         {
             InitializeComponent();
             LayNhanVien();
             LayKhachHang();
             LayBanAn();
+            vaiTro = vaitro;
         }
         private void LoadDataHD()
         {
@@ -57,6 +59,11 @@ namespace GUI_QLNhaHang
         }
         private void ResetValue()
         {
+            if (int.Parse(vaiTro) == 0)
+            {
+                btnSua.Enabled = false;
+                btnXoa.Enabled = false;
+            }
             txtMaHoaDon.Clear();
             txtGiamGia.Clear();
             txtTimKiem.Clear();
@@ -83,22 +90,37 @@ namespace GUI_QLNhaHang
         }
         private void dtvDanhSachHoaDon_DoubleClick(object sender, EventArgs e)
         {
-            cboBanAn.Enabled = false;
-            cboKhachHang.Enabled = false;
-            cboNhanVien.Enabled = false;
-            txtMaHoaDon.Enabled = false;
-            btnSua.Enabled = true;
-            btnThem.Enabled = false;
-            btnXoa.Enabled = true;
-
-            int lst = dtvDanhSachHoaDon.CurrentRow.Index;
-            txtMaHoaDon.Text = dtvDanhSachHoaDon.Rows[lst].Cells[0].Value.ToString();
-            cboNhanVien.Text = dtvDanhSachHoaDon.Rows[lst].Cells[1].Value.ToString();
-            cboKhachHang.Text = dtvDanhSachHoaDon.Rows[lst].Cells[2].Value.ToString();
-            cboBanAn.Text = dtvDanhSachHoaDon.Rows[lst].Cells[3].Value.ToString();
-            dtpNgayLap.Text = dtvDanhSachHoaDon.Rows[lst].Cells[4].Value.ToString();
-            txtTrangThai.Text = dtvDanhSachHoaDon.Rows[lst].Cells[5].Value.ToString();
-            txtGiamGia.Text = dtvDanhSachHoaDon.Rows[lst].Cells[7].Value.ToString();
+            if (dtvDanhSachHoaDon.RowCount == 0)
+            {
+                MessageBox.Show("Bảng không có dữ liệu");
+            }
+            else
+            {
+                if (int.Parse(vaiTro) == 0)
+                {
+                    btnSua.Enabled = false;
+                    btnThem.Enabled = false;
+                    btnXoa.Enabled = false;
+                }
+                else
+                {
+                    cboBanAn.Enabled = false;
+                    cboKhachHang.Enabled = false;
+                    cboNhanVien.Enabled = false;
+                    txtMaHoaDon.Enabled = false;
+                    btnSua.Enabled = true;
+                    btnThem.Enabled = false;
+                    btnXoa.Enabled = true;
+                }
+                int lst = dtvDanhSachHoaDon.CurrentRow.Index;
+                txtMaHoaDon.Text = dtvDanhSachHoaDon.Rows[lst].Cells[0].Value.ToString();
+                cboNhanVien.Text = dtvDanhSachHoaDon.Rows[lst].Cells[1].Value.ToString();
+                cboKhachHang.Text = dtvDanhSachHoaDon.Rows[lst].Cells[2].Value.ToString();
+                cboBanAn.Text = dtvDanhSachHoaDon.Rows[lst].Cells[3].Value.ToString();
+                dtpNgayLap.Text = dtvDanhSachHoaDon.Rows[lst].Cells[4].Value.ToString();
+                txtTrangThai.Text = dtvDanhSachHoaDon.Rows[lst].Cells[5].Value.ToString();
+                txtGiamGia.Text = dtvDanhSachHoaDon.Rows[lst].Cells[7].Value.ToString();
+            }
         }
         private void btnThem_Click(object sender, EventArgs e)
         {

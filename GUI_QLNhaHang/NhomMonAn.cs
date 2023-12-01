@@ -16,10 +16,11 @@ namespace GUI_QLNhaHang
     {
         BUS_NhomMonAn busNMA = new BUS_NhomMonAn();
         DTO_NhomMonAn nma = new DTO_NhomMonAn();
-        public NhomMonAn()
-        {
-            
+        public static string vaiTro;
+        public NhomMonAn(string vaitro)
+        {         
             InitializeComponent();
+            vaiTro = vaitro;
         }
         void LoadData()
         {
@@ -30,16 +31,22 @@ namespace GUI_QLNhaHang
         }
         void ResetValues()
         {
-            txtMaNhomMonAn.Clear();
-            txtTenNhomMonAn.Clear();
+            if (int.Parse(vaiTro) == 0)
+            {
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
+                txtMaNhomMonAn.Enabled = txtTenNhomMonAn.Enabled = false;
+            }
+            else
+            {
+                txtMaNhomMonAn.Clear();
+                txtTenNhomMonAn.Clear();
+            }
         }
-
         private void NhomMonAn_Load(object sender, EventArgs e)
         {
             LoadData();
             ResetValues();
         }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtTenNhomMonAn.Text))
@@ -123,17 +130,19 @@ namespace GUI_QLNhaHang
             {
                 MessageBox.Show("Bảng không có dữ liệu");
             }
-
-            if (string.IsNullOrEmpty(txtMaNhomMonAn.Text))
-            {
-                MessageBox.Show("Bạn chưa chọn nhóm món ăn");
-            }
             else
             {
-                txtMaNhomMonAn.Enabled = false;
-                int lst = dvDanhSachNhomMonAn.CurrentRow.Index;
-                txtMaNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[0].Value.ToString();
-                txtTenNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[1].Value.ToString();
+                if (int.Parse(vaiTro) == 0)
+                {
+                    MessageBox.Show("Bạn không thể sử dụng chức năng này vì bạn là nhân viên");
+                }
+                else
+                {
+                    txtMaNhomMonAn.Enabled = false;
+                    int lst = dvDanhSachNhomMonAn.CurrentRow.Index;
+                    txtMaNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[0].Value.ToString();
+                    txtTenNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[1].Value.ToString();
+                }
             }
 
         }

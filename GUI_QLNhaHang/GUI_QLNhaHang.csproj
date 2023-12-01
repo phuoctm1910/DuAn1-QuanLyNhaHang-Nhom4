@@ -143,6 +143,12 @@
     <Compile Include="LichLam.Designer.cs">
       <DependentUpon>LichLam.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManHinhChao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManHinhChao.Designer.cs">
+      <DependentUpon>ManHinhChao.cs</DependentUpon>
+    </Compile>
     <Compile Include="MonAn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LichLam.resx">
       <DependentUpon>LichLam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManHinhChao.resx">
+      <DependentUpon>ManHinhChao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MonAn.resx">
       <DependentUpon>MonAn.cs</DependentUpon>

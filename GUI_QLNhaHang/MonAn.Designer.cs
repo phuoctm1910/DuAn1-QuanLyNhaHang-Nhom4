@@ -149,6 +149,7 @@ namespace GUI_QLNhaHang
             this.btnNhomMonAn.TabIndex = 54;
             this.btnNhomMonAn.Text = "- - -";
             this.btnNhomMonAn.UseVisualStyleBackColor = true;
+            this.btnNhomMonAn.Click += new System.EventHandler(this.btnNhomMonAn_Click);
             // 
             // dvDanhSachMonAn
             // 

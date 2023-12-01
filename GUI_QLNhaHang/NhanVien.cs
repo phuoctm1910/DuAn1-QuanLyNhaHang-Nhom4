@@ -14,14 +14,18 @@ namespace GUI_QLNhaHang
 {
     public partial class NhanVien : Form
     {
+        public static string taiKhoan;
+        public static string vaiTro;
         BUS_NguoiDung busND = new BUS_NguoiDung();
         DTO_NguoiDung ND = new DTO_NguoiDung();
-        public NhanVien()
+        public NhanVien(string vaitro, string taikhoan)
         {
             InitializeComponent();
             LayVaiTro();
             LayCapDoLuong();
             LayLichLam();
+            taiKhoan = taikhoan;
+            vaiTro = vaitro;
         }
 
         void LayVaiTro()
@@ -56,7 +60,14 @@ namespace GUI_QLNhaHang
 
         private void LoadDataND()
         {
-            dtvDanhSachNhanVien.DataSource = busND.DanhSachNguoiDung();
+            if (int.Parse(vaiTro) == 0)
+            {
+                dtvDanhSachNhanVien.DataSource = busND.DanhSachNguoiDungNV(taiKhoan);
+            }
+            else
+            {
+                dtvDanhSachNhanVien.DataSource = busND.DanhSachNguoiDung();
+            }
             dtvDanhSachNhanVien.Columns[0].HeaderText = "Mã Nhân Viên";
             dtvDanhSachNhanVien.Columns[1].HeaderText = "Tài Khoản";
             dtvDanhSachNhanVien.Columns[2].HeaderText = "Mật Khẩu";
@@ -77,9 +88,9 @@ namespace GUI_QLNhaHang
 
         private void dtvDanhSachNhanVien_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.ColumnIndex == 2 && e.Value != null) // Kiểm tra nếu là cột Mật Khẩu
+            if (e.ColumnIndex == 2 && e.Value != null)
             {
-                e.Value = new string('*', e.Value.ToString().Length); // Thay thế giá trị bằng ***
+                e.Value = new string('*', e.Value.ToString().Length);
             }
         }
 
@@ -96,57 +107,71 @@ namespace GUI_QLNhaHang
             cboNgayVaoLam.Text = null;
             cboLuong.SelectedIndex = -1;
             cboChucVu.SelectedIndex = -1;
+            if (int.Parse(vaiTro) == 0)
+            {
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
+                txtTenNhanVien.Enabled = txtManv.Enabled = txtMatKhau.Enabled = txtTaiKhoan.Enabled = txtSDT.Enabled = rtbDiaChi.Enabled
+                    = radNam.Enabled = radNu.Enabled = cboChucVu.Enabled = cboLuong.Enabled = cboNgayVaoLam.Enabled = dtpNgaySinh.Enabled = false;
+            }
         }
 
         private void dtvDanhSachNhanVien_DoubleClick(object sender, EventArgs e)
         {
-            txtMatKhau.Enabled = false;
-            txtManv.Enabled = false;
-            int lst = dtvDanhSachNhanVien.CurrentRow.Index;
-            txtManv.Text = dtvDanhSachNhanVien.Rows[lst].Cells[0].Value.ToString();
-            txtTaiKhoan.Text = dtvDanhSachNhanVien.Rows[lst].Cells[1].Value.ToString();
-            txtMatKhau.Text = dtvDanhSachNhanVien.Rows[lst].Cells[2].Value.ToString();
-            txtTenNhanVien.Text = dtvDanhSachNhanVien.Rows[lst].Cells[3].Value.ToString();
-            string phai = dtvDanhSachNhanVien.Rows[lst].Cells[4].Value.ToString();
-            if (phai == "Nam")
+            if (int.Parse(vaiTro) == 0)
             {
-                radNam.Checked = true;
+                MessageBox.Show("Bạn không thể thực hiện hành động vì bạn là nhân viên");
             }
             else
             {
-                radNu.Checked = true;
-            }
-            rtbDiaChi.Text = dtvDanhSachNhanVien.Rows[lst].Cells[5].Value.ToString();
-            txtSDT.Text = dtvDanhSachNhanVien.Rows[lst].Cells[6].Value.ToString();
-            dtpNgaySinh.Text = dtvDanhSachNhanVien.Rows[lst].Cells[7].Value.ToString();
-            string ngaylam = dtvDanhSachNhanVien.Rows[lst].Cells[8].Value.ToString();
-            if (ngaylam == "0")
-            {
-                cboNgayVaoLam.SelectedIndex = 0;
-            }
-            else
-            {
-                cboNgayVaoLam.SelectedIndex = 1;
-            }
+                btnThem.Enabled = false;
+                txtMatKhau.Enabled = false;
+                txtManv.Enabled = false;
+                int lst = dtvDanhSachNhanVien.CurrentRow.Index;
+                txtManv.Text = dtvDanhSachNhanVien.Rows[lst].Cells[0].Value.ToString();
+                txtTaiKhoan.Text = dtvDanhSachNhanVien.Rows[lst].Cells[1].Value.ToString();
+                txtMatKhau.Text = dtvDanhSachNhanVien.Rows[lst].Cells[2].Value.ToString();
+                txtTenNhanVien.Text = dtvDanhSachNhanVien.Rows[lst].Cells[3].Value.ToString();
+                string phai = dtvDanhSachNhanVien.Rows[lst].Cells[4].Value.ToString();
+                if (phai == "Nam")
+                {
+                    radNam.Checked = true;
+                }
+                else
+                {
+                    radNu.Checked = true;
+                }
+                rtbDiaChi.Text = dtvDanhSachNhanVien.Rows[lst].Cells[5].Value.ToString();
+                txtSDT.Text = dtvDanhSachNhanVien.Rows[lst].Cells[6].Value.ToString();
+                dtpNgaySinh.Text = dtvDanhSachNhanVien.Rows[lst].Cells[7].Value.ToString();
+                string ngaylam = dtvDanhSachNhanVien.Rows[lst].Cells[8].Value.ToString();
+                if (ngaylam == "0")
+                {
+                    cboNgayVaoLam.SelectedIndex = 0;
+                }
+                else
+                {
+                    cboNgayVaoLam.SelectedIndex = 1;
+                }
 
-            string chucvu = dtvDanhSachNhanVien.Rows[lst].Cells[9].Value.ToString();
-            if (chucvu == "0")
-            {
-                cboChucVu.SelectedIndex = 0;
-            }
-            else
-            {
-                cboChucVu.SelectedIndex = 1;
-            }
+                string chucvu = dtvDanhSachNhanVien.Rows[lst].Cells[9].Value.ToString();
+                if (chucvu == "0")
+                {
+                    cboChucVu.SelectedIndex = 0;
+                }
+                else
+                {
+                    cboChucVu.SelectedIndex = 1;
+                }
 
-            string luong = dtvDanhSachNhanVien.Rows[lst].Cells[10].Value.ToString();
-            if (luong == "0")
-            {
-                cboLuong.SelectedIndex = 0;
-            }
-            else
-            {
-                cboLuong.SelectedIndex = 1;
+                string luong = dtvDanhSachNhanVien.Rows[lst].Cells[10].Value.ToString();
+                if (luong == "0")
+                {
+                    cboLuong.SelectedIndex = 0;
+                }
+                else
+                {
+                    cboLuong.SelectedIndex = 1;
+                }
             }
         }
 
@@ -363,6 +388,6 @@ namespace GUI_QLNhaHang
             ResetValue();
         }
 
-      
+
     }
 }
