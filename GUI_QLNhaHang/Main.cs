@@ -74,7 +74,7 @@ namespace GUI_QLNhaHang
         }
         private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DoiMatKhau dmk = new DoiMatKhau();
+            DoiMatKhau dmk = new DoiMatKhau(lblXinChao.Text);
             if (!CheckExistForm("DoiMatKhau"))
             {
                 dmk.MdiParent = this;

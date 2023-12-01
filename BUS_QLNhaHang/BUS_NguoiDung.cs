@@ -55,9 +55,9 @@ namespace BUS_QLNhaHang
         {
             return dalnguoidung.NguoiDungDangNhap(taikhoan, matkhau);
         }
-        public DataTable VaiTroNguoiDung(string taikhoan)
+        public bool NguoiDungDoiMatKhau(string taikhoan, string matkhaucu, string matkhaumoi)
         {
-            return dalnguoidung.VaiTroNV(taikhoan);
+            return dalnguoidung.NguoiDungDoiMatKhau(taikhoan, matkhaucu, matkhaumoi);
         }
         public string Encryption(string password)
         {
@@ -73,5 +73,10 @@ namespace BUS_QLNhaHang
             }
             return encryptdata.ToString();
         }
+        public DataTable VaiTroNguoiDung(string taikhoan)
+        {
+            return dalnguoidung.VaiTroNV(taikhoan);
+        }
+        
     }
 }

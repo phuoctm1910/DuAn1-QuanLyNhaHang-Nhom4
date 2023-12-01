@@ -48,6 +48,7 @@ namespace GUI_QLNhaHang
             this.txtNhapLaiMK.Location = new System.Drawing.Point(374, 208);
             this.txtNhapLaiMK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNhapLaiMK.Name = "txtNhapLaiMK";
+            this.txtNhapLaiMK.PasswordChar = '*';
             this.txtNhapLaiMK.Size = new System.Drawing.Size(219, 22);
             this.txtNhapLaiMK.TabIndex = 45;
             // 
@@ -65,6 +66,7 @@ namespace GUI_QLNhaHang
             this.txtMKMoi.Location = new System.Drawing.Point(374, 155);
             this.txtMKMoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMKMoi.Name = "txtMKMoi";
+            this.txtMKMoi.PasswordChar = '*';
             this.txtMKMoi.Size = new System.Drawing.Size(219, 22);
             this.txtMKMoi.TabIndex = 43;
             // 
@@ -82,6 +84,7 @@ namespace GUI_QLNhaHang
             this.txtMKCu.Location = new System.Drawing.Point(374, 105);
             this.txtMKCu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMKCu.Name = "txtMKCu";
+            this.txtMKCu.PasswordChar = '*';
             this.txtMKCu.Size = new System.Drawing.Size(219, 22);
             this.txtMKCu.TabIndex = 39;
             // 
@@ -138,6 +141,7 @@ namespace GUI_QLNhaHang
             this.btnDoiMatKhau.Text = "Đổi Mật Khẩu";
             this.btnDoiMatKhau.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDoiMatKhau.UseVisualStyleBackColor = false;
+            this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
             // picProfile
             // 

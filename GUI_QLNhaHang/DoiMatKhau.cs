@@ -7,14 +7,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BUS_QLNhaHang;
 namespace GUI_QLNhaHang
 {
     public partial class DoiMatKhau : Form
     {
-        public DoiMatKhau()
+        BUS_NguoiDung bus_nd = new BUS_NguoiDung();
+        public static string TaiKhoan;
+        public DoiMatKhau(string tk)
         {
             InitializeComponent();
+            TaiKhoan = tk;
+        }
+
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtMKCu.Text) &&
+                    !string.IsNullOrWhiteSpace(txtMKMoi.Text) &&
+                    !string.IsNullOrWhiteSpace(txtNhapLaiMK.Text))
+            {
+                if (txtMKMoi.Text == txtMKCu.Text)
+                {
+                    MessageBox.Show("Mật khẩu mới không được trùng với mật khẩu cũ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (txtNhapLaiMK.Text != txtMKMoi.Text)
+                {
+                    MessageBox.Show("Mật khẩu mới được nhập lại sai", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string encryptedOldPassword = bus_nd.Encryption(txtMKCu.Text);
+                string encryptedNewPassword = bus_nd.Encryption(txtMKMoi.Text);
+
+                if (!bus_nd.NguoiDungDoiMatKhau(TaiKhoan, encryptedOldPassword, encryptedNewPassword))
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Đổi mật khẩu thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không được bỏ trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

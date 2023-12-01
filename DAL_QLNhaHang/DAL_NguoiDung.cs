@@ -218,6 +218,33 @@ namespace DAL_QLNhaHang
             }
             return false;
         }
+        public bool NguoiDungDoiMatKhau(string taikhoan, string matkhaucu, string matkhaumoi)
+        {
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = _conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[ChangePassword]";
+                cmd.Parameters.AddWithValue("@taikhoan", taikhoan);
+                cmd.Parameters.AddWithValue("@matkhaucu", matkhaucu);
+                cmd.Parameters.AddWithValue("@matkhaumoi", matkhaumoi);
+
+                if (Convert.ToInt32(cmd.ExecuteScalar()) > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return false;
+        }
         public DataTable VaiTroNV(string taikhoan)
         {
             try
