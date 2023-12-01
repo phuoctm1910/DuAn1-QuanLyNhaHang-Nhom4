@@ -109,7 +109,7 @@ namespace GUI_QLNhaHang
             cboChucVu.SelectedIndex = -1;
             if (int.Parse(vaiTro) == 0)
             {
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
+                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnThemNgayVaoLam.Enabled = false;
                 txtTenNhanVien.Enabled = txtManv.Enabled = txtMatKhau.Enabled = txtTaiKhoan.Enabled = txtSDT.Enabled = rtbDiaChi.Enabled
                     = radNam.Enabled = radNu.Enabled = cboChucVu.Enabled = cboLuong.Enabled = cboNgayVaoLam.Enabled = dtpNgaySinh.Enabled = false;
             }
@@ -388,6 +388,10 @@ namespace GUI_QLNhaHang
             ResetValue();
         }
 
-
+        private void btnThemNgayVaoLam_Click(object sender, EventArgs e)
+        {
+            LichLam ll = new LichLam(vaiTro);
+            ll.Show();
+        }
     }
 }

@@ -47,13 +47,13 @@ namespace GUI_QLNhaHang
             // 
             // btnNext
             // 
-            this.btnNext.AutoEllipsis = true;
+            this.btnNext.AutoSize = true;
             this.btnNext.BackColor = System.Drawing.Color.LimeGreen;
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnNext.Location = new System.Drawing.Point(178, 224);
+            this.btnNext.Location = new System.Drawing.Point(142, 223);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(125, 51);
+            this.btnNext.Size = new System.Drawing.Size(181, 52);
             this.btnNext.TabIndex = 1;
             this.btnNext.Text = "Đến với đăng nhập";
             this.btnNext.UseVisualStyleBackColor = false;
@@ -61,12 +61,13 @@ namespace GUI_QLNhaHang
             // 
             // btnExit
             // 
+            this.btnExit.AutoSize = true;
             this.btnExit.BackColor = System.Drawing.Color.Red;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnExit.Location = new System.Drawing.Point(450, 223);
+            this.btnExit.Location = new System.Drawing.Point(437, 223);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(113, 53);
+            this.btnExit.Size = new System.Drawing.Size(184, 53);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "Thoát khỏi hệ thống";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -84,6 +85,7 @@ namespace GUI_QLNhaHang
             this.Name = "ManHinhChao";
             this.Text = "ManHinhChao";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

@@ -36,8 +36,6 @@ namespace GUI_QLNhaHang
             this.label4 = new System.Windows.Forms.Label();
             this.txtMKCu = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTaiKhoan = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
@@ -47,7 +45,7 @@ namespace GUI_QLNhaHang
             // 
             // txtNhapLaiMK
             // 
-            this.txtNhapLaiMK.Location = new System.Drawing.Point(374, 255);
+            this.txtNhapLaiMK.Location = new System.Drawing.Point(374, 208);
             this.txtNhapLaiMK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNhapLaiMK.Name = "txtNhapLaiMK";
             this.txtNhapLaiMK.Size = new System.Drawing.Size(219, 22);
@@ -56,7 +54,7 @@ namespace GUI_QLNhaHang
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(231, 258);
+            this.label5.Location = new System.Drawing.Point(231, 213);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(137, 17);
             this.label5.TabIndex = 44;
@@ -64,7 +62,7 @@ namespace GUI_QLNhaHang
             // 
             // txtMKMoi
             // 
-            this.txtMKMoi.Location = new System.Drawing.Point(374, 205);
+            this.txtMKMoi.Location = new System.Drawing.Point(374, 155);
             this.txtMKMoi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMKMoi.Name = "txtMKMoi";
             this.txtMKMoi.Size = new System.Drawing.Size(219, 22);
@@ -73,7 +71,7 @@ namespace GUI_QLNhaHang
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(231, 208);
+            this.label4.Location = new System.Drawing.Point(231, 160);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 17);
             this.label4.TabIndex = 42;
@@ -81,7 +79,7 @@ namespace GUI_QLNhaHang
             // 
             // txtMKCu
             // 
-            this.txtMKCu.Location = new System.Drawing.Point(374, 155);
+            this.txtMKCu.Location = new System.Drawing.Point(374, 105);
             this.txtMKCu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMKCu.Name = "txtMKCu";
             this.txtMKCu.Size = new System.Drawing.Size(219, 22);
@@ -90,28 +88,11 @@ namespace GUI_QLNhaHang
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(231, 158);
+            this.label3.Location = new System.Drawing.Point(231, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 17);
             this.label3.TabIndex = 38;
             this.label3.Text = "Mật Khẩu Cũ:";
-            // 
-            // txtTaiKhoan
-            // 
-            this.txtTaiKhoan.Location = new System.Drawing.Point(374, 105);
-            this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTaiKhoan.Name = "txtTaiKhoan";
-            this.txtTaiKhoan.Size = new System.Drawing.Size(219, 22);
-            this.txtTaiKhoan.TabIndex = 37;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(231, 108);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 17);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Tài Khoản:";
             // 
             // label1
             // 
@@ -131,7 +112,7 @@ namespace GUI_QLNhaHang
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ForeColor = System.Drawing.Color.White;
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.Location = new System.Drawing.Point(427, 311);
+            this.btnThoat.Location = new System.Drawing.Point(427, 277);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -148,7 +129,7 @@ namespace GUI_QLNhaHang
             this.btnDoiMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoiMatKhau.ForeColor = System.Drawing.Color.White;
             this.btnDoiMatKhau.Image = global::GUI_QLNhaHang.Properties.Resources.password;
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(180, 311);
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(163, 277);
             this.btnDoiMatKhau.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -161,10 +142,10 @@ namespace GUI_QLNhaHang
             // picProfile
             // 
             this.picProfile.Image = global::GUI_QLNhaHang.Properties.Resources.profile1;
-            this.picProfile.Location = new System.Drawing.Point(47, 105);
+            this.picProfile.Location = new System.Drawing.Point(48, 91);
             this.picProfile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.picProfile.Name = "picProfile";
-            this.picProfile.Size = new System.Drawing.Size(161, 167);
+            this.picProfile.Size = new System.Drawing.Size(140, 139);
             this.picProfile.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picProfile.TabIndex = 35;
             this.picProfile.TabStop = false;
@@ -183,8 +164,6 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.btnDoiMatKhau);
             this.Controls.Add(this.txtMKCu);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtTaiKhoan);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.picProfile);
             this.Controls.Add(this.label1);
             this.Name = "DoiMatKhau";
@@ -205,8 +184,6 @@ namespace GUI_QLNhaHang
         private System.Windows.Forms.Button btnDoiMatKhau;
         private System.Windows.Forms.TextBox txtMKCu;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTaiKhoan;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picProfile;
         private System.Windows.Forms.Label label1;
     }

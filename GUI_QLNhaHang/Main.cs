@@ -202,5 +202,12 @@ namespace GUI_QLNhaHang
         {
             ResetValue();
         }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DangNhap dn = new DangNhap();
+            dn.ShowDialog();
+        }
     }
 }

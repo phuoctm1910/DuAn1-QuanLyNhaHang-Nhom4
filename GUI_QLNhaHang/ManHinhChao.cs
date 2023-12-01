@@ -20,7 +20,8 @@ namespace GUI_QLNhaHang
         private void btnNext_Click(object sender, EventArgs e)
         {
             DangNhap dn = new DangNhap();
-            dn.Show();
+            this.Hide();
+            dn.ShowDialog();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
