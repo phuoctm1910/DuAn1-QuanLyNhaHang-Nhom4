@@ -287,7 +287,7 @@ namespace GUI_QLNhaHang
                 else
                 {
 
-                    HoaDonChiTiet hdct = new HoaDonChiTiet(txtMaHoaDon.Text, dtvDanhSachHoaDon.Rows[lst].Cells[2].Value.ToString());
+                    HoaDonChiTiet hdct = new HoaDonChiTiet(txtMaHoaDon.Text, dtvDanhSachHoaDon.Rows[lst].Cells[2].Value.ToString(), dtvDanhSachHoaDon.Rows[lst].Cells[1].Value.ToString());
                     hdct.OnCapNhatDuLieu += LoadDataHD;
                     hdct.OnHuyHoaDon += LoadDataHD;
                     hdct.Show();

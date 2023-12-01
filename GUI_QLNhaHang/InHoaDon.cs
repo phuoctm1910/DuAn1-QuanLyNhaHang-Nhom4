@@ -16,13 +16,15 @@ namespace GUI_QLNhaHang
     {
         public static string MaHD;
         public static string TenKH;
+        public static string TenNV;
         public static int TongTien;
         BUS_HoaDonChiTiet busHDCT = new BUS_HoaDonChiTiet();
-        public InHoaDon(string mahd, string tenkh, int tongtien)
+        public InHoaDon(string mahd, string tenkh, string tennv, int tongtien)
         {
             InitializeComponent();
             MaHD = mahd;
             TenKH = tenkh;
+            TenNV = tennv;
             TongTien = tongtien;
         }
         private void InHoaDon_Load(object sender, EventArgs e)
@@ -35,6 +37,7 @@ namespace GUI_QLNhaHang
             ReportParameter[] reportParameters = new ReportParameter[]
             {
                 new ReportParameter("TenKhachHang", TenKH),
+                new ReportParameter("TenNhanVien", TenNV),
                 new ReportParameter("TongTien", TongTien.ToString())
             };
             reportInHoaDon.LocalReport.DataSources.Clear();

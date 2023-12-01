@@ -19,16 +19,18 @@ namespace GUI_QLNhaHang
         public static string mahdct;
         public static string MaHD;
         public static string TenKH;
+        public static string TenNV;
         public static int tongtien;
         public delegate void CapNhatDuLieuHandler();
         public event CapNhatDuLieuHandler OnCapNhatDuLieu;
         public delegate void HuyHoaDonHandler();
         public event HuyHoaDonHandler OnHuyHoaDon;
-        public HoaDonChiTiet(string mahd, string tenkh)
+        public HoaDonChiTiet(string mahd, string tenkh, string tennv)
         {
             InitializeComponent();
             MaHD = mahd;
             TenKH = tenkh;
+            TenNV = tennv;
 
             this.txtThanhTien.TextChanged += new EventHandler(txtThanhTien_TextChanged);
             this.dvgThongTinCTHD.CellValueChanged += new DataGridViewCellEventHandler(dvgThongTinCTHD_CellValueChanged);
@@ -254,7 +256,7 @@ namespace GUI_QLNhaHang
             {
                 OnCapNhatDuLieu?.Invoke();
             }
-            InHoaDon inhoadon = new InHoaDon(txtMaHD.Text, TenKH, int.Parse(txtThanhTien.Text));
+            InHoaDon inhoadon = new InHoaDon(txtMaHD.Text, TenKH, TenNV, int.Parse(txtThanhTien.Text));
             inhoadon.Show();
         }
         private void dvgThongTinCTHD_DoubleClick(object sender, EventArgs e)
