@@ -258,8 +258,6 @@ namespace GUI_QLNhaHang
             {
                 MessageBox.Show("Tìm thành công");
                 dtvDanhSachHoaDon.DataSource = dtSearch;
-                ResetValue();
-                LoadDataHD();
             }
             else
             {
