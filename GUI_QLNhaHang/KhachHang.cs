@@ -14,11 +14,14 @@ namespace GUI_QLNhaHang
 {
     public partial class KhachHang : Form
     {
+        public static string vaiTro;
+
         BUS_KhachHang busKH = new BUS_KhachHang();
         DTO_KhachHang kh = new DTO_KhachHang();
-        public KhachHang()
+        public KhachHang(string vaitro)
         {
             InitializeComponent();
+            vaiTro = vaitro;
         }
         void LoadData()
         {
@@ -41,10 +44,10 @@ namespace GUI_QLNhaHang
             radNam.Checked = false;
             radNu.Checked = false;
             btnThem.Enabled = true;
-            //if (int.Parse(vaiTro) == 0)
-            //{
-            //    btnXoa.Enabled = false;
-            //}
+            if (int.Parse(vaiTro) == 0)
+            {
+                btnXoa.Enabled = false;
+            }
         }
 
         private void KhachHang_Load(object sender, EventArgs e)
