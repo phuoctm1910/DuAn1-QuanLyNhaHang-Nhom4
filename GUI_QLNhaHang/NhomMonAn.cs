@@ -24,7 +24,6 @@ namespace GUI_QLNhaHang
         }
         void LoadData()
         {
-            txtMaNhomMonAn.Enabled = false;
             dvDanhSachNhomMonAn.DataSource = busNMA.DanhSachNhomMonAn();
             dvDanhSachNhomMonAn.Columns[0].HeaderText = "Mã Nhóm";
             dvDanhSachNhomMonAn.Columns[1].HeaderText = "Tên Nhóm";
@@ -57,7 +56,7 @@ namespace GUI_QLNhaHang
             else
             {
                 nma = new DTO_NhomMonAn(txtTenNhomMonAn.Text);
-                if (busNMA.ThemNhomMonAn(nma))
+                if (busNMA.ThemNhomMonAn(nma, txtMaNhomMonAn.Text))
                 {
                     MessageBox.Show("Thêm thành công");
                     ResetValues();
@@ -138,7 +137,6 @@ namespace GUI_QLNhaHang
                 }
                 else
                 {
-                    txtMaNhomMonAn.Enabled = false;
                     int lst = dvDanhSachNhomMonAn.CurrentRow.Index;
                     txtMaNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[0].Value.ToString();
                     txtTenNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[1].Value.ToString();

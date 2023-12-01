@@ -103,7 +103,8 @@ namespace GUI_QLNhaHang
             txtSDT.Clear();
             rtbDiaChi.Clear();
             txtTimKiem.Text = "Nhập tên NV";
-
+            txtMatKhau.Enabled = true;
+            btnThem.Enabled = true;
             cboNgayVaoLam.Text = null;
             cboLuong.SelectedIndex = -1;
             cboChucVu.SelectedIndex = -1;

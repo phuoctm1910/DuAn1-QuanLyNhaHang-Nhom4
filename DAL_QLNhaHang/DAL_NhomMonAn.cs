@@ -31,7 +31,7 @@ namespace DAL_QLNhaHang
             }
             finally { _conn.Close(); }
         }
-        public bool ThemNhomMonAn(DTO_NhomMonAn nma)
+        public bool ThemNhomMonAn(DTO_NhomMonAn nma, string manhom)
         {
             try
             {
@@ -40,6 +40,7 @@ namespace DAL_QLNhaHang
                 cmd.Connection = _conn;
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "[InsertNhomMonAn]";
+                cmd.Parameters.AddWithValue("manhom", manhom);
                 cmd.Parameters.AddWithValue("tennhom", nma.TenNhomMonAn);
                 if (cmd.ExecuteNonQuery() > 0)
                 {

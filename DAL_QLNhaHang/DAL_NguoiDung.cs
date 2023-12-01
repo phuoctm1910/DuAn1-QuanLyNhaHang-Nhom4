@@ -20,7 +20,7 @@ namespace DAL_QLNhaHang
                 _conn.Open();
                 SqlCommand cmd = new SqlCommand();
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "[DanhSachLichLam]";
+                cmd.CommandText = "[LayLichLam]";
                 cmd.Connection = _conn;
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());

@@ -16,9 +16,9 @@ namespace BUS_QLNhaHang
         {
             return dalNhommonan.DanhSachNhomMonAn();
         }
-        public bool ThemNhomMonAn(DTO_NhomMonAn nma)
+        public bool ThemNhomMonAn(DTO_NhomMonAn nma, string manhom)
         {
-            return dalNhommonan.ThemNhomMonAn(nma);
+            return dalNhommonan.ThemNhomMonAn(nma, manhom);
         }
         public bool CapNhatNhomMonAn(DTO_NhomMonAn nma, string ma)
         {
