@@ -28,6 +28,7 @@ namespace GUI_QLNhaHang
             dvDanhSachLichLam.DataSource = busLL.DanhSachLichLam();
             dvDanhSachLichLam.Columns[0].HeaderText = "ID Lịch Làm";
             dvDanhSachLichLam.Columns[1].HeaderText = "Lịch Làm";
+            dvDanhSachLichLam.Columns[2].HeaderText = "Tên Nhân Viên";
         }
         private void LichLam_Load(object sender, EventArgs e)
         {
