@@ -213,7 +213,7 @@
             // txtManv
             // 
             this.txtManv.Location = new System.Drawing.Point(217, 86);
-            this.txtManv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtManv.Margin = new System.Windows.Forms.Padding(4);
             this.txtManv.Name = "txtManv";
             this.txtManv.Size = new System.Drawing.Size(237, 22);
             this.txtManv.TabIndex = 13;
@@ -221,7 +221,7 @@
             // txtTenNhanVien
             // 
             this.txtTenNhanVien.Location = new System.Drawing.Point(217, 142);
-            this.txtTenNhanVien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.Size = new System.Drawing.Size(237, 22);
             this.txtTenNhanVien.TabIndex = 14;
@@ -229,7 +229,7 @@
             // txtTaiKhoan
             // 
             this.txtTaiKhoan.Location = new System.Drawing.Point(217, 201);
-            this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
             this.txtTaiKhoan.Size = new System.Drawing.Size(237, 22);
             this.txtTaiKhoan.TabIndex = 15;
@@ -237,7 +237,7 @@
             // txtMatKhau
             // 
             this.txtMatKhau.Location = new System.Drawing.Point(217, 258);
-            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMatKhau.Margin = new System.Windows.Forms.Padding(4);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(237, 22);
@@ -247,7 +247,7 @@
             // 
             this.cboChucVu.FormattingEnabled = true;
             this.cboChucVu.Location = new System.Drawing.Point(217, 311);
-            this.cboChucVu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboChucVu.Margin = new System.Windows.Forms.Padding(4);
             this.cboChucVu.Name = "cboChucVu";
             this.cboChucVu.Size = new System.Drawing.Size(237, 24);
             this.cboChucVu.TabIndex = 17;
@@ -258,7 +258,7 @@
             this.radNam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radNam.ForeColor = System.Drawing.Color.Black;
             this.radNam.Location = new System.Drawing.Point(635, 85);
-            this.radNam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radNam.Margin = new System.Windows.Forms.Padding(4);
             this.radNam.Name = "radNam";
             this.radNam.Size = new System.Drawing.Size(65, 24);
             this.radNam.TabIndex = 18;
@@ -272,7 +272,7 @@
             this.radNu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radNu.ForeColor = System.Drawing.Color.Black;
             this.radNu.Location = new System.Drawing.Point(740, 85);
-            this.radNu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.radNu.Margin = new System.Windows.Forms.Padding(4);
             this.radNu.Name = "radNu";
             this.radNu.Size = new System.Drawing.Size(51, 24);
             this.radNu.TabIndex = 19;
@@ -283,7 +283,7 @@
             // rtbDiaChi
             // 
             this.rtbDiaChi.Location = new System.Drawing.Point(505, 169);
-            this.rtbDiaChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtbDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.rtbDiaChi.Name = "rtbDiaChi";
             this.rtbDiaChi.Size = new System.Drawing.Size(367, 110);
             this.rtbDiaChi.TabIndex = 20;
@@ -292,7 +292,7 @@
             // txtSDT
             // 
             this.txtSDT.Location = new System.Drawing.Point(635, 311);
-            this.txtSDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSDT.Margin = new System.Windows.Forms.Padding(4);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(237, 22);
             this.txtSDT.TabIndex = 21;
@@ -301,7 +301,7 @@
             // 
             this.cboLuong.FormattingEnabled = true;
             this.cboLuong.Location = new System.Drawing.Point(1104, 198);
-            this.cboLuong.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboLuong.Margin = new System.Windows.Forms.Padding(4);
             this.cboLuong.Name = "cboLuong";
             this.cboLuong.Size = new System.Drawing.Size(265, 24);
             this.cboLuong.TabIndex = 24;
@@ -310,7 +310,7 @@
             // 
             this.dtvDanhSachNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtvDanhSachNhanVien.Location = new System.Drawing.Point(16, 406);
-            this.dtvDanhSachNhanVien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtvDanhSachNhanVien.Margin = new System.Windows.Forms.Padding(4);
             this.dtvDanhSachNhanVien.Name = "dtvDanhSachNhanVien";
             this.dtvDanhSachNhanVien.RowHeadersWidth = 51;
             this.dtvDanhSachNhanVien.Size = new System.Drawing.Size(1391, 303);
@@ -321,10 +321,11 @@
             // txtTimKiem
             // 
             this.txtTimKiem.Location = new System.Drawing.Point(928, 361);
-            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTimKiem.Margin = new System.Windows.Forms.Padding(4);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(316, 22);
             this.txtTimKiem.TabIndex = 26;
+            this.txtTimKiem.Click += new System.EventHandler(this.txtTimKiem_Click);
             // 
             // btnSua
             // 
@@ -335,7 +336,7 @@
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Image = global::GUI_QLNhaHang.Properties.Resources.profile;
             this.btnSua.Location = new System.Drawing.Point(561, 741);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnSua.Size = new System.Drawing.Size(109, 51);
@@ -365,7 +366,7 @@
             this.btnLamMoi.ForeColor = System.Drawing.Color.White;
             this.btnLamMoi.Image = global::GUI_QLNhaHang.Properties.Resources.loading_arrow;
             this.btnLamMoi.Location = new System.Drawing.Point(729, 741);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnLamMoi.Size = new System.Drawing.Size(166, 51);
@@ -384,7 +385,7 @@
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Image = global::GUI_QLNhaHang.Properties.Resources.delete_user;
             this.btnXoa.Location = new System.Drawing.Point(943, 741);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnXoa.Size = new System.Drawing.Size(109, 51);
@@ -403,7 +404,7 @@
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Image = global::GUI_QLNhaHang.Properties.Resources.add_user__1_;
             this.btnThem.Location = new System.Drawing.Point(372, 741);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnThem.Size = new System.Drawing.Size(130, 51);
@@ -424,7 +425,7 @@
             this.btnTimKiem.Image = global::GUI_QLNhaHang.Properties.Resources.icons8_magnifying_glass_24;
             this.btnTimKiem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnTimKiem.Location = new System.Drawing.Point(1253, 353);
-            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimKiem.Name = "btnTimKiem";
             this.btnTimKiem.Size = new System.Drawing.Size(151, 37);
             this.btnTimKiem.TabIndex = 27;
@@ -437,7 +438,7 @@
             // 
             this.cboNgayVaoLam.FormattingEnabled = true;
             this.cboNgayVaoLam.Location = new System.Drawing.Point(1104, 140);
-            this.cboNgayVaoLam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboNgayVaoLam.Margin = new System.Windows.Forms.Padding(4);
             this.cboNgayVaoLam.Name = "cboNgayVaoLam";
             this.cboNgayVaoLam.Size = new System.Drawing.Size(265, 24);
             this.cboNgayVaoLam.TabIndex = 78;
@@ -515,7 +516,7 @@
             this.Controls.Add(this.label8);
             this.ForeColor = System.Drawing.Color.Sienna;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NhanVien";
             this.Text = "Nhân Viên";
             this.Load += new System.EventHandler(this.NhanVien_Load);

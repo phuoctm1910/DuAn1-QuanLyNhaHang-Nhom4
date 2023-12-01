@@ -175,7 +175,7 @@ namespace DAL_QLNhaHang
             return false;
 
         }
-        public DataTable SearchNguoiDung(DTO_NguoiDung ND, string manv)
+        public DataTable SearchNguoiDung(string manv)
         {
             try
             {

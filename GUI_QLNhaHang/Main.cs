@@ -201,6 +201,8 @@ namespace GUI_QLNhaHang
         private void Main_Load(object sender, EventArgs e)
         {
             ResetValue();
+            ManHinhChao mha = new ManHinhChao();
+            mha.Close();
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)

@@ -47,9 +47,9 @@ namespace BUS_QLNhaHang
         {
             return dalnguoidung.XoaNguoiDung(ND, manv);
         }
-        public DataTable SearchNguoiDung(DTO_NguoiDung ND, string manv)
+        public DataTable SearchNguoiDung(string manv)
         {
-            return dalnguoidung.SearchNguoiDung(ND, manv);
+            return dalnguoidung.SearchNguoiDung(manv);
         }
         public bool NguoiDungDangNhap(string taikhoan, string matkhau)
         {

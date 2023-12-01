@@ -102,7 +102,7 @@ namespace GUI_QLNhaHang
             txtMatKhau.Clear();
             txtSDT.Clear();
             rtbDiaChi.Clear();
-            txtTimKiem.Text = "Nhập tên NV";
+            txtTimKiem.Text = "Nhập mã NV";
             txtMatKhau.Enabled = true;
             btnThem.Enabled = true;
             cboNgayVaoLam.Text = null;
@@ -376,7 +376,7 @@ namespace GUI_QLNhaHang
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            DataTable dtSearch = busND.SearchNguoiDung(ND, txtManv.Text);
+            DataTable dtSearch = busND.SearchNguoiDung(txtTimKiem.Text);
             if (dtSearch.Rows.Count > 0)
             {
                 MessageBox.Show("Tìm thành công");
@@ -393,6 +393,13 @@ namespace GUI_QLNhaHang
         {
             LichLam ll = new LichLam(vaiTro);
             ll.Show();
+        }
+
+        private void txtTimKiem_Click(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            textBox.BackColor = Color.White;
+            textBox.Text = "";
         }
     }
 }
