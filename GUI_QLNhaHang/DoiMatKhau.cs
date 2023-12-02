@@ -55,5 +55,10 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Không được bỏ trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

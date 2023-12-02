@@ -100,6 +100,7 @@ namespace GUI_QLNhaHang
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
             this.thoátToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
             this.thoátToolStripMenuItem.Text = "Thoát Hệ Thống";
+            this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
             // quảnLýToolStripMenuItem
             // 

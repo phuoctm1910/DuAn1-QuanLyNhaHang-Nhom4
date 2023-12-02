@@ -17,7 +17,6 @@ namespace GUI_QLNhaHang
         public Main(string tk, string vaitro, int session)
         {
             InitializeComponent();
-            this.IsMdiContainer = true;
             lblXinChao.Text = tk;
             Session = session;
             vaiTro = vaitro;
@@ -210,6 +209,11 @@ namespace GUI_QLNhaHang
             this.Hide();
             DangNhap dn = new DangNhap();
             dn.ShowDialog();
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
