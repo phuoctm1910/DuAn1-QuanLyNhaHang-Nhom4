@@ -1,6 +1,6 @@
 ﻿namespace GUI_QLNhaHang
 {
-    partial class NhanVien
+    partial class NguoiDung
     {
         /// <summary>
         /// Required designer variable.
@@ -60,7 +60,6 @@
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.cboNgayVaoLam = new System.Windows.Forms.ComboBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnThemNgayVaoLam = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtvDanhSachNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -452,15 +451,6 @@
             this.dtpNgaySinh.Size = new System.Drawing.Size(299, 22);
             this.dtpNgaySinh.TabIndex = 90;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 91;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // btnThemNgayVaoLam
             // 
             this.btnThemNgayVaoLam.AutoSize = true;
@@ -473,7 +463,7 @@
             this.btnThemNgayVaoLam.UseVisualStyleBackColor = false;
             this.btnThemNgayVaoLam.Click += new System.EventHandler(this.btnThemNgayVaoLam_Click);
             // 
-            // NhanVien
+            // NguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -481,7 +471,6 @@
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1423, 814);
             this.Controls.Add(this.btnThemNgayVaoLam);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.cboNgayVaoLam);
             this.Controls.Add(this.pictureBox1);
@@ -517,7 +506,7 @@
             this.ForeColor = System.Drawing.Color.Sienna;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "NhanVien";
+            this.Name = "NguoiDung";
             this.Text = "Nhân Viên";
             this.Load += new System.EventHandler(this.NhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtvDanhSachNhanVien)).EndInit();
@@ -561,7 +550,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cboNgayVaoLam;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnThemNgayVaoLam;
     }
 }

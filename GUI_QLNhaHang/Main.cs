@@ -87,10 +87,9 @@ namespace GUI_QLNhaHang
         }
         private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NhanVien nv = new NhanVien(vaiTro, lblXinChao.Text);
+            NguoiDung nv = new NguoiDung(vaiTro, lblXinChao.Text);
             if (!CheckExistForm("NhanVien"))
             {
-                nv.MdiParent = this;
                 nv.Show();
                 nv.FormClosed += new FormClosedEventHandler(frm_FromClose);
             }
@@ -160,7 +159,6 @@ namespace GUI_QLNhaHang
             HoaDon sp = new HoaDon(vaiTro);
             if (!CheckExistForm("HoaDon"))
             {
-                sp.MdiParent = this;
                 sp.Show();
                 sp.FormClosed += new FormClosedEventHandler(frm_FromClose);
             }

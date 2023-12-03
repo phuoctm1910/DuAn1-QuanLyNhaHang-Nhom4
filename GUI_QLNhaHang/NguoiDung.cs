@@ -9,16 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace GUI_QLNhaHang
 {
-    public partial class NhanVien : Form
+    public partial class NguoiDung : Form
     {
         public static string taiKhoan;
         public static string vaiTro;
         BUS_NguoiDung busND = new BUS_NguoiDung();
         DTO_NguoiDung ND = new DTO_NguoiDung();
-        public NhanVien(string vaitro, string taikhoan)
+        public NguoiDung(string vaitro, string taikhoan)
         {
             InitializeComponent();
             LayVaiTro();
@@ -104,6 +105,9 @@ namespace GUI_QLNhaHang
             rtbDiaChi.Clear();
             txtTimKiem.Text = "Nhập mã NV";
             txtMatKhau.Enabled = true;
+            txtTaiKhoan.Enabled = true;
+            radNam.Checked = false;
+            radNu.Checked = false;
             btnThem.Enabled = true;
             cboNgayVaoLam.Text = null;
             cboLuong.SelectedIndex = -1;
@@ -127,6 +131,7 @@ namespace GUI_QLNhaHang
                 btnThem.Enabled = false;
                 txtMatKhau.Enabled = false;
                 txtManv.Enabled = false;
+                txtTaiKhoan.Enabled = false;
                 int lst = dtvDanhSachNhanVien.CurrentRow.Index;
                 txtManv.Text = dtvDanhSachNhanVien.Rows[lst].Cells[0].Value.ToString();
                 txtTaiKhoan.Text = dtvDanhSachNhanVien.Rows[lst].Cells[1].Value.ToString();
@@ -176,30 +181,65 @@ namespace GUI_QLNhaHang
             }
         }
 
+        private bool IsTaiKhoanExists(string taiKhoan)
+        {
+            foreach (DataGridViewRow row in dtvDanhSachNhanVien.Rows)
+            {
+                if (row.Cells[1].Value != null && row.Cells[1].Value.ToString() == taiKhoan)
+                {
+                    return true;
+                }
+            }
+            return false; 
+        }
+
+        private bool IsSoDienThoaiExists(string sodt)
+        {
+            foreach (DataGridViewRow row in dtvDanhSachNhanVien.Rows)
+            {
+                if (row.Cells[6].Value != null && row.Cells[6].Value.ToString() == sodt)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool IsTenNhanVienValid(string ten)
+        {
+            return Regex.IsMatch(ten, "^[a-zA-ZÀ-Ỹà-ỹ\\s]+$");
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
-            float intDienThoai;
-            bool isInt = float.TryParse(txtSDT.Text.Trim().ToString(), out intDienThoai);
-            string phai;
+            string tenNhanVien = txtTenNhanVien.Text.Trim();
+            string sdt = txtSDT.Text.Trim();
+            string taiKhoan = txtTaiKhoan.Text.Trim();
+            string matkhau = txtMatKhau.Text.Trim();
 
-
-            if (radNam.Checked)
-            { phai = radNam.Text; }
-            else
-            { phai = radNu.Text; }
-            if (string.IsNullOrEmpty(txtTenNhanVien.Text))
+            if (string.IsNullOrEmpty(tenNhanVien))
             {
                 MessageBox.Show("Bạn chưa nhập tên nhân viên");
                 txtTenNhanVien.Focus();
             }
-            else if (string.IsNullOrEmpty(txtTaiKhoan.Text))
+            else if (!IsTenNhanVienValid(tenNhanVien))
             {
-                MessageBox.Show("Bạn chưa nhập tài khoản");
+                MessageBox.Show("Tên nhân viên không hợp lệ. Tên chỉ được chứa chữ cái tiếng Việt và khoảng trắng.");
+                txtTenNhanVien.Focus();
+            }
+            else if (string.IsNullOrEmpty(taiKhoan) || taiKhoan.Length < 5)
+            {
+                MessageBox.Show("Bạn chưa nhập tài khoản và tài khoản phải dài hơn hoặc bằng 5 kí tự");
                 txtTaiKhoan.Focus();
             }
-            else if (string.IsNullOrEmpty(txtMatKhau.Text))
+            else if (IsTaiKhoanExists(taiKhoan))
             {
-                MessageBox.Show("Bạn chưa nhập mật khẩu");
+                MessageBox.Show("Tài khoản đã tồn tại. Vui lòng nhập tài khoản khác.");
+                txtTaiKhoan.Focus();
+            }
+            else if (string.IsNullOrEmpty(matkhau) || matkhau.Length < 6)
+            {
+                MessageBox.Show("Bạn chưa nhập mật khẩu và phải dài hơn 6 kí tự");
                 txtMatKhau.Focus();
             }
             else if (string.IsNullOrEmpty(cboChucVu.Text))
@@ -207,7 +247,7 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn chưa chọn chức vụ");
                 cboChucVu.Focus();
             }
-            else if (radNam.Checked == false && radNu.Checked == false)
+            else if (!(radNam.Checked || radNu.Checked))
             {
                 MessageBox.Show("Bạn chưa chọn giới tính nhân viên");
                 cboChucVu.Focus();
@@ -217,20 +257,20 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn chưa nhập địa chỉ");
                 rtbDiaChi.Focus();
             }
-            else if (!isInt || float.Parse(txtSDT.Text) < 0)
+            else if (string.IsNullOrEmpty(sdt))
             {
-                MessageBox.Show("Bạn phải nhập số lớn hơn 0 và phải là số nguyên");
+                MessageBox.Show("Bạn chưa nhập số điện thoại");
                 txtSDT.Focus();
             }
-            else if (txtSDT.TextLength < 10)
+            else if (!Regex.IsMatch(sdt, "^[0-9]+$") || sdt.Length < 10 || sdt.Length > 11)
             {
-                MessageBox.Show("Bạn phải nhập số điện thoại đủ 10-11 số");
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại đủ 10-11 số và không chứa ký tự đặc biệt.");
                 txtSDT.Focus();
             }
-            else if (string.IsNullOrEmpty(dtpNgaySinh.Text))
+            else if (IsSoDienThoaiExists(sdt))
             {
-                MessageBox.Show("Bạn chưa chọn ngày sinh");
-                dtpNgaySinh.Focus();
+                MessageBox.Show("Số điện thoại đã tồn tại. Vui lòng nhập số điện thoại khác.");
+                txtSDT.Focus();
             }
             else if (string.IsNullOrEmpty(cboNgayVaoLam.Text))
             {
@@ -244,10 +284,11 @@ namespace GUI_QLNhaHang
             }
             else
             {
-
+                string phai = radNam.Checked ? radNam.Text : radNu.Text;
                 string matkhaumd5 = busND.Encryption(txtMatKhau.Text);
-                ND = new DTO_NguoiDung(txtTaiKhoan.Text, matkhaumd5, txtTenNhanVien.Text, phai, rtbDiaChi.Text,
-                    txtSDT.Text, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
+                ND = new DTO_NguoiDung(txtTaiKhoan.Text, matkhaumd5, tenNhanVien, phai, rtbDiaChi.Text,
+                    sdt, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
+
                 if (busND.ThemNguoiDung(ND))
                 {
                     MessageBox.Show("Thêm nhân viên thành công!");
@@ -263,36 +304,31 @@ namespace GUI_QLNhaHang
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            float intDienThoai;
-            bool isInt = float.TryParse(txtSDT.Text.Trim().ToString(), out intDienThoai);
-            string phai;
+            string tenNhanVien = txtTenNhanVien.Text.Trim();
+            string sdt = txtSDT.Text.Trim();
+            string taiKhoan = txtTaiKhoan.Text.Trim();
 
-
-            if (radNam.Checked)
-            { phai = radNam.Text; }
-            else
-            { phai = radNu.Text; }
-            if (string.IsNullOrEmpty(txtTenNhanVien.Text))
+            if (string.IsNullOrEmpty(tenNhanVien))
             {
                 MessageBox.Show("Bạn chưa nhập tên nhân viên");
                 txtTenNhanVien.Focus();
             }
-            else if (string.IsNullOrEmpty(txtTaiKhoan.Text))
+            else if (!IsTenNhanVienValid(tenNhanVien))
             {
-                MessageBox.Show("Bạn chưa nhập tài khoản");
-                txtTaiKhoan.Focus();
+                MessageBox.Show("Tên nhân viên không hợp lệ. Tên chỉ được chứa chữ cái tiếng Việt và khoảng trắng.");
+                txtTenNhanVien.Focus();
             }
-            else if (string.IsNullOrEmpty(txtMatKhau.Text))
+            else if (string.IsNullOrEmpty(taiKhoan) || taiKhoan.Length < 5)
             {
-                MessageBox.Show("Bạn chưa nhập mật khẩu");
-                txtMatKhau.Focus();
+                MessageBox.Show("Bạn chưa nhập tài khoản và tài khoản phải dài hơn hoặc bằng 5 kí tự");
+                txtTaiKhoan.Focus();
             }
             else if (string.IsNullOrEmpty(cboChucVu.Text))
             {
                 MessageBox.Show("Bạn chưa chọn chức vụ");
                 cboChucVu.Focus();
             }
-            else if (radNam.Checked == false && radNu.Checked == false)
+            else if (!(radNam.Checked || radNu.Checked))
             {
                 MessageBox.Show("Bạn chưa chọn giới tính nhân viên");
                 cboChucVu.Focus();
@@ -302,20 +338,15 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn chưa nhập địa chỉ");
                 rtbDiaChi.Focus();
             }
-            else if (!isInt || float.Parse(txtSDT.Text) < 0)
+            else if (string.IsNullOrEmpty(sdt))
             {
-                MessageBox.Show("Bạn phải nhập số lớn hơn 0 và phải là số nguyên");
+                MessageBox.Show("Bạn chưa nhập số điện thoại");
                 txtSDT.Focus();
             }
-            else if (txtSDT.TextLength < 10)
+            else if (!Regex.IsMatch(sdt, "^[0-9]+$") || sdt.Length < 10 || sdt.Length > 11)
             {
-                MessageBox.Show("Bạn phải nhập số điện thoại đủ 10-11 số");
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại đủ 10-11 số và không chứa ký tự đặc biệt.");
                 txtSDT.Focus();
-            }
-            else if (string.IsNullOrEmpty(dtpNgaySinh.Text))
-            {
-                MessageBox.Show("Bạn chưa chọn ngày sinh");
-                dtpNgaySinh.Focus();
             }
             else if (string.IsNullOrEmpty(cboNgayVaoLam.Text))
             {
@@ -329,21 +360,23 @@ namespace GUI_QLNhaHang
             }
             else
             {
+                string phai = radNam.Checked ? radNam.Text : radNu.Text;
                 string matkhaumd5 = busND.Encryption(txtMatKhau.Text);
-                ND = new DTO_NguoiDung(txtTaiKhoan.Text, matkhaumd5, txtTenNhanVien.Text, phai, rtbDiaChi.Text,
-                    txtSDT.Text, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
-                DialogResult result = MessageBox.Show("Bạn có thật sự muốn sửa không", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                ND = new DTO_NguoiDung(txtTaiKhoan.Text, matkhaumd5, tenNhanVien, phai, rtbDiaChi.Text,
+                    sdt, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
+
                 if (busND.CapNhatNguoiDung(ND, txtManv.Text))
                 {
-                    MessageBox.Show("Sữa thông tin nhân viên thành công!");
+                    MessageBox.Show("Sửa nhân viên thành công!");
                     LoadDataND();
                     ResetValue();
                 }
                 else
                 {
-                    MessageBox.Show("Sữa thông tin thất bại!!!");
+                    MessageBox.Show("Sửa thất bại!!!");
                 }
             }
+
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
