@@ -14,13 +14,11 @@ namespace GUI_QLNhaHang
 {
     public partial class Calender : Form
     {
+        DTO_Cons Cons = new DTO_Cons();
         #region Peoperties
         private List<List<Button>> matrix;
         private List<string> dateOfWeek = new List<string>(){ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         #endregion
-        public static int dateButtonWidth = 56;
-        public static int dateButtonHeight = 40;
-        public static int margin = 5;
 
         public List<List<Button>> Matrix { get => matrix; set => matrix = value; }
 
@@ -45,21 +43,21 @@ namespace GUI_QLNhaHang
         {
             Matrix = new List<List<Button>>();
 
-            Button oldbtn = new Button() { Width = 0, Height = 0, Location = new Point(-margin, 0) };
-            for (int i = 0; i < 6; i++)
+            Button oldbtn = new Button() { Width = 0, Height = 0, Location = new Point(-Cons.margin, 0) };
+            for (int i = 0; i < Cons.Column; i++)
             {
                 Matrix.Add(new List<Button>());
-                for (int j = 0; j < 7; j++)
+                for (int j = 0; j < Cons.Rows; j++)
                 {
-                    Button btn = new Button() { Width = dateButtonWidth, Height = dateButtonHeight };
-                    btn.Location = new Point(oldbtn.Location.X + oldbtn.Width + margin, oldbtn.Location.Y);
+                    Button btn = new Button() { Width = Cons.dateButtonWidth, Height = Cons.dateButtonHeight };
+                    btn.Location = new Point(oldbtn.Location.X + oldbtn.Width + Cons.margin, oldbtn.Location.Y);
 
                     pnlMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
 
                     oldbtn = btn;
                 }
-                oldbtn = new Button() { Width = 0, Height = 0, Location = new Point(-margin, oldbtn.Location.Y + dateButtonHeight) };
+                oldbtn = new Button() { Width = 0, Height = 0, Location = new Point(-Cons.margin, oldbtn.Location.Y + Cons.dateButtonHeight) };
             }
             SetDefaultDate();
         }
@@ -119,7 +117,6 @@ namespace GUI_QLNhaHang
                 useDate = useDate.AddDays(1);
             }
         }
-
         bool isEqualDate(DateTime dateA, DateTime dateB)
         {
             return dateA.Year == dateB.Year && dateA.Month == dateB.Month && dateA.Day == dateB.Day;

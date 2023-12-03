@@ -11,8 +11,8 @@ namespace DTO_QLNhaHang
         public int Rows = 7;
         public int Column = 6;
 
-        public int dateButtonWidth = 75;
-        public int dateButtonHeight = 51;
-        public int margin = 6;
+        public  int dateButtonWidth = 56;
+        public  int dateButtonHeight = 40;
+        public  int margin = 5;
     }
 }
