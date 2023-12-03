@@ -96,6 +96,12 @@
     <Compile Include="Calender.Designer.cs">
       <DependentUpon>Calender.cs</DependentUpon>
     </Compile>
+    <Compile Include="DailyPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DailyPlan.Designer.cs">
+      <DependentUpon>DailyPlan.cs</DependentUpon>
+    </Compile>
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Calender.resx">
       <DependentUpon>Calender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DailyPlan.resx">
+      <DependentUpon>DailyPlan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>

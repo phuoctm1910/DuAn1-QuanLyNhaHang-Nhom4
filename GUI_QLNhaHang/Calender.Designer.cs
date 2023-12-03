@@ -34,7 +34,7 @@ namespace GUI_QLNhaHang
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.btnToday = new System.Windows.Forms.Button();
             this.btnMonday = new System.Windows.Forms.Button();
             this.btnTuesday = new System.Windows.Forms.Button();
@@ -78,7 +78,7 @@ namespace GUI_QLNhaHang
             // 
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.btnToday);
-            this.panel3.Controls.Add(this.dateTimePicker1);
+            this.panel3.Controls.Add(this.dtpDate);
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(769, 35);
@@ -107,14 +107,14 @@ namespace GUI_QLNhaHang
             this.panel5.Size = new System.Drawing.Size(691, 359);
             this.panel5.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dtpDate
             // 
-            this.dateTimePicker1.CustomFormat = "dddd,  dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(257, 6);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(219, 22);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dtpDate.CustomFormat = "dddd,  dd/MM/yyyy";
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpDate.Location = new System.Drawing.Point(257, 6);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(219, 22);
+            this.dtpDate.TabIndex = 0;
             // 
             // btnToday
             // 
@@ -282,7 +282,7 @@ namespace GUI_QLNhaHang
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
