@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS_QLNhaHang;
@@ -41,6 +42,10 @@ namespace GUI_QLNhaHang
                 txtTenNhomMonAn.Clear();
             }
         }
+        private bool IsTenValid(string ten)
+        {
+            return Regex.IsMatch(ten, "^[a-zA-ZÀ-Ỹà-ỹ\\s]+$");
+        }
         private void NhomMonAn_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -48,10 +53,15 @@ namespace GUI_QLNhaHang
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
+            string tenNMA = txtTenNhomMonAn.Text.Trim();
             if (string.IsNullOrEmpty(txtTenNhomMonAn.Text))
             {
                 MessageBox.Show("Bạn chưa nhập tên nhóm món ăn");
                 txtTenNhomMonAn.Focus();
+            }
+            else if (true)
+            {
+
             }
             else
             {
@@ -68,7 +78,6 @@ namespace GUI_QLNhaHang
                 }
             }
         }
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtMaNhomMonAn.Text))
@@ -95,7 +104,6 @@ namespace GUI_QLNhaHang
                 }
             }
         }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn có thật sự muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -117,12 +125,10 @@ namespace GUI_QLNhaHang
                 ResetValues();
             }
         }
-
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             ResetValues();
         }
-
         private void dvDanhSachNhomMonAn_DoubleClick(object sender, EventArgs e)
         {
             if (dvDanhSachNhomMonAn.Rows.Count <= 0)
