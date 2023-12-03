@@ -18,9 +18,10 @@ namespace GUI_QLNhaHang
         #region Peoperties
         private List<List<Button>> matrix;
         private List<string> dateOfWeek = new List<string>(){ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-        #endregion
-
+        private PlaneData job;
         public List<List<Button>> Matrix { get => matrix; set => matrix = value; }
+        public PlaneData Job { get => job; set => job = value; }
+        #endregion
 
         public Calender()
         {

@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +51,8 @@
     <Compile Include="DTO_BanAn.cs" />
     <Compile Include="DTO_LichLam.cs" />
     <Compile Include="DTO_NhomMonAn.cs" />
+    <Compile Include="PlaneData.cs" />
+    <Compile Include="PlanItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
