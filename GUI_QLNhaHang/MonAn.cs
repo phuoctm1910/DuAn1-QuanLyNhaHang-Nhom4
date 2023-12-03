@@ -71,7 +71,6 @@ namespace GUI_QLNhaHang
             }
             return false;
         }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             string nhomMA = cboNhomMonAn.SelectedValue.ToString();
