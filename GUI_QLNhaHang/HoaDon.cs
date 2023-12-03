@@ -127,17 +127,7 @@ namespace GUI_QLNhaHang
             float giamGia;
             float.TryParse(txtGiamGia.Text, out giamGia);
 
-            if (string.IsNullOrEmpty(dtpNgayLap.Text))
-            {
-                MessageBox.Show("Bạn chưa nhập ngày lập hóa đơn ");
-                dtpNgayLap.Focus();
-            }
-            if (string.IsNullOrEmpty(txtTrangThai.Text))
-            {
-                MessageBox.Show("Bạn chưa chọn trạng thái");
-                txtTrangThai.Focus();
-            }
-            else if (string.IsNullOrEmpty(cboNhanVien.Text))
+             if (string.IsNullOrEmpty(cboNhanVien.Text))
             {
                 MessageBox.Show("Bạn chưa chọn nhân viên");
                 cboNhanVien.Focus();
@@ -151,6 +141,11 @@ namespace GUI_QLNhaHang
             {
                 MessageBox.Show("Bạn chưa chọn bàn ăn");
                 cboBanAn.Focus();
+            }
+            else if (string.IsNullOrEmpty(txtGiamGia.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập giảm giá");
+                txtGiamGia.Focus();
             }
             else
             {
