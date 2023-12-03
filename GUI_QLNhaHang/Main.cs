@@ -103,7 +103,6 @@ namespace GUI_QLNhaHang
             KhachHang kh = new KhachHang(vaiTro);
             if (!CheckExistForm("KhachHang"))
             {
-                kh.MdiParent = this;
                 kh.Show();
                 kh.FormClosed += new FormClosedEventHandler(frm_FromClose);
             }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS_QLNhaHang;
@@ -57,25 +58,46 @@ namespace GUI_QLNhaHang
             ResetValues();
         }
 
+        private bool IsTenValid(string ten)
+        {
+            return Regex.IsMatch(ten, "^[a-zA-ZÀ-Ỹà-ỹ\\s]+$");
+        }
+
+        private bool IsSoDienThoaiExists(string sodt)
+        {
+            foreach (DataGridViewRow row in dvThongTinKH.Rows)
+            {
+                if (row.Cells[5].Value != null && row.Cells[5].Value.ToString() == sodt)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
-            float intDienThoai;
-            bool isInt = float.TryParse(txtSDT.Text.Trim().ToString(), out intDienThoai);
+            string sdt = txtSDT.Text.Trim();
             string phai;
+
             if (radNam.Checked)
-            { phai = radNam.Text; }
+            {
+                phai = radNam.Text;
+            }
             else
-            { phai = radNu.Text; }
+            {
+                phai = radNu.Text;
+            }
 
             if (string.IsNullOrEmpty(txtTenKH.Text))
             {
                 MessageBox.Show("Bạn chưa nhập tên khách hàng");
                 txtTenKH.Focus();
             }
-            else if (string.IsNullOrEmpty(dtpNgaySinh.Text))
+            else if (!IsTenValid(txtTenKH.Text))
             {
-                MessageBox.Show("Bạn chưa nhập ngày sinh khách hàng");
-                dtpNgaySinh.Focus();
+                MessageBox.Show("Tên khách hàng không hợp lệ. Tên chỉ được chứa ký tự tiếng Việt và khoảng trắng.");
+                txtTenKH.Focus();
             }
             else if (radNam.Checked == false && radNu.Checked == false)
             {
@@ -91,14 +113,14 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn chưa nhập số điện thoại khách hàng");
                 txtSDT.Focus();
             }
-            else if (!isInt || float.Parse(txtSDT.Text) < 0)
+            else if (!Regex.IsMatch(sdt, "^[0-9]+$") || sdt.Length < 10 || sdt.Length > 11)
             {
-                MessageBox.Show("Bạn phải nhập số lớn hơn 0 và phải là số nguyên");
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại đủ 10-11 số và không chứa ký tự đặc biệt.");
                 txtSDT.Focus();
             }
-            else if (txtSDT.TextLength < 10)
+            else if (IsSoDienThoaiExists(sdt))
             {
-                MessageBox.Show("Bạn phải nhập số điện thoại đủ 10-11 số");
+                MessageBox.Show("Số điện thoại đã tồn tại. Vui lòng nhập số điện thoại khác.");
                 txtSDT.Focus();
             }
             else
@@ -117,6 +139,7 @@ namespace GUI_QLNhaHang
                     MessageBox.Show("Thêm thất bại");
                 }
             }
+
         }
 
         private void dvThongTinKH_DoubleClick(object sender, EventArgs e)
@@ -149,28 +172,27 @@ namespace GUI_QLNhaHang
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            float intDienThoai;
-            bool isInt = float.TryParse(txtSDT.Text.Trim().ToString(), out intDienThoai);
+            string sdt = txtSDT.Text.Trim();
             string phai;
-            if (radNam.Checked)
-            { phai = radNam.Text; }
-            else
-            { phai = radNu.Text; }
 
-            if (string.IsNullOrEmpty(txtMaKH.Text))
+            if (radNam.Checked)
             {
-                MessageBox.Show("Bạn chưa chọn khách hàng");
-                dvThongTinKH.Focus();
+                phai = radNam.Text;
             }
-            else if (string.IsNullOrEmpty(txtTenKH.Text))
+            else
+            {
+                phai = radNu.Text;
+            }
+
+            if (string.IsNullOrEmpty(txtTenKH.Text))
             {
                 MessageBox.Show("Bạn chưa nhập tên khách hàng");
                 txtTenKH.Focus();
             }
-            else if (string.IsNullOrEmpty(dtpNgaySinh.Text))
+            else if (!IsTenValid(txtTenKH.Text))
             {
-                MessageBox.Show("Bạn chưa nhập ngày sinh khách hàng");
-                dtpNgaySinh.Focus();
+                MessageBox.Show("Tên khách hàng không hợp lệ. Tên chỉ được chứa ký tự tiếng Việt và khoảng trắng.");
+                txtTenKH.Focus();
             }
             else if (radNam.Checked == false && radNu.Checked == false)
             {
@@ -186,23 +208,17 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn chưa nhập số điện thoại khách hàng");
                 txtSDT.Focus();
             }
-            else if (!isInt || float.Parse(txtSDT.Text) < 0)
+            else if (!Regex.IsMatch(sdt, "^[0-9]+$") || sdt.Length < 10 || sdt.Length > 11)
             {
-                MessageBox.Show("Bạn phải nhập số lớn hơn 0 và phải là số nguyên");
-                txtSDT.Focus();
-            }
-            else if (txtSDT.TextLength < 10)
-            {
-                MessageBox.Show("Bạn phải nhập số điện thoại đủ 10-11 số");
+                MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại đủ 10-11 số và không chứa ký tự đặc biệt.");
                 txtSDT.Focus();
             }
             else
             {
-                string makh = txtMaKH.Text;
                 DateTime selectdate = dtpNgaySinh.Value;
                 string formatdate = selectdate.ToString("MM/dd/yyyy");
                 kh = new DTO_KhachHang(txtTenKH.Text, formatdate, phai, rtxtDiaChi.Text, txtSDT.Text);
-                if (busKH.CapNhatKhachHang(kh, makh))
+                if (busKH.CapNhatKhachHang(kh, txtMaKH.Text))
                 {
                     MessageBox.Show("Sửa thành công");
                     ResetValues();
@@ -213,7 +229,6 @@ namespace GUI_QLNhaHang
                     MessageBox.Show("Sửa thất bại");
                 }
             }
-
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
