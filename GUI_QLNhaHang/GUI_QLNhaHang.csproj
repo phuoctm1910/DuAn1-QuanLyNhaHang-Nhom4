@@ -90,6 +90,12 @@
     <Compile Include="BanAn.Designer.cs">
       <DependentUpon>BanAn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Calender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Calender.Designer.cs">
+      <DependentUpon>Calender.cs</DependentUpon>
+    </Compile>
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     </Compile>
     <EmbeddedResource Include="BanAn.resx">
       <DependentUpon>BanAn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Calender.resx">
+      <DependentUpon>Calender.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
