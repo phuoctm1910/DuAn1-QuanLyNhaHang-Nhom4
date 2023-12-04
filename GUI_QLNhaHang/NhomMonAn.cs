@@ -40,6 +40,7 @@ namespace GUI_QLNhaHang
             {
                 txtMaNhomMonAn.Clear();
                 txtTenNhomMonAn.Clear();
+                btnThem.Enabled = true;
             }
         }
         private bool IsTenValid(string ten)
@@ -191,6 +192,7 @@ namespace GUI_QLNhaHang
                 else
                 {
                     txtMaNhomMonAn.Enabled = false;
+                    btnThem.Enabled = false;
                     int lst = dvDanhSachNhomMonAn.CurrentRow.Index;
                     txtMaNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[0].Value.ToString();
                     txtTenNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[1].Value.ToString();

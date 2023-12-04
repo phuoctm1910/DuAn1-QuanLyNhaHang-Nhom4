@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net.Mail;
 using BUS_QLNhaHang;
 using DTO_QLNhaHang;
+using System.Text.RegularExpressions;
 
 namespace GUI_QLNhaHang
 {
@@ -30,12 +31,38 @@ namespace GUI_QLNhaHang
             dvDanhSachBanAn.Columns[0].HeaderText = "Mã bàn ăn"; 
             dvDanhSachBanAn.Columns[1].HeaderText = "Tên bàn ăn"; 
         }
+        private bool IsTenValid(string ten)
+        {
+            return Regex.IsMatch(ten, "^[a-zA-ZÀ-Ỹà-ỹ\\s]+$");
+        }
+        private bool IsTenExists(string str)
+        {
+            foreach (DataGridViewRow row in dvDanhSachBanAn.Rows)
+            {
+                if (row.Cells[1].Value != null && row.Cells[1].Value.ToString().ToLower() == str.ToLower())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtTenBanAn.Text)) // chinh lai bat loi
+            string tenBA = txtTenBanAn.Text.Trim();
+            if (string.IsNullOrEmpty(tenBA) || tenBA.Length < 5)
             {
-                MessageBox.Show("Bạn chưa nhập tên bàn ăn");
+                MessageBox.Show("Bạn chưa nhập tên bàn ăn và phải dài hơn 5 kí tự");
+                txtTenBanAn.Focus();
+            }
+            else if (!IsTenValid(tenBA))
+            {
+                MessageBox.Show("Tên bàn ăn không hợp lệ. Tên chỉ được chứa ký tự tiếng Việt và khoảng trắng.");
+                txtTenBanAn.Focus();
+            }
+            else if (IsTenExists(tenBA))
+            {
+                MessageBox.Show("Tên bàn ăn đã tồn tại. Vui lòng nhập tên bàn ăn khác.");
                 txtTenBanAn.Focus();
             }
             else
@@ -68,15 +95,20 @@ namespace GUI_QLNhaHang
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaBanAn.Text)) //chinh lai bat loi
+            string tenBA = txtTenBanAn.Text.Trim();
+            if (string.IsNullOrEmpty(txtMaBanAn.Text))
             {
-                MessageBox.Show("Bạn chưa nhập tên bàn ăn");
+                MessageBox.Show("Bạn chưa chọn bàn ăn");
+            }
+            if (string.IsNullOrEmpty(tenBA) || tenBA.Length < 5)
+            {
+                MessageBox.Show("Bạn chưa nhập tên bàn ăn và phải dài hơn 5 kí tự");
                 txtTenBanAn.Focus();
             }
-            else if (string.IsNullOrEmpty(txtMaBanAn.Text))
+            else if (!IsTenValid(tenBA))
             {
-                MessageBox.Show("Bạn chưa nhập mã bàn ăn");
-                txtMaBanAn.Focus();
+                MessageBox.Show("Tên bàn ăn không hợp lệ. Tên chỉ được chứa ký tự tiếng Việt và khoảng trắng.");
+                txtTenBanAn.Focus();
             }
             else
             {
