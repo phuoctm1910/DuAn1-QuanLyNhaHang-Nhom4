@@ -32,7 +32,7 @@ namespace GUI_QLNhaHang
             LoadMatrix();
             try
             {
-                DeserializeFromXML(filePath);
+                Job = DeserializeFromXML(filePath) as PlaneData;
 
             }
             catch 
@@ -52,6 +52,33 @@ namespace GUI_QLNhaHang
                 ToTime = new Point(5, 0),
                 Job = "Test",
                 Status = PlanItem.ListStatus[(int)EPlantItem.Coming],
+                IsCheckNotify = true
+            });
+            Job.Job.Add(new PlanItem()
+            {
+                JobExpired = DateTime.Now,
+                FromTime = new Point(4, 0),
+                ToTime = new Point(5, 0),
+                Job = "Test",
+                Status = PlanItem.ListStatus[(int)EPlantItem.Done],
+                IsCheckNotify = true
+            });
+            Job.Job.Add(new PlanItem()
+            {
+                JobExpired = DateTime.Now,
+                FromTime = new Point(4, 0),
+                ToTime = new Point(5, 0),
+                Job = "Test",
+                Status = PlanItem.ListStatus[(int)EPlantItem.Coming],
+                IsCheckNotify = true
+            });
+            Job.Job.Add(new PlanItem()
+            {
+                JobExpired = DateTime.Now.AddDays(-1),
+                FromTime = new Point(4, 0),
+                ToTime = new Point(5, 0),
+                Job = "Test",
+                Status = PlanItem.ListStatus[(int)EPlantItem.Missed],
                 IsCheckNotify = true
             });
         }
@@ -79,6 +106,7 @@ namespace GUI_QLNhaHang
                 {
                     Button btn = new Button() { Width = Cons.dateButtonWidth, Height = Cons.dateButtonHeight };
                     btn.Location = new Point(oldbtn.Location.X + oldbtn.Width + Cons.margin, oldbtn.Location.Y);
+                    btn.Click += btn_Click;
 
                     pnlMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
@@ -89,6 +117,17 @@ namespace GUI_QLNhaHang
             }
             SetDefaultDate();
         }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty((sender as Button).Text))
+                return;
+
+            DailyPlan daily = new DailyPlan(new DateTime(dtpDate.Value.Year, dtpDate.Value.Month, Convert.ToInt32((sender as Button).Text)), Job);
+            daily.ShowDialog();
+            
+        }
+
         int DayOfMonth(DateTime date) 
         {
             switch (date.Month)

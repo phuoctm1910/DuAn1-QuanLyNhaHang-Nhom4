@@ -30,6 +30,9 @@ namespace GUI_QLNhaHang
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.cboStatus = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.nmudToMinute = new System.Windows.Forms.NumericUpDown();
             this.nmudToHour = new System.Windows.Forms.NumericUpDown();
@@ -38,9 +41,6 @@ namespace GUI_QLNhaHang
             this.nmudFromHour = new System.Windows.Forms.NumericUpDown();
             this.txtJob = new System.Windows.Forms.TextBox();
             this.chbDone = new System.Windows.Forms.CheckBox();
-            this.cboStatus = new System.Windows.Forms.ComboBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmudToMinute)).BeginInit();
@@ -59,8 +59,36 @@ namespace GUI_QLNhaHang
             this.panel1.Controls.Add(this.chbDone);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(830, 34);
+            this.panel1.Size = new System.Drawing.Size(835, 34);
             this.panel1.TabIndex = 0;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoSize = true;
+            this.btnDelete.Location = new System.Drawing.Point(784, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(43, 27);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Xóa";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.AutoSize = true;
+            this.btnUpdate.Location = new System.Drawing.Point(735, 3);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(43, 27);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Text = "Sửa";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // cboStatus
+            // 
+            this.cboStatus.FormattingEnabled = true;
+            this.cboStatus.Location = new System.Drawing.Point(593, 4);
+            this.cboStatus.Name = "cboStatus";
+            this.cboStatus.Size = new System.Drawing.Size(136, 24);
+            this.cboStatus.TabIndex = 3;
             // 
             // panel2
             // 
@@ -127,41 +155,13 @@ namespace GUI_QLNhaHang
             this.chbDone.TabIndex = 0;
             this.chbDone.UseVisualStyleBackColor = true;
             // 
-            // cboStatus
-            // 
-            this.cboStatus.FormattingEnabled = true;
-            this.cboStatus.Location = new System.Drawing.Point(593, 4);
-            this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(136, 24);
-            this.cboStatus.TabIndex = 3;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.AutoSize = true;
-            this.btnUpdate.Location = new System.Drawing.Point(735, 3);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(43, 27);
-            this.btnUpdate.TabIndex = 4;
-            this.btnUpdate.Text = "Sửa";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.AutoSize = true;
-            this.btnDelete.Location = new System.Drawing.Point(784, 3);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(43, 27);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "Xóa";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            // 
             // AJob
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "AJob";
-            this.Size = new System.Drawing.Size(836, 40);
+            this.Size = new System.Drawing.Size(842, 40);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
