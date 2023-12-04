@@ -49,7 +49,7 @@ namespace GUI_QLNhaHang
             this.panel1.Controls.Add(this.pnlJob);
             this.panel1.Location = new System.Drawing.Point(2, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(843, 468);
+            this.panel1.Size = new System.Drawing.Size(912, 468);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -59,7 +59,7 @@ namespace GUI_QLNhaHang
             this.panel3.Controls.Add(this.dtpDate);
             this.panel3.Location = new System.Drawing.Point(3, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(837, 35);
+            this.panel3.Size = new System.Drawing.Size(906, 35);
             this.panel3.TabIndex = 1;
             // 
             // btnPreviousDay
@@ -76,7 +76,7 @@ namespace GUI_QLNhaHang
             // btnNextDay
             // 
             this.btnNextDay.AutoSize = true;
-            this.btnNextDay.Location = new System.Drawing.Point(756, 3);
+            this.btnNextDay.Location = new System.Drawing.Point(819, 3);
             this.btnNextDay.Name = "btnNextDay";
             this.btnNextDay.Size = new System.Drawing.Size(78, 27);
             this.btnNextDay.TabIndex = 3;
@@ -98,7 +98,7 @@ namespace GUI_QLNhaHang
             // 
             this.pnlJob.Location = new System.Drawing.Point(3, 46);
             this.pnlJob.Name = "pnlJob";
-            this.pnlJob.Size = new System.Drawing.Size(837, 419);
+            this.pnlJob.Size = new System.Drawing.Size(906, 419);
             this.pnlJob.TabIndex = 0;
             // 
             // mnsMain
@@ -109,7 +109,7 @@ namespace GUI_QLNhaHang
             this.mnsToday});
             this.mnsMain.Location = new System.Drawing.Point(0, 0);
             this.mnsMain.Name = "mnsMain";
-            this.mnsMain.Size = new System.Drawing.Size(847, 28);
+            this.mnsMain.Size = new System.Drawing.Size(914, 28);
             this.mnsMain.TabIndex = 1;
             this.mnsMain.Text = "menuStrip1";
             // 
@@ -131,7 +131,7 @@ namespace GUI_QLNhaHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 498);
+            this.ClientSize = new System.Drawing.Size(914, 498);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mnsMain);
             this.MainMenuStrip = this.mnsMain;

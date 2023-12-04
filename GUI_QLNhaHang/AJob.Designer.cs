@@ -41,6 +41,7 @@ namespace GUI_QLNhaHang
             this.nmudFromHour = new System.Windows.Forms.NumericUpDown();
             this.txtJob = new System.Windows.Forms.TextBox();
             this.chbDone = new System.Windows.Forms.CheckBox();
+            this.btnThem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nmudToMinute)).BeginInit();
@@ -51,6 +52,7 @@ namespace GUI_QLNhaHang
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnThem);
             this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.cboStatus);
@@ -59,13 +61,13 @@ namespace GUI_QLNhaHang
             this.panel1.Controls.Add(this.chbDone);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(835, 34);
+            this.panel1.Size = new System.Drawing.Size(894, 34);
             this.panel1.TabIndex = 0;
             // 
             // btnDelete
             // 
             this.btnDelete.AutoSize = true;
-            this.btnDelete.Location = new System.Drawing.Point(784, 3);
+            this.btnDelete.Location = new System.Drawing.Point(844, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(43, 27);
             this.btnDelete.TabIndex = 5;
@@ -76,7 +78,7 @@ namespace GUI_QLNhaHang
             // btnUpdate
             // 
             this.btnUpdate.AutoSize = true;
-            this.btnUpdate.Location = new System.Drawing.Point(735, 3);
+            this.btnUpdate.Location = new System.Drawing.Point(795, 3);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(43, 27);
             this.btnUpdate.TabIndex = 4;
@@ -158,13 +160,24 @@ namespace GUI_QLNhaHang
             this.chbDone.UseVisualStyleBackColor = true;
             this.chbDone.CheckedChanged += new System.EventHandler(this.chbDone_CheckedChanged);
             // 
+            // btnThem
+            // 
+            this.btnThem.AutoSize = true;
+            this.btnThem.Location = new System.Drawing.Point(735, 3);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(54, 27);
+            this.btnThem.TabIndex = 6;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
             // AJob
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "AJob";
-            this.Size = new System.Drawing.Size(842, 40);
+            this.Size = new System.Drawing.Size(901, 40);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -191,5 +204,6 @@ namespace GUI_QLNhaHang
         private System.Windows.Forms.ComboBox cboStatus;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnThem;
     }
 }

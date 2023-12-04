@@ -19,16 +19,21 @@ namespace GUI_QLNhaHang
         DTO_Cons Cons = new DTO_Cons();
         #region Properties
         private string filePath = "data.xml";
+        private int appTime;
         private List<List<Button>> matrix;
         private List<string> dateOfWeek = new List<string>(){ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         private PlaneData job;
         public List<List<Button>> Matrix { get => matrix; set => matrix = value; }
         public PlaneData Job { get => job; set => job = value; }
+        public int AppTime { get => appTime; set => appTime = value; }
         #endregion
 
         public Calender()
         {
             InitializeComponent();
+
+            timerNotify.Start();
+            AppTime = 0;
             LoadMatrix();
             try
             {
@@ -211,6 +216,44 @@ namespace GUI_QLNhaHang
         private void Calender_FormClosing(object sender, FormClosingEventArgs e)
         {
             SerializeToXML(Job, filePath);
+        }
+
+        private void timerNotify_Tick(object sender, EventArgs e)
+        {
+            if (!chbNotice.Checked)
+            {
+                return;
+            }
+            AppTime++;
+            if (AppTime < Cons.notifyTime)
+            {
+                return;
+            }
+
+            if (Job == null || Job.Job == null)
+            {
+                return;
+            }
+            DateTime currentDate = DateTime.Now;
+            string currentStatus = EPlantItem.Coming.ToString();
+
+            List<PlanItem> todayjobs = Job.Job.Where(x => x.JobExpired.Year == currentDate.Year && x.JobExpired.Month == currentDate.Month && x.JobExpired.Day == currentDate.Day && x.Status == currentStatus).ToList();
+            int numberOfEvents = todayjobs.Count; 
+
+            Notify.ShowBalloonTip(Cons.notifyTimeOut, "Lịch sự kiện", string.Format("Đang có {0} sự kiện sẽ diễn ra trong ngày hôm nay", numberOfEvents), ToolTipIcon.Info);
+
+
+            AppTime = 0;
+        }
+
+        private void nmudNotice_ValueChanged(object sender, EventArgs e)
+        {
+            Cons.notifyTime = (int)nmudNotice.Value;
+        }
+
+        private void chbNotice_CheckedChanged(object sender, EventArgs e)
+        {
+            nmudNotice.Enabled = chbNotice.Checked;
         }
     }
 }

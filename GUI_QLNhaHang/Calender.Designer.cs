@@ -29,6 +29,8 @@ namespace GUI_QLNhaHang
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Calender));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -48,6 +50,8 @@ namespace GUI_QLNhaHang
             this.btnWednesday = new System.Windows.Forms.Button();
             this.btnTuesday = new System.Windows.Forms.Button();
             this.btnMonday = new System.Windows.Forms.Button();
+            this.timerNotify = new System.Windows.Forms.Timer(this.components);
+            this.Notify = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -86,6 +90,7 @@ namespace GUI_QLNhaHang
             // 
             // nmudNotice
             // 
+            this.nmudNotice.Enabled = false;
             this.nmudNotice.Location = new System.Drawing.Point(108, 8);
             this.nmudNotice.Maximum = new decimal(new int[] {
             3600,
@@ -105,6 +110,7 @@ namespace GUI_QLNhaHang
             0,
             0,
             0});
+            this.nmudNotice.ValueChanged += new System.EventHandler(this.nmudNotice_ValueChanged);
             // 
             // chbNotice
             // 
@@ -115,6 +121,7 @@ namespace GUI_QLNhaHang
             this.chbNotice.TabIndex = 0;
             this.chbNotice.Text = "Thông báo";
             this.chbNotice.UseVisualStyleBackColor = true;
+            this.chbNotice.CheckedChanged += new System.EventHandler(this.chbNotice_CheckedChanged);
             // 
             // btnToday
             // 
@@ -260,6 +267,18 @@ namespace GUI_QLNhaHang
             this.btnMonday.Text = "Thứ hai";
             this.btnMonday.UseVisualStyleBackColor = true;
             // 
+            // timerNotify
+            // 
+            this.timerNotify.Enabled = true;
+            this.timerNotify.Interval = 5000;
+            this.timerNotify.Tick += new System.EventHandler(this.timerNotify_Tick);
+            // 
+            // Notify
+            // 
+            this.Notify.Icon = ((System.Drawing.Icon)(resources.GetObject("Notify.Icon")));
+            this.Notify.Text = "notifyIcon1";
+            this.Notify.Visible = true;
+            // 
             // Calender
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -304,5 +323,7 @@ namespace GUI_QLNhaHang
         private System.Windows.Forms.Button btnWednesday;
         private System.Windows.Forms.Button btnTuesday;
         private System.Windows.Forms.Button btnMonday;
+        private System.Windows.Forms.Timer timerNotify;
+        private System.Windows.Forms.NotifyIcon Notify;
     }
 }

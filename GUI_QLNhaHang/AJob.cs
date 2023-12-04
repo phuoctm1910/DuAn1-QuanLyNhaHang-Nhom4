@@ -14,6 +14,12 @@ namespace GUI_QLNhaHang
     public partial class AJob : UserControl
     {
         private PlanItem job;
+        private event EventHandler added;
+        public event EventHandler Added
+        {
+            add { added += value; }
+            remove { added -= value; }
+        }
         private event EventHandler edited;
         public event EventHandler Edited
         {
@@ -26,7 +32,7 @@ namespace GUI_QLNhaHang
             add { deleted += value; }
             remove { deleted -= value; }
         }
-
+         
         public PlanItem Job { get => job; set => job = value; }
 
         public AJob(PlanItem job)
@@ -51,6 +57,7 @@ namespace GUI_QLNhaHang
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+
             Job.Job = txtJob.Text;
             Job.FromTime = new Point((int)nmudFromHour.Value, (int)nmudFromMinute.Value);
             Job.ToTime = new Point((int)nmudToHour.Value, (int)nmudToMinute.Value);
@@ -59,6 +66,7 @@ namespace GUI_QLNhaHang
             {
                 edited(this, new EventArgs());
             }
+            MessageBox.Show("Đã sửa thành công");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -67,11 +75,25 @@ namespace GUI_QLNhaHang
             {
                 deleted(this, new EventArgs());
             }
+            MessageBox.Show("Đã xóa thành công");
         }
 
         private void chbDone_CheckedChanged(object sender, EventArgs e)
         {
             cboStatus.SelectedIndex = chbDone.Checked ? (int)EPlantItem.Done : (int)EPlantItem.Doing;
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            Job.Job = txtJob.Text;
+            Job.FromTime = new Point((int)nmudFromHour.Value, (int)nmudFromMinute.Value);
+            Job.ToTime = new Point((int)nmudToHour.Value, (int)nmudToMinute.Value);
+            Job.Status = PlanItem.ListStatus[cboStatus.SelectedIndex];
+            if (added != null)
+            {
+                added(this, new EventArgs());
+            }
+            MessageBox.Show("Đã thêm thành công");
         }
     }
 }
