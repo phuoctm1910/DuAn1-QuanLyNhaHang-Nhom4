@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using DTO_QLNhaHang;
 
 
@@ -15,7 +17,8 @@ namespace GUI_QLNhaHang
     public partial class Calender : Form
     {
         DTO_Cons Cons = new DTO_Cons();
-        #region Peoperties
+        #region Properties
+        private string filePath = "data.xml";
         private List<List<Button>> matrix;
         private List<string> dateOfWeek = new List<string>(){ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         private PlaneData job;
@@ -27,6 +30,30 @@ namespace GUI_QLNhaHang
         {
             InitializeComponent();
             LoadMatrix();
+            try
+            {
+                DeserializeFromXML(filePath);
+
+            }
+            catch 
+            {
+                SetDefaultJob();
+            }
+        }
+
+        void SetDefaultJob()
+        {
+            Job = new PlaneData();
+            Job.Job = new List<PlanItem>();
+            Job.Job.Add(new PlanItem()
+            {
+                JobExpired = DateTime.Now,
+                FromTime = new Point(4, 0),
+                ToTime = new Point(5, 0),
+                Job = "Test",
+                Status = PlanItem.ListStatus[(int)EPlantItem.Coming],
+                IsCheckNotify = true
+            });
         }
         void ClearMatrix()
         {
@@ -139,6 +166,39 @@ namespace GUI_QLNhaHang
         private void btnPreviousMonth_Click(object sender, EventArgs e)
         {
             dtpDate.Value = dtpDate.Value.AddMonths(-1);
+        }
+
+        private void SerializeToXML(object data, string filePath) 
+        {
+            FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write);
+            XmlSerializer sr = new XmlSerializer(typeof(PlaneData));
+
+            sr.Serialize(fs, data);
+
+            fs.Close();
+        }
+
+        private object DeserializeFromXML(string filePath)
+        {
+            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            try
+            {
+                XmlSerializer sr = new XmlSerializer(typeof(PlaneData));
+
+                object reuslt = sr.Deserialize(fs);
+                fs.Close();
+                return reuslt;
+            }
+            catch
+            {
+                fs.Close();
+                throw new NotImplementedException();
+            }
+        }
+
+        private void Calender_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SerializeToXML(Job, filePath);
         }
     }
 }

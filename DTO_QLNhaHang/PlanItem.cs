@@ -14,13 +14,15 @@ namespace DTO_QLNhaHang
         private Point toTime;
         private string status;
         private DateTime jobExpired;
-        private static List<string> ListStatus = new List<string>() { "Done", "Doing", "Coming", "Missed" };
+        public static List<string> ListStatus = new List<string>() { "Done", "Doing", "Coming", "Missed" };
+        private bool isCheckNotify;
 
         public string Job { get => job; set => job = value; }
         public Point FromTime { get => fromTime; set => fromTime = value; }
         public Point ToTime { get => toTime; set => toTime = value; }
         public string Status { get => status; set => status = value; }
         public DateTime JobExpired { get => jobExpired; set => jobExpired = value; }
+        public bool IsCheckNotify { get => isCheckNotify; set => isCheckNotify = value; }
     }
     
     public enum EPlantItem

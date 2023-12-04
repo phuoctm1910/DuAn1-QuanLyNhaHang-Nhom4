@@ -10,8 +10,6 @@ namespace DTO_QLNhaHang
     public class PlaneData
     {
         private List<PlanItem> job;
-        private bool isCheckNotify;
         public List<PlanItem> Job { get => job; set => job = value; }
-        public bool IsCheckNotify { get => isCheckNotify; set => isCheckNotify = value; }
     }
 }

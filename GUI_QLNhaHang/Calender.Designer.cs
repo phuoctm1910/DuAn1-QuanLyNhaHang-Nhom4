@@ -268,6 +268,7 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.panel1);
             this.Name = "Calender";
             this.Text = "Calendar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Calender_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
