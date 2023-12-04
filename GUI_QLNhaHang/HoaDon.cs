@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -125,9 +126,9 @@ namespace GUI_QLNhaHang
         private void btnThem_Click(object sender, EventArgs e)
         {
             float giamGia;
-            float.TryParse(txtGiamGia.Text, out giamGia);
+            bool isFloat = float.TryParse(txtGiamGia.Text, out giamGia);
 
-             if (string.IsNullOrEmpty(cboNhanVien.Text))
+            if (string.IsNullOrEmpty(cboNhanVien.Text))
             {
                 MessageBox.Show("Bạn chưa chọn nhân viên");
                 cboNhanVien.Focus();
@@ -145,6 +146,11 @@ namespace GUI_QLNhaHang
             else if (string.IsNullOrEmpty(txtGiamGia.Text))
             {
                 MessageBox.Show("Bạn chưa nhập giảm giá");
+                txtGiamGia.Focus();
+            }
+            else if (!isFloat || giamGia < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
+            {
+                MessageBox.Show("Giảm giá không hợp lệ. Giảm giá phải là số dương và không chứa chữ cái hoặc ký tự đặc biệt.");
                 txtGiamGia.Focus();
             }
             else
@@ -169,19 +175,9 @@ namespace GUI_QLNhaHang
         private void btnSua_Click(object sender, EventArgs e)
         {
             float giamGia;
-            float.TryParse(txtGiamGia.Text, out giamGia);
+            bool isFloat = float.TryParse(txtGiamGia.Text, out giamGia);
 
-            if (string.IsNullOrEmpty(dtpNgayLap.Text))
-            {
-                MessageBox.Show("Bạn chưa nhập ngày lập hóa đơn ");
-                dtpNgayLap.Focus();
-            }
-            if (string.IsNullOrEmpty(txtTrangThai.Text))
-            {
-                MessageBox.Show("Bạn chưa chọn trạng thái");
-                txtTrangThai.Focus();
-            }
-            else if (string.IsNullOrEmpty(cboNhanVien.Text))
+            if (string.IsNullOrEmpty(cboNhanVien.Text))
             {
                 MessageBox.Show("Bạn chưa chọn nhân viên");
                 cboNhanVien.Focus();
@@ -201,7 +197,11 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn chưa nhập giảm giá");
                 txtGiamGia.Focus();
             }
-
+            else if (!isFloat || giamGia < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
+            {
+                MessageBox.Show("Giảm giá không hợp lệ. Giảm giá phải là số dương và không chứa chữ cái hoặc ký tự đặc biệt.");
+                txtGiamGia.Focus();
+            }
             else
             {
 
@@ -248,15 +248,31 @@ namespace GUI_QLNhaHang
         }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            DataTable dtSearch = busHD.SearchHoaDon(txtTimKiem.Text);
-            if (dtSearch.Rows.Count > 0)
+            string timkiem = txtTimKiem.Text.Trim();
+            if (string.IsNullOrEmpty(timkiem))
             {
-                MessageBox.Show("Tìm thành công");
-                dtvDanhSachHoaDon.DataSource = dtSearch;
+                MessageBox.Show("Vui lòng nhập mã hóa đơn muốn tìm");
+                ResetValue();
+                txtTimKiem.Focus();
+            }
+            else if (timkiem.Length != 6 || !Regex.IsMatch(timkiem, "^[a-zA-Z0-9]+$"))
+            {
+                MessageBox.Show("Mã hóa đơn không hợp lệ. Mã hóa đơn phải có đúng 6 ký tự và không chứa ký tự đặc biệt.");
+                ResetValue();
+                txtTimKiem.Focus();
             }
             else
             {
-                MessageBox.Show("Không tìm thấy Người Dùng");
+                DataTable dtSearch = busHD.SearchHoaDon(timkiem);
+                if (dtSearch.Rows.Count > 0)
+                {
+                    MessageBox.Show("Tìm thành công");
+                    dtvDanhSachHoaDon.DataSource = dtSearch;
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy Người Dùng");
+                }
             }
         }
         private void txtTimKiem_Click(object sender, EventArgs e)
@@ -282,7 +298,7 @@ namespace GUI_QLNhaHang
                 else
                 {
 
-                    HoaDonChiTiet hdct = new HoaDonChiTiet(txtMaHoaDon.Text, dtvDanhSachHoaDon.Rows[lst].Cells[2].Value.ToString(), dtvDanhSachHoaDon.Rows[lst].Cells[1].Value.ToString());
+                    HoaDonChiTiet hdct = new HoaDonChiTiet(txtMaHoaDon.Text, dtvDanhSachHoaDon.Rows[lst].Cells[2].Value.ToString(), dtvDanhSachHoaDon.Rows[lst].Cells[1].Value.ToString(), (int)dtvDanhSachHoaDon.Rows[lst].Cells[6].Value);
                     hdct.OnCapNhatDuLieu += LoadDataHD;
                     hdct.OnHuyHoaDon += LoadDataHD;
                     hdct.Show();
