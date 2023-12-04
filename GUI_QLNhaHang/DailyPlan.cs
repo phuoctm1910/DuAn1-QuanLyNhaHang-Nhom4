@@ -32,7 +32,14 @@ namespace GUI_QLNhaHang
 
             dtpDate.Value = Date;
         }
-        
+        void AddJob(PlanItem job)
+        {
+            AJob ajob = new AJob(job);
+            ajob.Edited += ajob_Edited;
+            ajob.Deleted += ajob_Deleted;
+
+            fpanel.Controls.Add(ajob);
+        }
         void ShowJobByDate(DateTime date)
         {
             fpanel.Controls.Clear();
@@ -41,10 +48,23 @@ namespace GUI_QLNhaHang
                 List<PlanItem> todayJob = GetJobByDate(date);
                 for (int i = 0; i < GetJobByDate(date).Count; i++)
                 {
-                    AJob ajob = new AJob(todayJob[i]);
-                    fpanel.Controls.Add(ajob);
+                    AddJob(todayJob[i]);
                 }
             }
+        }
+
+        private void ajob_Edited(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ajob_Deleted(object sender, EventArgs e)
+        {
+            AJob uc = sender as AJob;
+            PlanItem job = uc.Job;
+
+            fpanel.Controls.Remove(uc);
+            Job.Job.Remove(job);
         }
 
         List<PlanItem> GetJobByDate(DateTime date)
@@ -65,6 +85,18 @@ namespace GUI_QLNhaHang
         private void btnPreviousDay_Click(object sender, EventArgs e)
         {
             dtpDate.Value = dtpDate.Value.AddDays(-1);
+        }
+
+        private void mnsAddJob_Click(object sender, EventArgs e)
+        {
+            PlanItem item = new PlanItem() { JobExpired = dtpDate.Value };
+            Job.Job.Add(item);
+            AddJob(item);
+        }
+
+        private void mnsToday_Click(object sender, EventArgs e)
+        {
+            dtpDate.Value = DateTime.Now;
         }
     }
 }

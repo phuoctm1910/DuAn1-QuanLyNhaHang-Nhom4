@@ -71,6 +71,7 @@ namespace GUI_QLNhaHang
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -81,6 +82,7 @@ namespace GUI_QLNhaHang
             this.btnUpdate.TabIndex = 4;
             this.btnUpdate.Text = "Sửa";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // cboStatus
             // 
@@ -154,6 +156,7 @@ namespace GUI_QLNhaHang
             this.chbDone.Size = new System.Drawing.Size(18, 17);
             this.chbDone.TabIndex = 0;
             this.chbDone.UseVisualStyleBackColor = true;
+            this.chbDone.CheckedChanged += new System.EventHandler(this.chbDone_CheckedChanged);
             // 
             // AJob
             // 

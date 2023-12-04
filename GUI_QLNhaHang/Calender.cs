@@ -54,33 +54,6 @@ namespace GUI_QLNhaHang
                 Status = PlanItem.ListStatus[(int)EPlantItem.Coming],
                 IsCheckNotify = true
             });
-            Job.Job.Add(new PlanItem()
-            {
-                JobExpired = DateTime.Now,
-                FromTime = new Point(4, 0),
-                ToTime = new Point(5, 0),
-                Job = "Test",
-                Status = PlanItem.ListStatus[(int)EPlantItem.Done],
-                IsCheckNotify = true
-            });
-            Job.Job.Add(new PlanItem()
-            {
-                JobExpired = DateTime.Now,
-                FromTime = new Point(4, 0),
-                ToTime = new Point(5, 0),
-                Job = "Test",
-                Status = PlanItem.ListStatus[(int)EPlantItem.Coming],
-                IsCheckNotify = true
-            });
-            Job.Job.Add(new PlanItem()
-            {
-                JobExpired = DateTime.Now.AddDays(-1),
-                FromTime = new Point(4, 0),
-                ToTime = new Point(5, 0),
-                Job = "Test",
-                Status = PlanItem.ListStatus[(int)EPlantItem.Missed],
-                IsCheckNotify = true
-            });
         }
         void ClearMatrix()
         {
@@ -209,7 +182,7 @@ namespace GUI_QLNhaHang
 
         private void SerializeToXML(object data, string filePath) 
         {
-            FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write);
+            FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write);
             XmlSerializer sr = new XmlSerializer(typeof(PlaneData));
 
             sr.Serialize(fs, data);
@@ -217,7 +190,7 @@ namespace GUI_QLNhaHang
             fs.Close();
         }
 
-        private object DeserializeFromXML(string filePath)
+        private object DeserializeFromXML(string filePath) // chuyển qua daily plan tạo thêm button thêm
         {
             FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             try

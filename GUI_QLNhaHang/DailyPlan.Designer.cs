@@ -118,12 +118,14 @@ namespace GUI_QLNhaHang
             this.mnsAddJob.Name = "mnsAddJob";
             this.mnsAddJob.Size = new System.Drawing.Size(90, 24);
             this.mnsAddJob.Text = "Thêm việc";
+            this.mnsAddJob.Click += new System.EventHandler(this.mnsAddJob_Click);
             // 
             // mnsToday
             // 
             this.mnsToday.Name = "mnsToday";
             this.mnsToday.Size = new System.Drawing.Size(83, 24);
             this.mnsToday.Text = "Hôm nay";
+            this.mnsToday.Click += new System.EventHandler(this.mnsToday_Click);
             // 
             // DailyPlan
             // 
