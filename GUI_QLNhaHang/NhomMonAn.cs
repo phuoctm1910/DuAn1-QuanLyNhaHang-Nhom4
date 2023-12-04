@@ -46,11 +46,22 @@ namespace GUI_QLNhaHang
         {
             return Regex.IsMatch(ten, "^[a-zA-ZÀ-Ỹà-ỹ\\s]+$");
         }
-        private bool IsTenExists(string sodt)
+        private bool IsTenExists(string str)
         {
             foreach (DataGridViewRow row in dvDanhSachNhomMonAn.Rows)
             {
-                if (row.Cells[1].Value != null && row.Cells[1].Value.ToString() == sodt)
+                if (row.Cells[1].Value != null && row.Cells[1].Value.ToString().ToLower() == str.ToLower())
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private bool IsMaExists(string str)
+        {
+            foreach (DataGridViewRow row in dvDanhSachNhomMonAn.Rows)
+            {
+                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString().ToLower() == str.ToLower())
                 {
                     return true;
                 }
@@ -64,10 +75,26 @@ namespace GUI_QLNhaHang
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
+            string mma = txtMaNhomMonAn.Text.Trim();
             string tenNMA = txtTenNhomMonAn.Text.Trim();
-            if (string.IsNullOrEmpty(tenNMA) || tenNMA.Length < 5)
+            if (string.IsNullOrEmpty(mma) || mma.Length < 6 || mma.Length > 6)
             {
-                MessageBox.Show("Bạn chưa nhập tê nhóm món ăn và phải dài hơn 5 kí tự");
+                MessageBox.Show("Bạn chưa nhập mã nhóm món ăn và phải đúng 6 kí tự");
+                txtMaNhomMonAn.Focus();
+            }
+            else if (!Regex.IsMatch(mma, "^[A-Z0-9]+$"))
+            {
+                MessageBox.Show("Mã nhóm món ăn không hợp lệ. Mã nhóm chỉ được chứa chữ cái viết hoa và số.");
+                txtMaNhomMonAn.Focus();
+            }
+            else if (IsMaExists(mma))
+            {
+                MessageBox.Show("Mã nhóm món ăn đã tồn tại. Vui lòng nhập mã nhóm món ăn khác.");
+                txtMaNhomMonAn.Focus();
+            }
+            else if (string.IsNullOrEmpty(tenNMA) || tenNMA.Length < 5)
+            {
+                MessageBox.Show("Bạn chưa nhập tên nhóm món ăn và phải dài hơn 5 kí tự");
                 txtTenNhomMonAn.Focus();
             }
             else if (!IsTenValid(tenNMA))
@@ -97,10 +124,11 @@ namespace GUI_QLNhaHang
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
+            string mma = txtMaNhomMonAn.Text.Trim();
             string tenNMA = txtTenNhomMonAn.Text.Trim();
             if (string.IsNullOrEmpty(tenNMA) || tenNMA.Length < 5)
             {
-                MessageBox.Show("Bạn chưa nhập tê nhóm món ăn và phải dài hơn 5 kí tự");
+                MessageBox.Show("Bạn chưa nhập tên nhóm món ăn và phải dài hơn 5 kí tự");
                 txtTenNhomMonAn.Focus();
             }
             else if (!IsTenValid(tenNMA))
@@ -162,6 +190,7 @@ namespace GUI_QLNhaHang
                 }
                 else
                 {
+                    txtMaNhomMonAn.Enabled = false;
                     int lst = dvDanhSachNhomMonAn.CurrentRow.Index;
                     txtMaNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[0].Value.ToString();
                     txtTenNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[1].Value.ToString();
