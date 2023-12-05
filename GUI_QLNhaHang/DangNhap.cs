@@ -26,17 +26,19 @@ namespace GUI_QLNhaHang
         }
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtTaiKhoan.Text) &&
-                !string.IsNullOrWhiteSpace(txtMatKhau.Text))
+            string taiKhoan = txtTaiKhoan.Text.Trim();
+            string matkhau = txtMatKhau.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(taiKhoan) &&
+                !string.IsNullOrWhiteSpace(matkhau))
             {
-                string encryptedPassword = bus_nd.Encryption(txtMatKhau.Text);
-                if (bus_nd.NguoiDungDangNhap(txtTaiKhoan.Text, encryptedPassword))
+                string encryptedPassword = bus_nd.Encryption(matkhau);
+                if (bus_nd.NguoiDungDangNhap(taiKhoan, encryptedPassword))
                 {
-                    DataTable dt = bus_nd.VaiTroNguoiDung(txtTaiKhoan.Text);
+                    DataTable dt = bus_nd.VaiTroNguoiDung(taiKhoan);
                     if (dt.Rows.Count > 0)
                     {
                         vaiTro = dt.Rows[0][0].ToString();
-                        Main frmMain = new Main(txtTaiKhoan.Text, vaiTro, 1);
+                        Main frmMain = new Main(taiKhoan, vaiTro, 1);
                         MessageBox.Show("Đăng nhập thành công", "OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
                         frmMain.ShowDialog();
@@ -54,6 +56,16 @@ namespace GUI_QLNhaHang
                     txtMatKhau.Text = null;
                     txtTaiKhoan.Focus();
                 }
+            }
+            else if (string.IsNullOrEmpty(taiKhoan) || taiKhoan.Length < 5)
+            {
+                MessageBox.Show("Bạn chưa nhập tài khoản và tài khoản phải dài hơn hoặc bằng 5 kí tự");
+                txtTaiKhoan.Focus();
+            }
+            else if (string.IsNullOrEmpty(matkhau) || matkhau.Length < 6)
+            {
+                MessageBox.Show("Bạn chưa nhập mật khẩu và phải dài hơn 6 kí tự");
+                txtMatKhau.Focus();
             }
             else
             {
