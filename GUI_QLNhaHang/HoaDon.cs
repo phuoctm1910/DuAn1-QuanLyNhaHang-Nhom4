@@ -125,8 +125,8 @@ namespace GUI_QLNhaHang
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            float giamGia;
-            bool isFloat = float.TryParse(txtGiamGia.Text, out giamGia);
+            int giamGia;
+            bool isInt = int.TryParse(txtGiamGia.Text, out giamGia);
 
             if (string.IsNullOrEmpty(cboNhanVien.Text))
             {
@@ -148,9 +148,9 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn chưa nhập giảm giá");
                 txtGiamGia.Focus();
             }
-            else if (!isFloat || giamGia < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
+            else if (!isInt || giamGia < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
             {
-                MessageBox.Show("Giảm giá không hợp lệ. Giảm giá phải là số dương và không chứa chữ cái hoặc ký tự đặc biệt.");
+                MessageBox.Show("Giảm giá không hợp lệ. Giảm giá phải là số nguyên dương và không chứa chữ cái hoặc ký tự đặc biệt.");
                 txtGiamGia.Focus();
             }
             else
@@ -174,8 +174,8 @@ namespace GUI_QLNhaHang
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            float giamGia;
-            bool isFloat = float.TryParse(txtGiamGia.Text, out giamGia);
+            int giamGia;
+            bool isInt = int.TryParse(txtGiamGia.Text, out giamGia);
 
             if (string.IsNullOrEmpty(cboNhanVien.Text))
             {
@@ -197,9 +197,9 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn chưa nhập giảm giá");
                 txtGiamGia.Focus();
             }
-            else if (!isFloat || giamGia < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
+            else if (!isInt || giamGia < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
             {
-                MessageBox.Show("Giảm giá không hợp lệ. Giảm giá phải là số dương và không chứa chữ cái hoặc ký tự đặc biệt.");
+                MessageBox.Show("Giảm giá không hợp lệ. Giảm giá phải là số nguyên dương và không chứa chữ cái hoặc ký tự đặc biệt.");
                 txtGiamGia.Focus();
             }
             else

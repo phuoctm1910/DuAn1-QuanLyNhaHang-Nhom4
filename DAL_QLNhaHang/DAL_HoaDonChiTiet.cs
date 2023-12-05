@@ -73,7 +73,6 @@ namespace DAL_QLNhaHang
                 _conn.Close();
             }
         }
-
         public bool ThemHoaDonChiTiet(DTO_HoaDonChiTiet hdct)
         {
             try
@@ -101,7 +100,6 @@ namespace DAL_QLNhaHang
             return false;
 
         }
-
         public bool XoaHoaDonChiTiet(string mahdct)
         {
             try
@@ -130,7 +128,6 @@ namespace DAL_QLNhaHang
             }
             return false;
         }
-
         public bool CapNhatHoaDon(string mahd, int tongtien)
         {
             try

@@ -13,21 +13,21 @@ namespace DTO_QLNhaHang
         private string maBA;
         private string ngayLap;
         private string trangThai;
-        private float giamGia;
+        private int giamGia;
 
         public string MaNV { get { return maNV; } set { maNV = value; } }
         public string MaKH { get { return maKH; } set { maKH = value; } }
         public string MaBanAn { get { return maBA; } set { maBA = value; } }
         public string NgayLap { get { return ngayLap; } set { ngayLap = value; } }
         public string TrangThai { get { return trangThai; } set { trangThai = value; } }
-        public float GiamGia { get { return giamGia; } set { giamGia = value; } }
+        public int GiamGia { get { return giamGia; } set { giamGia = value; } }
 
 
         public DTO_HoaDon()
         {
         }
 
-        public DTO_HoaDon(string maNV, string maKH, string maBA, string ngayLap, string trangThai, float giamGia)
+        public DTO_HoaDon(string maNV, string maKH, string maBA, string ngayLap, string trangThai, int giamGia)
         {
             this.maNV = maNV;
             this.maKH = maKH;
