@@ -58,9 +58,11 @@
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnTimKiem = new System.Windows.Forms.Button();
-            this.cboNgayVaoLam = new System.Windows.Forms.ComboBox();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.btnThemNgayVaoLam = new System.Windows.Forms.Button();
+            this.dtpNgayVaoLam = new System.Windows.Forms.DateTimePicker();
+            this.cboLichLam = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtvDanhSachNhanVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -154,7 +156,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Sienna;
-            this.label5.Location = new System.Drawing.Point(923, 199);
+            this.label5.Location = new System.Drawing.Point(923, 258);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(159, 25);
@@ -299,10 +301,10 @@
             // cboLuong
             // 
             this.cboLuong.FormattingEnabled = true;
-            this.cboLuong.Location = new System.Drawing.Point(1104, 198);
+            this.cboLuong.Location = new System.Drawing.Point(1091, 258);
             this.cboLuong.Margin = new System.Windows.Forms.Padding(4);
             this.cboLuong.Name = "cboLuong";
-            this.cboLuong.Size = new System.Drawing.Size(265, 24);
+            this.cboLuong.Size = new System.Drawing.Size(293, 24);
             this.cboLuong.TabIndex = 24;
             // 
             // dtvDanhSachNhanVien
@@ -433,35 +435,56 @@
             this.btnTimKiem.UseVisualStyleBackColor = false;
             this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
-            // cboNgayVaoLam
-            // 
-            this.cboNgayVaoLam.FormattingEnabled = true;
-            this.cboNgayVaoLam.Location = new System.Drawing.Point(1104, 140);
-            this.cboNgayVaoLam.Margin = new System.Windows.Forms.Padding(4);
-            this.cboNgayVaoLam.Name = "cboNgayVaoLam";
-            this.cboNgayVaoLam.Size = new System.Drawing.Size(265, 24);
-            this.cboNgayVaoLam.TabIndex = 78;
-            // 
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(1071, 86);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(1091, 87);
             this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
-            this.dtpNgaySinh.Size = new System.Drawing.Size(299, 22);
+            this.dtpNgaySinh.Size = new System.Drawing.Size(293, 22);
             this.dtpNgaySinh.TabIndex = 90;
             // 
             // btnThemNgayVaoLam
             // 
             this.btnThemNgayVaoLam.AutoSize = true;
             this.btnThemNgayVaoLam.BackColor = System.Drawing.Color.PeachPuff;
-            this.btnThemNgayVaoLam.Location = new System.Drawing.Point(1382, 140);
+            this.btnThemNgayVaoLam.Location = new System.Drawing.Point(1391, 199);
             this.btnThemNgayVaoLam.Name = "btnThemNgayVaoLam";
             this.btnThemNgayVaoLam.Size = new System.Drawing.Size(29, 27);
             this.btnThemNgayVaoLam.TabIndex = 92;
             this.btnThemNgayVaoLam.Text = "+";
             this.btnThemNgayVaoLam.UseVisualStyleBackColor = false;
             this.btnThemNgayVaoLam.Click += new System.EventHandler(this.btnThemNgayVaoLam_Click);
+            // 
+            // dtpNgayVaoLam
+            // 
+            this.dtpNgayVaoLam.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayVaoLam.Location = new System.Drawing.Point(1091, 140);
+            this.dtpNgayVaoLam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtpNgayVaoLam.Name = "dtpNgayVaoLam";
+            this.dtpNgayVaoLam.Size = new System.Drawing.Size(293, 22);
+            this.dtpNgayVaoLam.TabIndex = 93;
+            // 
+            // cboLichLam
+            // 
+            this.cboLichLam.FormattingEnabled = true;
+            this.cboLichLam.Location = new System.Drawing.Point(1091, 201);
+            this.cboLichLam.Margin = new System.Windows.Forms.Padding(4);
+            this.cboLichLam.Name = "cboLichLam";
+            this.cboLichLam.Size = new System.Drawing.Size(293, 24);
+            this.cboLichLam.TabIndex = 95;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Sienna;
+            this.label12.Location = new System.Drawing.Point(923, 201);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(106, 25);
+            this.label12.TabIndex = 94;
+            this.label12.Text = "Lịch Làm:";
             // 
             // NguoiDung
             // 
@@ -470,9 +493,11 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(1423, 814);
+            this.Controls.Add(this.cboLichLam);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.dtpNgayVaoLam);
             this.Controls.Add(this.btnThemNgayVaoLam);
             this.Controls.Add(this.dtpNgaySinh);
-            this.Controls.Add(this.cboNgayVaoLam);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLamMoi);
             this.Controls.Add(this.btnXoa);
@@ -507,6 +532,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NguoiDung";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhân Viên";
             this.Load += new System.EventHandler(this.NhanVien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtvDanhSachNhanVien)).EndInit();
@@ -548,8 +574,10 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox cboNgayVaoLam;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.Button btnThemNgayVaoLam;
+        private System.Windows.Forms.DateTimePicker dtpNgayVaoLam;
+        private System.Windows.Forms.ComboBox cboLichLam;
+        private System.Windows.Forms.Label label12;
     }
 }

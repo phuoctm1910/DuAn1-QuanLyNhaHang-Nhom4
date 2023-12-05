@@ -295,6 +295,7 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.txtMaHD);
             this.Controls.Add(this.label2);
             this.Name = "HoaDonChiTiet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hóa Đơn Chi Tiết";
             this.Load += new System.EventHandler(this.HoaDonChiTiet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvgThongTinCTHD)).EndInit();

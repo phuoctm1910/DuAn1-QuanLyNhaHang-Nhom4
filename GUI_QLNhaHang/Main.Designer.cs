@@ -84,21 +84,21 @@ namespace GUI_QLNhaHang
             // đổiMậtKhẩuToolStripMenuItem
             // 
             this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(223, 28);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi Mật Khẩu";
             this.đổiMậtKhẩuToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem_Click);
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(223, 28);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng Xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(224, 28);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(223, 28);
             this.thoátToolStripMenuItem.Text = "Thoát Hệ Thống";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -201,15 +201,16 @@ namespace GUI_QLNhaHang
             this.quảnLýLịchSựKiệnToolStripMenuItem.Name = "quảnLýLịchSựKiệnToolStripMenuItem";
             this.quảnLýLịchSựKiệnToolStripMenuItem.Size = new System.Drawing.Size(262, 28);
             this.quảnLýLịchSựKiệnToolStripMenuItem.Text = "Quản Lý Lịch Sự Kiện";
+            this.quảnLýLịchSựKiệnToolStripMenuItem.Click += new System.EventHandler(this.quảnLýLịchSựKiệnToolStripMenuItem_Click);
             // 
             // lblXinChao
             // 
             this.lblXinChao.AutoSize = true;
             this.lblXinChao.BackColor = System.Drawing.Color.PeachPuff;
-            this.lblXinChao.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblXinChao.Location = new System.Drawing.Point(1104, 9);
+            this.lblXinChao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblXinChao.Location = new System.Drawing.Point(1691, 0);
             this.lblXinChao.Name = "lblXinChao";
-            this.lblXinChao.Size = new System.Drawing.Size(52, 17);
+            this.lblXinChao.Size = new System.Drawing.Size(66, 24);
             this.lblXinChao.TabIndex = 1;
             this.lblXinChao.Text = "label1";
             // 
@@ -219,14 +220,16 @@ namespace GUI_QLNhaHang
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GUI_QLNhaHang.Properties.Resources.themes_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1924, 814);
+            this.ClientSize = new System.Drawing.Size(1924, 953);
             this.Controls.Add(this.lblXinChao);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trang Chủ";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

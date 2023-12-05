@@ -46,9 +46,9 @@ namespace GUI_QLNhaHang
 
         void LayLichLam()
         {
-            cboNgayVaoLam.DataSource = busND.LayLichLam();
-            cboNgayVaoLam.DisplayMember = "LichLam";
-            cboNgayVaoLam.ValueMember = "id";
+            cboLichLam.DataSource = busND.LayLichLam();
+            cboLichLam.DisplayMember = "LichLam";
+            cboLichLam.ValueMember = "id";
         }
 
         private void NhanVien_Load(object sender, EventArgs e)
@@ -78,10 +78,11 @@ namespace GUI_QLNhaHang
             dtvDanhSachNhanVien.Columns[6].HeaderText = "SĐT";
             dtvDanhSachNhanVien.Columns[7].HeaderText = "Ngày Sinh";
             dtvDanhSachNhanVien.Columns[8].HeaderText = "Ngày Vào Làm";
-            dtvDanhSachNhanVien.Columns[9].HeaderText = "Chức Vụ";
-            dtvDanhSachNhanVien.Columns[10].HeaderText = "Lương";
+            dtvDanhSachNhanVien.Columns[9].HeaderText = "Lịch Làm";
+            dtvDanhSachNhanVien.Columns[10].HeaderText = "Chức Vụ";
+            dtvDanhSachNhanVien.Columns[11].HeaderText = "Lương";
 
-            cboNgayVaoLam.SelectedIndex = -1;
+            cboLichLam.SelectedIndex = -1;
             cboLuong.SelectedIndex = -1;
             cboChucVu.SelectedIndex = -1;
             dtvDanhSachNhanVien.CellFormatting += dtvDanhSachNhanVien_CellFormatting;
@@ -109,14 +110,14 @@ namespace GUI_QLNhaHang
             radNam.Checked = false;
             radNu.Checked = false;
             btnThem.Enabled = true;
-            cboNgayVaoLam.Text = null;
+            cboLichLam.Text = null;
             cboLuong.SelectedIndex = -1;
             cboChucVu.SelectedIndex = -1;
             if (int.Parse(vaiTro) == 0)
             {
                 btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnThemNgayVaoLam.Enabled = false;
                 txtTenNhanVien.Enabled = txtManv.Enabled = txtMatKhau.Enabled = txtTaiKhoan.Enabled = txtSDT.Enabled = rtbDiaChi.Enabled
-                    = radNam.Enabled = radNu.Enabled = cboChucVu.Enabled = cboLuong.Enabled = cboNgayVaoLam.Enabled = dtpNgaySinh.Enabled = false;
+                    = radNam.Enabled = radNu.Enabled = cboChucVu.Enabled = cboLuong.Enabled = cboLichLam.Enabled = dtpNgaySinh.Enabled = false;
             }
         }
 
@@ -149,35 +150,17 @@ namespace GUI_QLNhaHang
                 rtbDiaChi.Text = dtvDanhSachNhanVien.Rows[lst].Cells[5].Value.ToString();
                 txtSDT.Text = dtvDanhSachNhanVien.Rows[lst].Cells[6].Value.ToString();
                 dtpNgaySinh.Text = dtvDanhSachNhanVien.Rows[lst].Cells[7].Value.ToString();
-                string ngaylam = dtvDanhSachNhanVien.Rows[lst].Cells[8].Value.ToString();
-                if (ngaylam == "0")
-                {
-                    cboNgayVaoLam.SelectedIndex = 0;
-                }
-                else
-                {
-                    cboNgayVaoLam.SelectedIndex = 1;
-                }
+                dtpNgayVaoLam.Text= dtvDanhSachNhanVien.Rows[lst].Cells[8].Value.ToString();
 
-                string chucvu = dtvDanhSachNhanVien.Rows[lst].Cells[9].Value.ToString();
-                if (chucvu == "0")
-                {
-                    cboChucVu.SelectedIndex = 0;
-                }
-                else
-                {
-                    cboChucVu.SelectedIndex = 1;
-                }
+                DateTime lichLam = (DateTime)dtvDanhSachNhanVien.Rows[lst].Cells[9].Value;
+                string lichLamFormatted = lichLam.ToString("MM/dd/yyyy");
+                cboLichLam.Text = lichLamFormatted;
 
-                string luong = dtvDanhSachNhanVien.Rows[lst].Cells[10].Value.ToString();
-                if (luong == "0")
-                {
-                    cboLuong.SelectedIndex = 0;
-                }
-                else
-                {
-                    cboLuong.SelectedIndex = 1;
-                }
+                cboChucVu.Text = dtvDanhSachNhanVien.Rows[lst].Cells[10].Value.ToString();
+                
+
+                cboLuong.Text = dtvDanhSachNhanVien.Rows[lst].Cells[11].Value.ToString();
+                
             }
         }
 
@@ -272,10 +255,10 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Số điện thoại đã tồn tại. Vui lòng nhập số điện thoại khác.");
                 txtSDT.Focus();
             }
-            else if (string.IsNullOrEmpty(cboNgayVaoLam.Text))
+            else if (string.IsNullOrEmpty(cboLichLam.Text))
             {
                 MessageBox.Show("Bạn chưa chọn ngày vào làm");
-                cboNgayVaoLam.Focus();
+                cboLichLam.Focus();
             }
             else if (string.IsNullOrEmpty(cboLuong.Text))
             {
@@ -287,7 +270,7 @@ namespace GUI_QLNhaHang
                 string phai = radNam.Checked ? radNam.Text : radNu.Text;
                 string matkhaumd5 = busND.Encryption(txtMatKhau.Text);
                 ND = new DTO_NguoiDung(txtTaiKhoan.Text, matkhaumd5, tenNhanVien, phai, rtbDiaChi.Text,
-                    sdt, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
+                    sdt, dtpNgaySinh.Text, dtpNgayVaoLam.Text, cboLichLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
 
                 if (busND.ThemNguoiDung(ND))
                 {
@@ -348,10 +331,10 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại đủ 10-11 số và không chứa ký tự đặc biệt.");
                 txtSDT.Focus();
             }
-            else if (string.IsNullOrEmpty(cboNgayVaoLam.Text))
+            else if (string.IsNullOrEmpty(cboLichLam.Text))
             {
                 MessageBox.Show("Bạn chưa chọn ngày vào làm");
-                cboNgayVaoLam.Focus();
+                cboLichLam.Focus();
             }
             else if (string.IsNullOrEmpty(cboLuong.Text))
             {
@@ -363,7 +346,7 @@ namespace GUI_QLNhaHang
                 string phai = radNam.Checked ? radNam.Text : radNu.Text;
                 string matkhaumd5 = busND.Encryption(txtMatKhau.Text);
                 ND = new DTO_NguoiDung(txtTaiKhoan.Text, matkhaumd5, tenNhanVien, phai, rtbDiaChi.Text,
-                    sdt, dtpNgaySinh.Text, cboNgayVaoLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
+                    sdt, dtpNgaySinh.Text, dtpNgayVaoLam.Text , cboLichLam.SelectedIndex, cboChucVu.SelectedIndex, cboLuong.SelectedIndex);
 
                 if (busND.CapNhatNguoiDung(ND, txtManv.Text))
                 {
@@ -390,16 +373,24 @@ namespace GUI_QLNhaHang
             DialogResult result = MessageBox.Show("Bạn có thật sự muốn xóa không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (result == DialogResult.Yes)
             {
-                if (busND.XoaNguoiDung(ND, txtManv.Text))
+                if (txtTaiKhoan.Text == taiKhoan)
                 {
-                    MessageBox.Show("Xóa thành công");
-                    ResetValue();
-                    LoadDataND();
+                    MessageBox.Show("Bạn đang sử dụng người dùng này");
                 }
                 else
                 {
-                    MessageBox.Show("Xóa không thành công");
+                    if (busND.XoaNguoiDung(ND, txtManv.Text))
+                    {
+                        MessageBox.Show("Xóa thành công");
+                        ResetValue();
+                        LoadDataND();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa không thành công");
+                    }
                 }
+                
             }
             else
             {

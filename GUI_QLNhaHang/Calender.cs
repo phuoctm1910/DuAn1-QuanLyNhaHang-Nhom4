@@ -235,9 +235,9 @@ namespace GUI_QLNhaHang
                 return;
             }
             DateTime currentDate = DateTime.Now;
-            string currentStatus = EPlantItem.Coming.ToString();
+            string currentStatus = EPlantItem.Done.ToString();
 
-            List<PlanItem> todayjobs = Job.Job.Where(x => x.JobExpired.Year == currentDate.Year && x.JobExpired.Month == currentDate.Month && x.JobExpired.Day == currentDate.Day && x.Status == currentStatus).ToList();
+            List<PlanItem> todayjobs = Job.Job.Where(x => x.JobExpired.Year == currentDate.Year && x.JobExpired.Month == currentDate.Month && x.JobExpired.Day == currentDate.Day && x.Status != currentStatus).ToList();
             int numberOfEvents = todayjobs.Count; 
 
             Notify.ShowBalloonTip(Cons.notifyTimeOut, "Lịch sự kiện", string.Format("Đang có {0} sự kiện sẽ diễn ra trong ngày hôm nay", numberOfEvents), ToolTipIcon.Info);
@@ -254,6 +254,11 @@ namespace GUI_QLNhaHang
         private void chbNotice_CheckedChanged(object sender, EventArgs e)
         {
             nmudNotice.Enabled = chbNotice.Checked;
+        }
+
+        private void Calender_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timerNotify.Stop();
         }
     }
 }

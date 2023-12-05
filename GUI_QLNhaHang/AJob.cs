@@ -85,6 +85,7 @@ namespace GUI_QLNhaHang
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            
             Job.Job = txtJob.Text;
             Job.FromTime = new Point((int)nmudFromHour.Value, (int)nmudFromMinute.Value);
             Job.ToTime = new Point((int)nmudToHour.Value, (int)nmudToMinute.Value);

@@ -50,6 +50,7 @@ namespace GUI_QLNhaHang
             this.ClientSize = new System.Drawing.Size(867, 548);
             this.Controls.Add(this.reportInHoaDon);
             this.Name = "InHoaDon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "InHoaDon";
             this.Load += new System.EventHandler(this.InHoaDon_Load);
             this.ResumeLayout(false);

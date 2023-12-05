@@ -47,7 +47,7 @@ namespace GUI_QLNhaHang
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI_QLNhaHang.Properties.Resources.z4818527692435_6add3f2bb755ba21434309235e05916c_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 40);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(183, 55);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -61,7 +61,7 @@ namespace GUI_QLNhaHang
             this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.ForeColor = System.Drawing.Color.White;
             this.btnLamMoi.Image = global::GUI_QLNhaHang.Properties.Resources.loading_arrow;
-            this.btnLamMoi.Location = new System.Drawing.Point(547, 383);
+            this.btnLamMoi.Location = new System.Drawing.Point(628, 383);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Padding = new System.Windows.Forms.Padding(5);
             this.btnLamMoi.Size = new System.Drawing.Size(162, 49);
@@ -78,7 +78,7 @@ namespace GUI_QLNhaHang
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Image = global::GUI_QLNhaHang.Properties.Resources.edit;
-            this.btnSua.Location = new System.Drawing.Point(381, 383);
+            this.btnSua.Location = new System.Drawing.Point(505, 383);
             this.btnSua.Name = "btnSua";
             this.btnSua.Padding = new System.Windows.Forms.Padding(5);
             this.btnSua.Size = new System.Drawing.Size(105, 49);
@@ -95,7 +95,7 @@ namespace GUI_QLNhaHang
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Image = global::GUI_QLNhaHang.Properties.Resources.add;
-            this.btnThem.Location = new System.Drawing.Point(178, 383);
+            this.btnThem.Location = new System.Drawing.Point(361, 383);
             this.btnThem.Name = "btnThem";
             this.btnThem.Padding = new System.Windows.Forms.Padding(5);
             this.btnThem.Size = new System.Drawing.Size(126, 49);
@@ -110,7 +110,7 @@ namespace GUI_QLNhaHang
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Chocolate;
-            this.label5.Location = new System.Drawing.Point(375, 133);
+            this.label5.Location = new System.Drawing.Point(415, 133);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(308, 34);
@@ -121,11 +121,11 @@ namespace GUI_QLNhaHang
             // 
             this.dvDanhSachLichLam.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dvDanhSachLichLam.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvDanhSachLichLam.Location = new System.Drawing.Point(324, 182);
+            this.dvDanhSachLichLam.Location = new System.Drawing.Point(361, 182);
             this.dvDanhSachLichLam.Name = "dvDanhSachLichLam";
             this.dvDanhSachLichLam.RowHeadersWidth = 51;
             this.dvDanhSachLichLam.RowTemplate.Height = 24;
-            this.dvDanhSachLichLam.Size = new System.Drawing.Size(385, 171);
+            this.dvDanhSachLichLam.Size = new System.Drawing.Size(430, 171);
             this.dvDanhSachLichLam.TabIndex = 82;
             this.dvDanhSachLichLam.DoubleClick += new System.EventHandler(this.dvDanhSachLichLam_DoubleClick);
             // 
@@ -133,7 +133,7 @@ namespace GUI_QLNhaHang
             // 
             this.txtIDLichLam.Location = new System.Drawing.Point(37, 182);
             this.txtIDLichLam.Name = "txtIDLichLam";
-            this.txtIDLichLam.Size = new System.Drawing.Size(267, 22);
+            this.txtIDLichLam.Size = new System.Drawing.Size(293, 22);
             this.txtIDLichLam.TabIndex = 80;
             // 
             // label3
@@ -165,7 +165,7 @@ namespace GUI_QLNhaHang
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Chocolate;
-            this.label1.Location = new System.Drawing.Point(242, 61);
+            this.label1.Location = new System.Drawing.Point(254, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(294, 34);
@@ -177,7 +177,7 @@ namespace GUI_QLNhaHang
             this.dtpLichLam.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpLichLam.Location = new System.Drawing.Point(37, 296);
             this.dtpLichLam.Name = "dtpLichLam";
-            this.dtpLichLam.Size = new System.Drawing.Size(267, 22);
+            this.dtpLichLam.Size = new System.Drawing.Size(293, 22);
             this.dtpLichLam.TabIndex = 89;
             // 
             // LichLam
@@ -185,7 +185,7 @@ namespace GUI_QLNhaHang
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(732, 444);
+            this.ClientSize = new System.Drawing.Size(815, 444);
             this.Controls.Add(this.dtpLichLam);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLamMoi);
@@ -198,6 +198,7 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "LichLam";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LichLam";
             this.Load += new System.EventHandler(this.LichLam_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

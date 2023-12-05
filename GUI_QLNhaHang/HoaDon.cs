@@ -204,9 +204,10 @@ namespace GUI_QLNhaHang
             }
             else
             {
-
-
-                HD = new DTO_HoaDon(cboNhanVien.Text, cboKhachHang.Text, cboBanAn.Text, dtpNgayLap.Text, txtTrangThai.Text, giamGia);
+                string cbond = cboNhanVien.SelectedValue.ToString();
+                string cbokh = cboKhachHang.SelectedValue.ToString();
+                string cboba = cboBanAn.SelectedValue.ToString();
+                HD = new DTO_HoaDon(cbond, cbokh, cboba, dtpNgayLap.Text, txtTrangThai.Text, giamGia);
                 if (busHD.CapNhatHoaDon(HD, txtMaHoaDon.Text))
                 {
                     MessageBox.Show("Cập nhật hóa đơn thành công!");
@@ -297,8 +298,8 @@ namespace GUI_QLNhaHang
                 }
                 else
                 {
-
-                    HoaDonChiTiet hdct = new HoaDonChiTiet(txtMaHoaDon.Text, dtvDanhSachHoaDon.Rows[lst].Cells[2].Value.ToString(), dtvDanhSachHoaDon.Rows[lst].Cells[1].Value.ToString(), (int)dtvDanhSachHoaDon.Rows[lst].Cells[6].Value);
+                    
+                    HoaDonChiTiet hdct = new HoaDonChiTiet(txtMaHoaDon.Text, dtvDanhSachHoaDon.Rows[lst].Cells[2].Value.ToString(), dtvDanhSachHoaDon.Rows[lst].Cells[1].Value.ToString(), (int)dtvDanhSachHoaDon.Rows[lst].Cells[7].Value);
                     hdct.OnCapNhatDuLieu += LoadDataHD;
                     hdct.OnHuyHoaDon += LoadDataHD;
                     hdct.Show();

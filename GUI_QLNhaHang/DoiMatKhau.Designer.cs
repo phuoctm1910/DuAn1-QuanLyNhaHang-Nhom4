@@ -172,6 +172,7 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.picProfile);
             this.Controls.Add(this.label1);
             this.Name = "DoiMatKhau";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi Mật Khẩu";
             ((System.ComponentModel.ISupportInitialize)(this.picProfile)).EndInit();
             this.ResumeLayout(false);

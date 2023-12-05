@@ -136,7 +136,7 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.mnsMain);
             this.MainMenuStrip = this.mnsMain;
             this.Name = "DailyPlan";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Công việc trong ngày";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

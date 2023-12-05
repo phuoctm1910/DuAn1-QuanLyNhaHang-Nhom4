@@ -17,7 +17,8 @@ namespace DTO_QLNhaHang
         private string DiaChi;
         private string SDT;
         private string NgaySinh;
-        private int NgayVaoLam;
+        private string NgayVaoLam;
+        private int LichLam;
         private int ChucVu;
         private int Luong;
 
@@ -74,7 +75,7 @@ namespace DTO_QLNhaHang
 
 
 
-        public int ngayvaolam
+        public string ngayvaolam
         {
             get { return NgayVaoLam; }
             set { NgayVaoLam = value; }
@@ -95,12 +96,14 @@ namespace DTO_QLNhaHang
             set { Luong = value; }
         }
 
+        public int lichlam { get => LichLam; set => LichLam = value; }
+
         public DTO_NguoiDung()
         {
 
         }
 
-        public DTO_NguoiDung(string taiKhoan, string matKhau, string tenNV, string gioiTinh, string diaChi, string sDT, string ngaySinh, int ngayVaoLam, int chucVu, int luong)
+        public DTO_NguoiDung(string taiKhoan, string matKhau, string tenNV, string gioiTinh, string diaChi, string sDT, string ngaySinh, string ngayVaoLam, int lichLam, int chucVu, int luong)
         {
             TaiKhoan = taiKhoan;
             MatKhau = matKhau;
@@ -110,6 +113,7 @@ namespace DTO_QLNhaHang
             SDT = sDT;
             NgaySinh = ngaySinh;
             NgayVaoLam = ngayVaoLam;
+            LichLam = lichLam;
             ChucVu = chucVu;
             Luong = luong;
         }

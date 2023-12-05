@@ -43,6 +43,7 @@ namespace GUI_QLNhaHang
             }
             else
             {
+                txtMaMonAn.Enabled = false;
                 txtTenMonAn.Clear();
                 txtDonViTinh.Clear();
                 txtMaMonAn.Clear();
@@ -52,6 +53,7 @@ namespace GUI_QLNhaHang
         private void MonAn_Load(object sender, EventArgs e)
         {
             LoadData();
+            ResetValues();
             cboNhomMonAn.DataSource = busMA.DanhSachNhomMonAn();
             cboNhomMonAn.DisplayMember = "TenNhom";
             cboNhomMonAn.ValueMember = "MaNhomMonAn";

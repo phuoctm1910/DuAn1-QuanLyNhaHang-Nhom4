@@ -17,6 +17,7 @@ namespace GUI_QLNhaHang
         public Main(string tk, string vaitro, int session)
         {
             InitializeComponent();
+            
             lblXinChao.Text = tk;
             Session = session;
             vaiTro = vaitro;
@@ -88,14 +89,15 @@ namespace GUI_QLNhaHang
         private void quảnLýNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             NguoiDung nv = new NguoiDung(vaiTro, lblXinChao.Text);
-            if (!CheckExistForm("NhanVien"))
+            if (!CheckExistForm("NguoiDung"))
             {
+                nv.MdiParent = this;
                 nv.Show();
                 nv.FormClosed += new FormClosedEventHandler(frm_FromClose);
             }
             else
             {
-                ActiveChildForm("NhanVien");
+                ActiveChildForm("NguoiDung");
             }
         }
         private void quảnLýKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -103,6 +105,7 @@ namespace GUI_QLNhaHang
             KhachHang kh = new KhachHang(vaiTro);
             if (!CheckExistForm("KhachHang"))
             {
+                kh.MdiParent = this;
                 kh.Show();
                 kh.FormClosed += new FormClosedEventHandler(frm_FromClose);
             }
@@ -158,6 +161,7 @@ namespace GUI_QLNhaHang
             HoaDon sp = new HoaDon(vaiTro);
             if (!CheckExistForm("HoaDon"))
             {
+                sp.MdiParent = this;
                 sp.Show();
                 sp.FormClosed += new FormClosedEventHandler(frm_FromClose);
             }
@@ -199,6 +203,7 @@ namespace GUI_QLNhaHang
             ResetValue();
             ManHinhChao mha = new ManHinhChao();
             mha.Close();
+            this.IsMdiContainer = true;
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -211,6 +216,20 @@ namespace GUI_QLNhaHang
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void quảnLýLịchSựKiệnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Calender sp = new Calender();
+            if (!CheckExistForm("Calender"))
+            {
+                sp.ShowDialog();
+                sp.FormClosed += new FormClosedEventHandler(frm_FromClose);
+            }
+            else
+            {
+                ActiveChildForm("Calender");
+            }
         }
     }
 }

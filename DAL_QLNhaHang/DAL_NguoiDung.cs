@@ -114,6 +114,7 @@ namespace DAL_QLNhaHang
                 cmd.Parameters.AddWithValue("soDT", ND.sdt);
                 cmd.Parameters.AddWithValue("ngaysinh", ND.ngaysinh);
                 cmd.Parameters.AddWithValue("ngayvaolam", ND.ngayvaolam);
+                cmd.Parameters.AddWithValue("lichlam", ND.lichlam);
                 cmd.Parameters.AddWithValue("chucvu", ND.chucvu);
                 cmd.Parameters.AddWithValue("luong", ND.luong);
                 if (cmd.ExecuteNonQuery() > 0)
@@ -143,6 +144,7 @@ namespace DAL_QLNhaHang
                 cmd.Parameters.AddWithValue("soDT", ND.sdt);
                 cmd.Parameters.AddWithValue("ngaysinh", ND.ngaysinh);
                 cmd.Parameters.AddWithValue("ngayvaolam", ND.ngayvaolam);
+                cmd.Parameters.AddWithValue("lichlam", ND.lichlam);
                 cmd.Parameters.AddWithValue("chucvu", ND.chucvu);
                 cmd.Parameters.AddWithValue("luong", ND.luong);
                 cmd.Parameters.AddWithValue("maNV", manv);

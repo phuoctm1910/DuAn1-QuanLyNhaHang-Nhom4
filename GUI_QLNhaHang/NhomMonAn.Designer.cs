@@ -217,6 +217,7 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "NhomMonAn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nhóm Món Ăn";
             this.Load += new System.EventHandler(this.NhomMonAn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvDanhSachNhomMonAn)).EndInit();
