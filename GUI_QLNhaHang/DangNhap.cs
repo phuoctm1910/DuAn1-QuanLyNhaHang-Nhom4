@@ -57,14 +57,14 @@ namespace GUI_QLNhaHang
                     txtTaiKhoan.Focus();
                 }
             }
-            else if (string.IsNullOrEmpty(taiKhoan) || taiKhoan.Length < 5)
+            else if (taiKhoan.Length < 5)
             {
-                MessageBox.Show("Bạn chưa nhập tài khoản và tài khoản phải dài hơn hoặc bằng 5 kí tự");
+                MessageBox.Show("Tài khoản phải chứa ít nhất 6 ký tự");
                 txtTaiKhoan.Focus();
             }
-            else if (string.IsNullOrEmpty(matkhau) || matkhau.Length < 6)
+            else if (matkhau.Length < 6)
             {
-                MessageBox.Show("Bạn chưa nhập mật khẩu và phải dài hơn 6 kí tự");
+                MessageBox.Show("Mật khẩu phải chứa ít nhất 6 ký tự");
                 txtMatKhau.Focus();
             }
             else

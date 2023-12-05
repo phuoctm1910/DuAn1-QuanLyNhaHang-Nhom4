@@ -38,6 +38,12 @@ namespace GUI_QLNhaHang
                     return;
                 }
 
+                if ( txtMKCu.Text.Length < 6 || txtMKMoi.Text.Length < 6 || txtNhapLaiMK.Text.Length < 6)
+                {
+                    MessageBox.Show("Mật khẩu phải chứa ít nhất 6 ký tự", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
+
                 string encryptedOldPassword = bus_nd.Encryption(txtMKCu.Text);
                 string encryptedNewPassword = bus_nd.Encryption(txtMKMoi.Text);
 
