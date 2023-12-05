@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS_QLNhaHang;
@@ -67,29 +68,34 @@ namespace GUI_QLNhaHang
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaHD.Text))
+            if (string.IsNullOrEmpty(txtSoLuong.Text))
             {
-                MessageBox.Show("Bạn Chưa Nhập Mã Hóa Đơn");
-                txtMaHD.Focus();
+                MessageBox.Show("Bạn chưa nhập số lượng");
+                txtSoLuong.Focus();
             }
-            else if (string.IsNullOrEmpty(txtSoLuong.Text))
+            else if (!int.TryParse(txtSoLuong.Text, out int soLuong) || soLuong < 0)
             {
-                MessageBox.Show("Bạn Chưa Nhập Số Lượng");
+                MessageBox.Show("Số lượng không hợp lệ. Số lượng phải là số nguyên dương.");
                 txtSoLuong.Focus();
             }
             else if (cboTenMonAn.SelectedIndex == -1)
             {
-                MessageBox.Show("Bạn Chưa Chọn Tên Món Ăn");
+                MessageBox.Show("Bạn chưa chọn tên món ăn");
                 cboTenMonAn.Focus();
             }
             else if (string.IsNullOrEmpty(txtDonGia.Text))
             {
-                MessageBox.Show("Bạn Chưa Nhập Đơn Giá");
+                MessageBox.Show("Bạn chưa nhập đơn giá");
+                txtDonGia.Focus();
+            }
+            else if (!int.TryParse(txtDonGia.Text, out int donGia) || donGia < 0)
+            {
+                MessageBox.Show("Đơn giá không hợp lệ. Đơn giá phải là số nguyên dương.");
                 txtDonGia.Focus();
             }
             else
             {
-                hdct = new DTO_HoaDonChiTiet(txtMaHD.Text, cboTenMonAn.SelectedValue.ToString(), int.Parse(txtDonGia.Text), int.Parse(txtSoLuong.Text));
+                hdct = new DTO_HoaDonChiTiet(txtMaHD.Text, cboTenMonAn.SelectedValue.ToString(), donGia, soLuong);
                 if (busHDCT.ThemHoaDonChiTiet(hdct))
                 {
                     MessageBox.Show("Thêm thành công");
