@@ -260,12 +260,11 @@ namespace GUI_QLNhaHang
         }
         private void btnInHD_Click(object sender, EventArgs e)
         {
-            tongtien = tongtien * ((100 - GiamGia) / 100);
             if (busHDCT.CapNhatTrangThai(txtMaHD.Text))
             {
                 OnCapNhatDuLieu?.Invoke();
             }
-            InHoaDon inhoadon = new InHoaDon(txtMaHD.Text, TenKH, TenNV, tongtien);
+            InHoaDon inhoadon = new InHoaDon(txtMaHD.Text, TenKH, TenNV, int.Parse(txtThanhTien.Text), GiamGia);
             inhoadon.Show();
         }
         private void dvgThongTinCTHD_DoubleClick(object sender, EventArgs e)

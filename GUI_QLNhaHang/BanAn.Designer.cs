@@ -91,9 +91,9 @@ namespace GUI_QLNhaHang
             this.label3.Location = new System.Drawing.Point(32, 195);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 25);
+            this.label3.Size = new System.Drawing.Size(143, 25);
             this.label3.TabIndex = 67;
-            this.label3.Text = "Tên Bàn Ăn:";
+            this.label3.Text = "Tên Bàn Ăn:*";
             // 
             // label2
             // 

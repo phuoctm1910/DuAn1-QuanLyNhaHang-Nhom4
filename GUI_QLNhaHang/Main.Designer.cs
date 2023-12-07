@@ -220,7 +220,7 @@ namespace GUI_QLNhaHang
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GUI_QLNhaHang.Properties.Resources.themes_background;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1924, 953);
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.lblXinChao);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

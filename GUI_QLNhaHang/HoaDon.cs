@@ -148,7 +148,7 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn chưa nhập giảm giá");
                 txtGiamGia.Focus();
             }
-            else if (!isInt || giamGia < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
+            else if (!isInt || int.Parse(txtGiamGia.Text) < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
             {
                 MessageBox.Show("Giảm giá không hợp lệ. Giảm giá phải là số nguyên dương và không chứa chữ cái hoặc ký tự đặc biệt.");
                 txtGiamGia.Focus();
@@ -197,7 +197,7 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Bạn chưa nhập giảm giá");
                 txtGiamGia.Focus();
             }
-            else if (!isInt || giamGia < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
+            else if (!isInt || int.Parse(txtGiamGia.Text) < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
             {
                 MessageBox.Show("Giảm giá không hợp lệ. Giảm giá phải là số nguyên dương và không chứa chữ cái hoặc ký tự đặc biệt.");
                 txtGiamGia.Focus();

@@ -58,9 +58,9 @@ namespace GUI_QLNhaHang
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(273, 98);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 17);
+            this.label2.Size = new System.Drawing.Size(82, 17);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Tài Khoản:";
+            this.label2.Text = "Tài Khoản:*";
             // 
             // txtTaiKhoan
             // 
@@ -84,9 +84,9 @@ namespace GUI_QLNhaHang
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(277, 149);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 17);
+            this.label3.Size = new System.Drawing.Size(77, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Mật Khẩu:";
+            this.label3.Text = "Mật Khẩu:*";
             // 
             // chbLuuTTDN
             // 

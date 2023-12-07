@@ -70,9 +70,9 @@ namespace GUI_QLNhaHang
             this.lblMaNV.Location = new System.Drawing.Point(13, 100);
             this.lblMaNV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMaNV.Name = "lblMaNV";
-            this.lblMaNV.Size = new System.Drawing.Size(156, 25);
+            this.lblMaNV.Size = new System.Drawing.Size(165, 25);
             this.lblMaNV.TabIndex = 46;
-            this.lblMaNV.Text = "Nhóm Món Ăn:";
+            this.lblMaNV.Text = "Nhóm Món Ăn:*";
             // 
             // label2
             // 
@@ -96,9 +96,9 @@ namespace GUI_QLNhaHang
             // 
             // txtMaMonAn
             // 
-            this.txtMaMonAn.Location = new System.Drawing.Point(150, 170);
+            this.txtMaMonAn.Location = new System.Drawing.Point(162, 170);
             this.txtMaMonAn.Name = "txtMaMonAn";
-            this.txtMaMonAn.Size = new System.Drawing.Size(283, 22);
+            this.txtMaMonAn.Size = new System.Drawing.Size(256, 22);
             this.txtMaMonAn.TabIndex = 49;
             // 
             // label3
@@ -109,15 +109,15 @@ namespace GUI_QLNhaHang
             this.label3.Location = new System.Drawing.Point(13, 239);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 25);
+            this.label3.Size = new System.Drawing.Size(147, 25);
             this.label3.TabIndex = 50;
-            this.label3.Text = "Tên Món Ăn:";
+            this.label3.Text = "Tên Món Ăn:*";
             // 
             // txtTenMonAn
             // 
-            this.txtTenMonAn.Location = new System.Drawing.Point(150, 239);
+            this.txtTenMonAn.Location = new System.Drawing.Point(162, 239);
             this.txtTenMonAn.Name = "txtTenMonAn";
-            this.txtTenMonAn.Size = new System.Drawing.Size(283, 22);
+            this.txtTenMonAn.Size = new System.Drawing.Size(256, 22);
             this.txtTenMonAn.TabIndex = 51;
             // 
             // label4
@@ -128,15 +128,15 @@ namespace GUI_QLNhaHang
             this.label4.Location = new System.Drawing.Point(13, 309);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 25);
+            this.label4.Size = new System.Drawing.Size(142, 25);
             this.label4.TabIndex = 52;
-            this.label4.Text = "Đơn Vị Tính:";
+            this.label4.Text = "Đơn Vị Tính:*";
             // 
             // txtDonViTinh
             // 
-            this.txtDonViTinh.Location = new System.Drawing.Point(150, 309);
+            this.txtDonViTinh.Location = new System.Drawing.Point(162, 309);
             this.txtDonViTinh.Name = "txtDonViTinh";
-            this.txtDonViTinh.Size = new System.Drawing.Size(283, 22);
+            this.txtDonViTinh.Size = new System.Drawing.Size(256, 22);
             this.txtDonViTinh.TabIndex = 53;
             // 
             // btnNhomMonAn
@@ -145,9 +145,9 @@ namespace GUI_QLNhaHang
             this.btnNhomMonAn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNhomMonAn.Location = new System.Drawing.Point(362, 94);
             this.btnNhomMonAn.Name = "btnNhomMonAn";
-            this.btnNhomMonAn.Size = new System.Drawing.Size(71, 34);
+            this.btnNhomMonAn.Size = new System.Drawing.Size(56, 34);
             this.btnNhomMonAn.TabIndex = 54;
-            this.btnNhomMonAn.Text = "- - -";
+            this.btnNhomMonAn.Text = "+";
             this.btnNhomMonAn.UseVisualStyleBackColor = true;
             this.btnNhomMonAn.Click += new System.EventHandler(this.btnNhomMonAn_Click);
             // 

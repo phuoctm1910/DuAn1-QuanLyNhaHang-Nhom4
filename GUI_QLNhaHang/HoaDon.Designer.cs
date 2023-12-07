@@ -125,9 +125,9 @@ namespace GUI_QLNhaHang
             this.label6.Location = new System.Drawing.Point(11, 421);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 25);
+            this.label6.Size = new System.Drawing.Size(99, 25);
             this.label6.TabIndex = 58;
-            this.label6.Text = "Bàn Ăn:";
+            this.label6.Text = "Bàn Ăn:*";
             // 
             // label5
             // 
@@ -137,9 +137,9 @@ namespace GUI_QLNhaHang
             this.label5.Location = new System.Drawing.Point(11, 339);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 25);
+            this.label5.Size = new System.Drawing.Size(147, 25);
             this.label5.TabIndex = 56;
-            this.label5.Text = "Khách Hàng:";
+            this.label5.Text = "Khách Hàng:*";
             // 
             // btnXoa
             // 
@@ -206,9 +206,9 @@ namespace GUI_QLNhaHang
             this.label4.Location = new System.Drawing.Point(11, 267);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 25);
+            this.label4.Size = new System.Drawing.Size(129, 25);
             this.label4.TabIndex = 54;
-            this.label4.Text = "Nhân Viên:";
+            this.label4.Text = "Nhân Viên:*";
             // 
             // lblMaNV
             // 
@@ -257,9 +257,9 @@ namespace GUI_QLNhaHang
             this.label7.Location = new System.Drawing.Point(11, 496);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(108, 25);
+            this.label7.Size = new System.Drawing.Size(117, 25);
             this.label7.TabIndex = 38;
-            this.label7.Text = "Giảm Giá:";
+            this.label7.Text = "Giảm Giá:*";
             // 
             // btnChiTietHD
             // 
@@ -325,9 +325,9 @@ namespace GUI_QLNhaHang
             this.label2.Location = new System.Drawing.Point(11, 116);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 25);
+            this.label2.Size = new System.Drawing.Size(120, 25);
             this.label2.TabIndex = 34;
-            this.label2.Text = "Ngày Lập:";
+            this.label2.Text = "Ngày Lập:*";
             // 
             // groupBox1
             // 

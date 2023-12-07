@@ -138,18 +138,18 @@ namespace GUI_QLNhaHang
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(41, 185);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 17);
+            this.label5.Size = new System.Drawing.Size(78, 17);
             this.label5.TabIndex = 56;
-            this.label5.Text = "Số Lượng:";
+            this.label5.Text = "Số Lượng:*";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(41, 135);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 17);
+            this.label3.Size = new System.Drawing.Size(94, 17);
             this.label3.TabIndex = 55;
-            this.label3.Text = "Tên Món Ăn:";
+            this.label3.Text = "Tên Món Ăn:*";
             // 
             // label1
             // 

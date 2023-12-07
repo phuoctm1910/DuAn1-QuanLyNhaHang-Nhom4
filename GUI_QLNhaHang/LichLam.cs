@@ -34,6 +34,7 @@ namespace GUI_QLNhaHang
         {
             txtIDLichLam.Enabled = false;
             LoadData();
+            ResetValues();
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -132,6 +133,7 @@ namespace GUI_QLNhaHang
                 else
                 {
                     btnThem.Enabled = false;
+                    btnSua.Enabled = true;
                     txtIDLichLam.Enabled = false;
                     int lst = dvDanhSachLichLam.CurrentRow.Index;
                     txtIDLichLam.Text = dvDanhSachLichLam.Rows[lst].Cells[0].Value.ToString();

@@ -234,5 +234,6 @@ namespace GUI_QLNhaHang
             NhomMonAn nma = new NhomMonAn(vaiTro);
             nma.Show();
         }
+
     }
 }

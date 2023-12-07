@@ -160,7 +160,8 @@ namespace GUI_QLNhaHang
                 
 
                 cboLuong.Text = dtvDanhSachNhanVien.Rows[lst].Cells[11].Value.ToString();
-                
+
+                LayLichLam();
             }
         }
 

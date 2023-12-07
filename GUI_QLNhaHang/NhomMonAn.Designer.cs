@@ -65,9 +65,9 @@ namespace GUI_QLNhaHang
             this.label3.Location = new System.Drawing.Point(43, 181);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 25);
+            this.label3.Size = new System.Drawing.Size(209, 25);
             this.label3.TabIndex = 52;
-            this.label3.Text = "Tên Nhóm Món Ăn:";
+            this.label3.Text = "Tên Nhóm Món Ăn:*";
             // 
             // label2
             // 
@@ -77,9 +77,9 @@ namespace GUI_QLNhaHang
             this.label2.Location = new System.Drawing.Point(43, 102);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(192, 25);
+            this.label2.Size = new System.Drawing.Size(201, 25);
             this.label2.TabIndex = 51;
-            this.label2.Text = "Mã Nhóm Món Ăn:";
+            this.label2.Text = "Mã Nhóm Món Ăn:*";
             // 
             // txtMaNhomMonAn
             // 

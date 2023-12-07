@@ -221,10 +221,10 @@ namespace GUI_QLNhaHang
             // 
             // txtTenKH
             // 
-            this.txtTenKH.Location = new System.Drawing.Point(212, 90);
+            this.txtTenKH.Location = new System.Drawing.Point(196, 94);
             this.txtTenKH.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenKH.Name = "txtTenKH";
-            this.txtTenKH.Size = new System.Drawing.Size(237, 22);
+            this.txtTenKH.Size = new System.Drawing.Size(253, 22);
             this.txtTenKH.TabIndex = 45;
             // 
             // dtpNgaySinh
@@ -253,9 +253,9 @@ namespace GUI_QLNhaHang
             this.label2.Location = new System.Drawing.Point(8, 90);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 25);
+            this.label2.Size = new System.Drawing.Size(191, 25);
             this.label2.TabIndex = 34;
-            this.label2.Text = "Tên Khách Hàng:";
+            this.label2.Text = "Tên Khách Hàng:*";
             // 
             // label3
             // 
@@ -265,9 +265,9 @@ namespace GUI_QLNhaHang
             this.label3.Location = new System.Drawing.Point(8, 480);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 25);
+            this.label3.Size = new System.Drawing.Size(128, 25);
             this.label3.TabIndex = 35;
-            this.label3.Text = "Ngày Sinh:";
+            this.label3.Text = "Ngày Sinh:*";
             // 
             // label7
             // 
@@ -277,9 +277,9 @@ namespace GUI_QLNhaHang
             this.label7.Location = new System.Drawing.Point(8, 414);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(124, 25);
+            this.label7.Size = new System.Drawing.Size(133, 25);
             this.label7.TabIndex = 38;
-            this.label7.Text = "Điện Thoại:";
+            this.label7.Text = "Điện Thoại:*";
             // 
             // label4
             // 
@@ -289,9 +289,9 @@ namespace GUI_QLNhaHang
             this.label4.Location = new System.Drawing.Point(8, 162);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 25);
+            this.label4.Size = new System.Drawing.Size(115, 25);
             this.label4.TabIndex = 36;
-            this.label4.Text = "Giới Tính:";
+            this.label4.Text = "Giới Tính:*";
             // 
             // label8
             // 
@@ -301,9 +301,9 @@ namespace GUI_QLNhaHang
             this.label8.Location = new System.Drawing.Point(8, 231);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 25);
+            this.label8.Size = new System.Drawing.Size(99, 25);
             this.label8.TabIndex = 37;
-            this.label8.Text = "Địa Chỉ:";
+            this.label8.Text = "Địa Chỉ:*";
             // 
             // lblMaNV
             // 
