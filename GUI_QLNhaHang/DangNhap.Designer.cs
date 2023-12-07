@@ -39,7 +39,9 @@ namespace GUI_QLNhaHang
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptShowPassword = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptShowPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -144,12 +146,26 @@ namespace GUI_QLNhaHang
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // ptShowPassword
+            // 
+            this.ptShowPassword.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ptShowPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptShowPassword.Image = global::GUI_QLNhaHang.Properties.Resources.icons8_hide_password_24;
+            this.ptShowPassword.Location = new System.Drawing.Point(561, 146);
+            this.ptShowPassword.Name = "ptShowPassword";
+            this.ptShowPassword.Size = new System.Drawing.Size(29, 24);
+            this.ptShowPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.ptShowPassword.TabIndex = 9;
+            this.ptShowPassword.TabStop = false;
+            this.ptShowPassword.Click += new System.EventHandler(this.ptShowPassword_Click);
+            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(646, 324);
+            this.Controls.Add(this.ptShowPassword);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.chbLuuTTDN);
@@ -166,6 +182,7 @@ namespace GUI_QLNhaHang
             this.Text = "Đăng Nhập";
             this.Load += new System.EventHandler(this.DangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptShowPassword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +199,6 @@ namespace GUI_QLNhaHang
         private System.Windows.Forms.CheckBox chbLuuTTDN;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnThoat;
+        private System.Windows.Forms.PictureBox ptShowPassword;
     }
 }

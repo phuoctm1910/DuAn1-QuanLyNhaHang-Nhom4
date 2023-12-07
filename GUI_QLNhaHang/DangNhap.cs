@@ -80,5 +80,21 @@ namespace GUI_QLNhaHang
                 this.Close();
             }
         }
+        private bool isPasswordVisible = false;
+        private void ptShowPassword_Click(object sender, EventArgs e)
+        {
+            if (isPasswordVisible)
+            {
+                txtMatKhau.PasswordChar = '*';
+                ptShowPassword.Image = Properties.Resources.icons8_hide_password_24; 
+            }
+            else
+            {
+                txtMatKhau.PasswordChar = '\0';
+                ptShowPassword.Image = Properties.Resources.icons8_show_password_24;
+            }
+
+            isPasswordVisible = !isPasswordVisible;
+        }
     }
 }
