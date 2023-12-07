@@ -18,7 +18,7 @@ namespace GUI_QLNhaHang
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ManHinhChao());
+            Application.Run(new Main("admin1","0", 1));
         }
     }
 }

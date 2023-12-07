@@ -36,7 +36,7 @@ namespace GUI_QLNhaHang
         {
             if (int.Parse(vaiTro) == 0)
             {
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
+                btnThem.Visible = btnSua.Visible = btnXoa.Visible = btnLamMoi.Visible = false;
                 txtTenMonAn.Enabled = txtMaMonAn.Enabled = txtDonViTinh.Enabled = false;
                 cboNhomMonAn.Enabled = false;
                 btnNhomMonAn.Enabled = false;
@@ -44,8 +44,9 @@ namespace GUI_QLNhaHang
             else
             {
                 txtMaMonAn.Enabled = false;
+                txtDonViTinh.Enabled = false;
                 txtTenMonAn.Clear();
-                txtDonViTinh.Clear();
+                txtDonViTinh.Text = "VNĐ";
                 txtMaMonAn.Clear();
                 cboNhomMonAn.SelectedIndex = -1;
             }   

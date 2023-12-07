@@ -62,8 +62,8 @@ namespace GUI_QLNhaHang
         {
             if (int.Parse(vaiTro) == 0)
             {
-                btnSua.Enabled = false;
-                btnXoa.Enabled = false;
+                btnSua.Visible = false;
+                btnXoa.Visible = false;
             }
             txtMaHoaDon.Clear();
             txtGiamGia.Clear();
@@ -79,6 +79,7 @@ namespace GUI_QLNhaHang
             cboBanAn.Enabled = true;
             cboKhachHang.Enabled = true;
             cboNhanVien.Enabled = true;
+            this.Refresh();
         }
         private void HoaDon_Load(object sender, EventArgs e)
         {

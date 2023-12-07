@@ -44,6 +44,7 @@ namespace GUI_QLNhaHang
         {
             txtMaHD.Text = MaHD;
             txtMaHD.ReadOnly = true;
+            txtDonGia.ReadOnly = true;
             txtThanhTien.ReadOnly = true;
             txtTongTienHDBangChu.ReadOnly = true;
             dvgThongTinCTHD.DataSource = busHDCT.DanhSachHoaDonChiTietFull(MaHD);
@@ -297,6 +298,18 @@ namespace GUI_QLNhaHang
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cboTenMonAn_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTenMonAn.SelectedIndex == 0)
+            {
+                txtDonGia.Text = "40000";
+            }
+            else
+            {
+                txtDonGia.Text = "55000";
+            }
         }
     }
 }

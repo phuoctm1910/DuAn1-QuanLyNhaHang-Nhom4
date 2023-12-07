@@ -85,16 +85,23 @@ namespace GUI_QLNhaHang
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            
-            Job.Job = txtJob.Text;
-            Job.FromTime = new Point((int)nmudFromHour.Value, (int)nmudFromMinute.Value);
-            Job.ToTime = new Point((int)nmudToHour.Value, (int)nmudToMinute.Value);
-            Job.Status = PlanItem.ListStatus[cboStatus.SelectedIndex];
-            if (added != null)
+            if (cboStatus.SelectedIndex == -1)
             {
-                added(this, new EventArgs());
+                MessageBox.Show("Bạn chưa chọn status công việc");
             }
-            MessageBox.Show("Đã thêm thành công");
+            else
+            {
+                Job.Job = txtJob.Text;
+                Job.FromTime = new Point((int)nmudFromHour.Value, (int)nmudFromMinute.Value);
+                Job.ToTime = new Point((int)nmudToHour.Value, (int)nmudToMinute.Value);
+                Job.Status = PlanItem.ListStatus[cboStatus.SelectedIndex];
+                if (added != null)
+                {
+                    added(this, new EventArgs());
+                }
+                MessageBox.Show("Đã thêm thành công");
+
+            }
         }
     }
 }

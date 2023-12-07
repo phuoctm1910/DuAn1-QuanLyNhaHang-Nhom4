@@ -89,6 +89,7 @@ namespace GUI_QLNhaHang
             this.cboTenMonAn.Name = "cboTenMonAn";
             this.cboTenMonAn.Size = new System.Drawing.Size(204, 24);
             this.cboTenMonAn.TabIndex = 62;
+            this.cboTenMonAn.SelectedIndexChanged += new System.EventHandler(this.cboTenMonAn_SelectedIndexChanged);
             // 
             // txtThanhTien
             // 

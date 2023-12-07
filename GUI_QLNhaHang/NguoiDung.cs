@@ -115,7 +115,7 @@ namespace GUI_QLNhaHang
             cboChucVu.SelectedIndex = -1;
             if (int.Parse(vaiTro) == 0)
             {
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnThemNgayVaoLam.Enabled = false;
+                btnThem.Visible = btnSua.Visible = btnXoa.Visible = btnThemNgayVaoLam.Visible = btnLamMoi.Visible = txtTimKiem.Visible = btnTimKiem.Visible = false;
                 txtTenNhanVien.Enabled = txtManv.Enabled = txtMatKhau.Enabled = txtTaiKhoan.Enabled = txtSDT.Enabled = rtbDiaChi.Enabled
                     = radNam.Enabled = radNu.Enabled = cboChucVu.Enabled = cboLuong.Enabled = cboLichLam.Enabled = dtpNgaySinh.Enabled = false;
             }

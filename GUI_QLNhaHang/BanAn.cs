@@ -24,12 +24,12 @@ namespace GUI_QLNhaHang
             InitializeComponent();
             vaiTro = vaitro;
         }
-
         void LoadData()
         {
             dvDanhSachBanAn.DataSource = busBA.DanhSachBanAn();
             dvDanhSachBanAn.Columns[0].HeaderText = "Mã bàn ăn"; 
-            dvDanhSachBanAn.Columns[1].HeaderText = "Tên bàn ăn"; 
+            dvDanhSachBanAn.Columns[1].HeaderText = "Tên bàn ăn";
+            dvDanhSachBanAn.Columns[2].HeaderText = "Trạng Thái";
         }
         private bool IsTenValid(string ten)
         {
@@ -46,7 +46,6 @@ namespace GUI_QLNhaHang
             }
             return false;
         }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             string tenBA = txtTenBanAn.Text.Trim();
@@ -88,11 +87,10 @@ namespace GUI_QLNhaHang
             txtTenBanAn.Clear();
             if (int.Parse(vaiTro) == 0)
             {
-                btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
+                btnThem.Visible = btnSua.Visible = btnXoa.Visible = btnLamMoi.Visible = false;
                 txtMaBanAn.Enabled = txtTenBanAn.Enabled = false;
             }
         }
-
         private void btnSua_Click(object sender, EventArgs e)
         {
             string tenBA = txtTenBanAn.Text.Trim();
@@ -137,7 +135,6 @@ namespace GUI_QLNhaHang
         {
             ResetValues();
         }
-
         private void btnXoa_Click(object sender, EventArgs e)
         {
             
@@ -175,13 +172,11 @@ namespace GUI_QLNhaHang
 
             }
         }
-
         private void BanAn_Load(object sender, EventArgs e)
         {
             LoadData();
             ResetValues();
         }
-
         private void dvDanhSachBanAn_DoubleClick(object sender, EventArgs e)
         {
             if (dvDanhSachBanAn.Rows.Count <= 0)

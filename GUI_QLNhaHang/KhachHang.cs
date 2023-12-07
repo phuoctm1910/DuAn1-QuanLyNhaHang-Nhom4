@@ -47,7 +47,7 @@ namespace GUI_QLNhaHang
             btnThem.Enabled = true;
             if (int.Parse(vaiTro) == 0)
             {
-                btnXoa.Enabled = false;
+                btnXoa.Visible = false;
             }
         }
 

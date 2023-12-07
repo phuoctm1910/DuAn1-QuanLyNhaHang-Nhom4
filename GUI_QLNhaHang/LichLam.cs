@@ -106,7 +106,7 @@ namespace GUI_QLNhaHang
         {
             if (int.Parse(vaiTro) == 0)
             {
-                btnThem.Enabled = btnSua.Enabled = false;
+                btnThem.Visible = btnSua.Visible = btnLamMoi.Visible = false;
                 txtIDLichLam.Enabled = dtpLichLam.Enabled = false;
             }
             else
