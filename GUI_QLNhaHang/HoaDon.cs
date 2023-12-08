@@ -79,6 +79,7 @@ namespace GUI_QLNhaHang
             cboBanAn.Enabled = true;
             cboKhachHang.Enabled = true;
             cboNhanVien.Enabled = true;
+            
             this.Refresh();
         }
         private void HoaDon_Load(object sender, EventArgs e)
@@ -165,6 +166,7 @@ namespace GUI_QLNhaHang
                 {
                     MessageBox.Show("Thêm hóa đơn thành công!");
                     LoadDataHD();
+                    LayBanAn();
                     ResetValue();
                 }
                 else
