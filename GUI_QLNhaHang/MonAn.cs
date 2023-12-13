@@ -46,8 +46,10 @@ namespace GUI_QLNhaHang
                 txtMaMonAn.Enabled = false;
                 txtDonViTinh.Enabled = false;
                 txtTenMonAn.Clear();
+                txtTenMonAn.Enabled = false;
                 txtDonViTinh.Text = "VNĐ";
                 txtMaMonAn.Clear();
+                cboNhomMonAn.Enabled = false;
                 cboNhomMonAn.SelectedIndex = -1;
                 btnThem.Enabled = true;
                 btnLuu.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
@@ -55,11 +57,11 @@ namespace GUI_QLNhaHang
         }
         private void MonAn_Load(object sender, EventArgs e)
         {
-            LoadData();
-            ResetValues();
             cboNhomMonAn.DataSource = busMA.DanhSachNhomMonAn();
             cboNhomMonAn.DisplayMember = "TenNhom";
             cboNhomMonAn.ValueMember = "MaNhomMonAn";
+            LoadData();
+            ResetValues();
         }
         private bool IsTenValid(string ten)
         {
@@ -81,6 +83,7 @@ namespace GUI_QLNhaHang
             ResetValues();
             btnThem.Enabled = false;
             btnLuu.Enabled = true;
+            txtTenMonAn.Enabled = cboNhomMonAn.Enabled = true;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -170,8 +173,7 @@ namespace GUI_QLNhaHang
                 {
                     btnThem.Enabled = false;
                     btnLuu.Enabled = false;
-                    txtTenMonAn.Enabled = txtDonViTinh.Enabled = true;
-                    cboNhomMonAn.Enabled = true;
+                    txtTenMonAn.Enabled = cboNhomMonAn.Enabled = true;
                     btnSua.Enabled = btnXoa.Enabled = true;
                     int lst = dvDanhSachMonAn.CurrentRow.Index;
                     txtMaMonAn.Text = dvDanhSachMonAn.Rows[lst].Cells[0].Value.ToString();

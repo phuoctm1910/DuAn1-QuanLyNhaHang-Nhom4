@@ -38,27 +38,9 @@ namespace GUI_QLNhaHang
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(dtpLichLam.Text)) 
-            {
-                MessageBox.Show("Bạn chưa nhập lịch làm");
-                txtIDLichLam.Focus();
-            }
-            else
-            {
-                DateTime selectdate = dtpLichLam.Value;
-                string formatdate = selectdate.ToString("MM/dd/yyyy");
-                ll = new DTO_LichLam(formatdate);
-                if (busLL.ThemLichLam(ll))
-                {
-                    MessageBox.Show("Thêm thành công");
-                    LoadData();
-                    ResetValues();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm thất bại");
-                }
-            }
+            ResetValues();
+            dtpLichLam.Enabled = true;
+            btnLuu.Enabled = true;
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -98,24 +80,20 @@ namespace GUI_QLNhaHang
                 }
             }
         }
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            ResetValues();
-        }  
         private void ResetValues()
         {
             if (int.Parse(vaiTro) == 0)
             {
-                btnThem.Visible = btnSua.Visible = btnLamMoi.Visible = false;
+                btnThem.Visible = btnSua.Visible = btnLuu.Visible = false;
                 txtIDLichLam.Enabled = dtpLichLam.Enabled = false;
             }
             else
             {
                 txtIDLichLam.Enabled = false;
-                btnThem.Enabled = true;
+                btnLuu.Enabled = false;
                 btnSua.Enabled = false;
                 txtIDLichLam.Clear();
-                txtIDLichLam.Clear();
+                dtpLichLam.Enabled = false;
             }
         }
         private void dvDanhSachLichLam_DoubleClick(object sender, EventArgs e)
@@ -133,6 +111,8 @@ namespace GUI_QLNhaHang
                 else
                 {
                     btnThem.Enabled = false;
+                    dtpLichLam.Enabled = true;
+                    btnLuu.Enabled = false;
                     btnSua.Enabled = true;
                     txtIDLichLam.Enabled = false;
                     int lst = dvDanhSachLichLam.CurrentRow.Index;
@@ -140,6 +120,32 @@ namespace GUI_QLNhaHang
                     dtpLichLam.Text = dvDanhSachLichLam.Rows[lst].Cells[1].Value.ToString();
                 }
             }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(dtpLichLam.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập lịch làm");
+                txtIDLichLam.Focus();
+            }
+            else
+            {
+                DateTime selectdate = dtpLichLam.Value;
+                string formatdate = selectdate.ToString("MM/dd/yyyy");
+                ll = new DTO_LichLam(formatdate);
+                if (busLL.ThemLichLam(ll))
+                {
+                    MessageBox.Show("Thêm thành công");
+                    LoadData();
+                    ResetValues();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                }
+            }
+
         }
     }
 }

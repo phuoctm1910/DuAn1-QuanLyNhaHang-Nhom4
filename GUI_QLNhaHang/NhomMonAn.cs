@@ -40,7 +40,9 @@ namespace GUI_QLNhaHang
             {
                 txtMaNhomMonAn.Clear();
                 txtTenNhomMonAn.Clear();
+                txtMaNhomMonAn.Enabled = txtTenNhomMonAn.Enabled = false;
                 btnThem.Enabled = true;
+                btnLuu.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
             }
         }
         private bool IsTenValid(string ten)
@@ -75,6 +77,13 @@ namespace GUI_QLNhaHang
             ResetValues();
         }
         private void btnThem_Click(object sender, EventArgs e)
+        {
+            ResetValues();
+            txtMaNhomMonAn.Enabled = txtTenNhomMonAn.Enabled = true;
+            btnThem.Enabled = false;
+            btnLuu.Enabled = true;
+        }
+        private void btnLuu_Click(object sender, EventArgs e)
         {
             string mma = txtMaNhomMonAn.Text.Trim();
             string tenNMA = txtTenNhomMonAn.Text.Trim();
@@ -173,10 +182,6 @@ namespace GUI_QLNhaHang
                 ResetValues();
             }
         }
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            ResetValues();
-        }
         private void dvDanhSachNhomMonAn_DoubleClick(object sender, EventArgs e)
         {
             if (dvDanhSachNhomMonAn.Rows.Count <= 0)
@@ -192,7 +197,10 @@ namespace GUI_QLNhaHang
                 else
                 {
                     txtMaNhomMonAn.Enabled = false;
+                    txtTenNhomMonAn.Enabled = true;
                     btnThem.Enabled = false;
+                    btnLuu.Enabled = false;
+                    btnSua.Enabled = btnXoa.Enabled = true;                   
                     int lst = dvDanhSachNhomMonAn.CurrentRow.Index;
                     txtMaNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[0].Value.ToString();
                     txtTenNhomMonAn.Text = dvDanhSachNhomMonAn.Rows[lst].Cells[1].Value.ToString();
