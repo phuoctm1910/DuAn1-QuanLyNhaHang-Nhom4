@@ -60,11 +60,11 @@ namespace GUI_QLNhaHang
             this.btnLuu.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Image = global::GUI_QLNhaHang.Properties.Resources.loading_arrow;
-            this.btnLuu.Location = new System.Drawing.Point(505, 383);
+            this.btnLuu.Image = global::GUI_QLNhaHang.Properties.Resources.icons8_save_24__1_;
+            this.btnLuu.Location = new System.Drawing.Point(536, 383);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Padding = new System.Windows.Forms.Padding(5);
-            this.btnLuu.Size = new System.Drawing.Size(162, 49);
+            this.btnLuu.Size = new System.Drawing.Size(102, 49);
             this.btnLuu.TabIndex = 86;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -78,7 +78,7 @@ namespace GUI_QLNhaHang
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Image = global::GUI_QLNhaHang.Properties.Resources.edit;
-            this.btnSua.Location = new System.Drawing.Point(673, 383);
+            this.btnSua.Location = new System.Drawing.Point(663, 383);
             this.btnSua.Name = "btnSua";
             this.btnSua.Padding = new System.Windows.Forms.Padding(5);
             this.btnSua.Size = new System.Drawing.Size(105, 49);
@@ -95,7 +95,7 @@ namespace GUI_QLNhaHang
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Image = global::GUI_QLNhaHang.Properties.Resources.add;
-            this.btnThem.Location = new System.Drawing.Point(361, 383);
+            this.btnThem.Location = new System.Drawing.Point(385, 383);
             this.btnThem.Name = "btnThem";
             this.btnThem.Padding = new System.Windows.Forms.Padding(5);
             this.btnThem.Size = new System.Drawing.Size(126, 49);
