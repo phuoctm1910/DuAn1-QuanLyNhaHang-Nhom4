@@ -48,46 +48,19 @@ namespace GUI_QLNhaHang
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string tenBA = txtTenBanAn.Text.Trim();
-            if (string.IsNullOrEmpty(tenBA) || tenBA.Length < 5)
-            {
-                MessageBox.Show("Bạn chưa nhập tên bàn ăn và phải dài hơn 5 kí tự");
-                txtTenBanAn.Focus();
-            }
-            else if (!IsTenValid(tenBA))
-            {
-                MessageBox.Show("Tên bàn ăn không hợp lệ. Tên chỉ được chứa ký tự tiếng Việt và khoảng trắng.");
-                txtTenBanAn.Focus();
-            }
-            else if (IsTenExists(tenBA))
-            {
-                MessageBox.Show("Tên bàn ăn đã tồn tại. Vui lòng nhập tên bàn ăn khác.");
-                txtTenBanAn.Focus();
-            }
-            else
-            {
-                ba = new DTO_BanAn(txtTenBanAn.Text);
-                if (busBA.ThemBanAn(ba))
-                {
-                    MessageBox.Show("Thêm thành công");
-                    LoadData();
-                    ResetValues();           
-                }
-                else
-                {
-                    MessageBox.Show("Thêm thất bại");
-                }
-            }
+            ResetValues();
+            btnThem.Enabled = true;
         }
         private void ResetValues()
         {
             txtMaBanAn.Enabled = false;
-            btnThem.Enabled = true;
+            btnThem.Enabled = false;
+            btnSua.Enabled = false;
             txtMaBanAn.Clear(); 
             txtTenBanAn.Clear();
             if (int.Parse(vaiTro) == 0)
             {
-                btnThem.Visible = btnSua.Visible = btnXoa.Visible = btnLamMoi.Visible = false;
+                btnThem.Visible = btnSua.Visible = btnLuu.Visible = false;
                 txtMaBanAn.Enabled = txtTenBanAn.Enabled = false;
             }
         }
@@ -130,10 +103,6 @@ namespace GUI_QLNhaHang
                     ResetValues();
                 }
             }
-        }
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            ResetValues();
         }
         private void btnXoa_Click(object sender, EventArgs e)
         {
@@ -198,10 +167,46 @@ namespace GUI_QLNhaHang
                 {
                     btnThem.Enabled = false;
                     txtMaBanAn.Enabled = false;
+                    btnSua.Enabled = true;
                     txtMaBanAn.Text = dvDanhSachBanAn.Rows[lst].Cells[0].Value.ToString();
                     txtTenBanAn.Text = dvDanhSachBanAn.Rows[lst].Cells[1].Value.ToString();
                 }
             }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            string tenBA = txtTenBanAn.Text.Trim();
+            if (string.IsNullOrEmpty(tenBA) || tenBA.Length < 5)
+            {
+                MessageBox.Show("Bạn chưa nhập tên bàn ăn và phải dài hơn 5 kí tự");
+                txtTenBanAn.Focus();
+            }
+            else if (!IsTenValid(tenBA))
+            {
+                MessageBox.Show("Tên bàn ăn không hợp lệ. Tên chỉ được chứa ký tự tiếng Việt và khoảng trắng.");
+                txtTenBanAn.Focus();
+            }
+            else if (IsTenExists(tenBA))
+            {
+                MessageBox.Show("Tên bàn ăn đã tồn tại. Vui lòng nhập tên bàn ăn khác.");
+                txtTenBanAn.Focus();
+            }
+            else
+            {
+                ba = new DTO_BanAn(txtTenBanAn.Text);
+                if (busBA.ThemBanAn(ba))
+                {
+                    MessageBox.Show("Thêm thành công");
+                    LoadData();
+                    ResetValues();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                }
+            }
+
         }
     }
 }

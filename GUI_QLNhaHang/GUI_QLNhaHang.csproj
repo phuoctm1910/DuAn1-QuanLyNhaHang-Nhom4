@@ -391,6 +391,7 @@
   <ItemGroup>
     <None Include="Resources\icons8-show-password-24.png" />
     <None Include="Resources\icons8-hide-password-24.png" />
+    <None Include="Resources\icons8-save-24 %281%29.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
