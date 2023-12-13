@@ -179,9 +179,14 @@ namespace GUI_QLNhaHang
         }
         private void dvDanhSachBanAn_DoubleClick(object sender, EventArgs e)
         {
+            int lst = dvDanhSachBanAn.CurrentRow.Index;
             if (dvDanhSachBanAn.Rows.Count <= 0)
             {
                 MessageBox.Show("Bảng không có dữ liệu");
+            }
+            else if (dvDanhSachBanAn.Rows[lst].Cells[2].Value.ToString() != "Đang trống")
+            {
+                MessageBox.Show("Không thể thao tác vì bàn đang được sử dụng");
             }
             else
             {
@@ -193,7 +198,6 @@ namespace GUI_QLNhaHang
                 {
                     btnThem.Enabled = false;
                     txtMaBanAn.Enabled = false;
-                    int lst = dvDanhSachBanAn.CurrentRow.Index;
                     txtMaBanAn.Text = dvDanhSachBanAn.Rows[lst].Cells[0].Value.ToString();
                     txtTenBanAn.Text = dvDanhSachBanAn.Rows[lst].Cells[1].Value.ToString();
                 }

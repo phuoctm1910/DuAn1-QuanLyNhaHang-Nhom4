@@ -263,6 +263,7 @@ namespace GUI_QLNhaHang
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
+            LoadData();
             ResetValues();
         }
 

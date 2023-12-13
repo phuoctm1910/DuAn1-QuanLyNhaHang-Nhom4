@@ -27,10 +27,10 @@ namespace GUI_QLNhaHang
         private void LoadData()
         {
             dvDanhSachMonAn.DataSource = busMA.DanhSachMonAn();
-            dvDanhSachMonAn.Columns[0].HeaderText = "Nhóm Món Ăn";
-            dvDanhSachMonAn.Columns[1].HeaderText = "Mã Món Ăn";
-            dvDanhSachMonAn.Columns[2].HeaderText = "Tên Món Ăn";
-            dvDanhSachMonAn.Columns[3].HeaderText = "Đơn Vị Tính";
+            dvDanhSachMonAn.Columns[3].HeaderText = "Tên Nhóm Món Ăn";
+            dvDanhSachMonAn.Columns[0].HeaderText = "Mã Món Ăn";
+            dvDanhSachMonAn.Columns[1].HeaderText = "Tên Món Ăn";
+            dvDanhSachMonAn.Columns[2].HeaderText = "Đơn Vị Tính";
         }
         private void ResetValues()
         {

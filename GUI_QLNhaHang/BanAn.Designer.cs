@@ -202,7 +202,7 @@ namespace GUI_QLNhaHang
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
-            this.ClientSize = new System.Drawing.Size(732, 453);
+            this.ClientSize = new System.Drawing.Size(738, 443);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnLamMoi);
