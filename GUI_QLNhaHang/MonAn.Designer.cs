@@ -41,11 +41,11 @@ namespace GUI_QLNhaHang
             this.btnNhomMonAn = new System.Windows.Forms.Button();
             this.dvDanhSachMonAn = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnXoa = new System.Windows.Forms.Button();
-            this.btnLamMoi = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dvDanhSachMonAn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -174,6 +174,16 @@ namespace GUI_QLNhaHang
             this.label5.TabIndex = 56;
             this.label5.Text = "Danh Sách Món Ăn";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GUI_QLNhaHang.Properties.Resources.z4818527692435_6add3f2bb755ba21434309235e05916c_removebg_preview;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(183, 55);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 77;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnXoa
             // 
             this.btnXoa.AutoSize = true;
@@ -181,7 +191,7 @@ namespace GUI_QLNhaHang
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Image = global::GUI_QLNhaHang.Properties.Resources.delete_food;
-            this.btnXoa.Location = new System.Drawing.Point(743, 374);
+            this.btnXoa.Location = new System.Drawing.Point(727, 374);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Padding = new System.Windows.Forms.Padding(5);
             this.btnXoa.Size = new System.Drawing.Size(105, 49);
@@ -191,22 +201,22 @@ namespace GUI_QLNhaHang
             this.btnXoa.UseVisualStyleBackColor = false;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
-            // btnLamMoi
+            // btnLuu
             // 
-            this.btnLamMoi.AutoSize = true;
-            this.btnLamMoi.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.ForeColor = System.Drawing.Color.White;
-            this.btnLamMoi.Image = global::GUI_QLNhaHang.Properties.Resources.loading_arrow;
-            this.btnLamMoi.Location = new System.Drawing.Point(523, 374);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Padding = new System.Windows.Forms.Padding(5);
-            this.btnLamMoi.Size = new System.Drawing.Size(162, 49);
-            this.btnLamMoi.TabIndex = 59;
-            this.btnLamMoi.Text = "Làm Mới";
-            this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLamMoi.UseVisualStyleBackColor = false;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            this.btnLuu.AutoSize = true;
+            this.btnLuu.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Image = global::GUI_QLNhaHang.Properties.Resources.icons8_save_24__1_;
+            this.btnLuu.Location = new System.Drawing.Point(378, 374);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Padding = new System.Windows.Forms.Padding(5);
+            this.btnLuu.Size = new System.Drawing.Size(102, 49);
+            this.btnLuu.TabIndex = 59;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnSua
             // 
@@ -215,7 +225,7 @@ namespace GUI_QLNhaHang
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Image = global::GUI_QLNhaHang.Properties.Resources.edit;
-            this.btnSua.Location = new System.Drawing.Point(360, 374);
+            this.btnSua.Location = new System.Drawing.Point(558, 374);
             this.btnSua.Name = "btnSua";
             this.btnSua.Padding = new System.Windows.Forms.Padding(5);
             this.btnSua.Size = new System.Drawing.Size(105, 49);
@@ -242,16 +252,6 @@ namespace GUI_QLNhaHang
             this.btnThem.UseVisualStyleBackColor = false;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GUI_QLNhaHang.Properties.Resources.z4818527692435_6add3f2bb755ba21434309235e05916c_removebg_preview;
-            this.pictureBox1.Location = new System.Drawing.Point(18, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(183, 55);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 77;
-            this.pictureBox1.TabStop = false;
-            // 
             // MonAn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -260,7 +260,7 @@ namespace GUI_QLNhaHang
             this.ClientSize = new System.Drawing.Size(932, 453);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnXoa);
-            this.Controls.Add(this.btnLamMoi);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.label5);
@@ -303,7 +303,7 @@ namespace GUI_QLNhaHang
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnSua;
-        private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

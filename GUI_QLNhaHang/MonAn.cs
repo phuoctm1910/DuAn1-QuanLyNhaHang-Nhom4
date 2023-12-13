@@ -30,13 +30,13 @@ namespace GUI_QLNhaHang
             dvDanhSachMonAn.Columns[3].HeaderText = "Tên Nhóm Món Ăn";
             dvDanhSachMonAn.Columns[0].HeaderText = "Mã Món Ăn";
             dvDanhSachMonAn.Columns[1].HeaderText = "Tên Món Ăn";
-            dvDanhSachMonAn.Columns[2].HeaderText = "Đơn Vị Tính";
+            dvDanhSachMonAn.Columns[2].HeaderText = "Đơn Giá";
         }
         private void ResetValues()
         {
             if (int.Parse(vaiTro) == 0)
             {
-                btnThem.Visible = btnSua.Visible = btnXoa.Visible = btnLamMoi.Visible = false;
+                btnThem.Visible = btnSua.Visible = btnXoa.Visible = btnLuu.Visible = false;
                 txtTenMonAn.Enabled = txtMaMonAn.Enabled = txtDonViTinh.Enabled = false;
                 cboNhomMonAn.Enabled = false;
                 btnNhomMonAn.Enabled = false;
@@ -49,6 +49,8 @@ namespace GUI_QLNhaHang
                 txtDonViTinh.Text = "VNĐ";
                 txtMaMonAn.Clear();
                 cboNhomMonAn.SelectedIndex = -1;
+                btnThem.Enabled = true;
+                btnLuu.Enabled = btnSua.Enabled = btnXoa.Enabled = false;
             }   
         }
         private void MonAn_Load(object sender, EventArgs e)
@@ -76,47 +78,9 @@ namespace GUI_QLNhaHang
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string nhomMA = cboNhomMonAn.SelectedValue.ToString();
-            string tenMA = txtTenMonAn.Text.Trim();
-            if (string.IsNullOrEmpty(tenMA) || tenMA.Length < 5)
-            {
-                MessageBox.Show("Bạn chưa nhập tên món ăn và phải dài hơn 5 kí tự");
-                txtTenMonAn.Focus();
-            }
-            else if (!IsTenValid(txtTenMonAn.Text))
-            {
-                MessageBox.Show("Tên món ăn không hợp lệ. Tên chỉ được chứa ký tự tiếng Việt và khoảng trắng.");
-                txtTenMonAn.Focus();
-            }
-            else if (IsTenExists(tenMA))
-            {
-                MessageBox.Show("Tên món ăn đã tồn tại. Vui lòng nhập tên món ăn khác.");
-                txtTenMonAn.Focus();
-            }
-            else if (string.IsNullOrEmpty(txtDonViTinh.Text) || txtDonViTinh.TextLength < 3)
-            {
-                MessageBox.Show("Bạn chưa nhập đơn vị tính và phải dài hơn 3 kí tự");
-                txtDonViTinh.Focus();
-            }
-            else if (cboNhomMonAn.SelectedIndex == -1)
-            {
-                MessageBox.Show("Bạn chưa chọn nhóm món ăn");
-                cboNhomMonAn.Focus();
-            }
-            else
-            {
-                ma = new DTO_MonAn(txtTenMonAn.Text, txtDonViTinh.Text, nhomMA);
-                if (busMA.ThemMonAn(ma))
-                {
-                    MessageBox.Show("Thêm thành công");
-                    ResetValues();
-                    LoadData();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm thất bại");
-                }
-            }
+            ResetValues();
+            btnThem.Enabled = false;
+            btnLuu.Enabled = true;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -157,11 +121,6 @@ namespace GUI_QLNhaHang
                     MessageBox.Show("Sửa thất bại");
                 }
             }
-        }
-
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
-            ResetValues();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -210,6 +169,7 @@ namespace GUI_QLNhaHang
                 else
                 {
                     btnThem.Enabled = false;
+                    btnLuu.Enabled = false;
                     txtTenMonAn.Enabled = txtDonViTinh.Enabled = true;
                     cboNhomMonAn.Enabled = true;
                     btnSua.Enabled = btnXoa.Enabled = true;
@@ -236,5 +196,50 @@ namespace GUI_QLNhaHang
             nma.Show();
         }
 
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            string nhomMA = cboNhomMonAn.SelectedValue.ToString();
+            string tenMA = txtTenMonAn.Text.Trim();
+            if (string.IsNullOrEmpty(tenMA) || tenMA.Length < 5)
+            {
+                MessageBox.Show("Bạn chưa nhập tên món ăn và phải dài hơn 5 kí tự");
+                txtTenMonAn.Focus();
+            }
+            else if (!IsTenValid(txtTenMonAn.Text))
+            {
+                MessageBox.Show("Tên món ăn không hợp lệ. Tên chỉ được chứa ký tự tiếng Việt và khoảng trắng.");
+                txtTenMonAn.Focus();
+            }
+            else if (IsTenExists(tenMA))
+            {
+                MessageBox.Show("Tên món ăn đã tồn tại. Vui lòng nhập tên món ăn khác.");
+                txtTenMonAn.Focus();
+            }
+            else if (string.IsNullOrEmpty(txtDonViTinh.Text) || txtDonViTinh.TextLength < 3)
+            {
+                MessageBox.Show("Bạn chưa nhập đơn vị tính và phải dài hơn 3 kí tự");
+                txtDonViTinh.Focus();
+            }
+            else if (cboNhomMonAn.SelectedIndex == -1)
+            {
+                MessageBox.Show("Bạn chưa chọn nhóm món ăn");
+                cboNhomMonAn.Focus();
+            }
+            else
+            {
+                ma = new DTO_MonAn(txtTenMonAn.Text, txtDonViTinh.Text, nhomMA);
+                if (busMA.ThemMonAn(ma))
+                {
+                    MessageBox.Show("Thêm thành công");
+                    ResetValues();
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                }
+            }
+
+        }
     }
 }

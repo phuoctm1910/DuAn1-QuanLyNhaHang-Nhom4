@@ -49,12 +49,14 @@ namespace GUI_QLNhaHang
         private void btnThem_Click(object sender, EventArgs e)
         {
             ResetValues();
-            btnThem.Enabled = true;
+            btnLuu.Enabled = true;
+            btnThem.Enabled = false;
         }
         private void ResetValues()
         {
             txtMaBanAn.Enabled = false;
-            btnThem.Enabled = false;
+            btnThem.Enabled = true;
+            btnLuu.Enabled = false;
             btnSua.Enabled = false;
             txtMaBanAn.Clear(); 
             txtTenBanAn.Clear();
@@ -166,6 +168,7 @@ namespace GUI_QLNhaHang
                 else
                 {
                     btnThem.Enabled = false;
+                    btnLuu.Enabled = false;
                     txtMaBanAn.Enabled = false;
                     btnSua.Enabled = true;
                     txtMaBanAn.Text = dvDanhSachBanAn.Rows[lst].Cells[0].Value.ToString();
