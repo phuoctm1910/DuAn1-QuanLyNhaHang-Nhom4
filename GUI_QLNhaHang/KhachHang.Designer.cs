@@ -29,7 +29,7 @@ namespace GUI_QLNhaHang
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLamMoi = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -57,24 +57,24 @@ namespace GUI_QLNhaHang
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnLamMoi
+            // btnLuu
             // 
-            this.btnLamMoi.AutoSize = true;
-            this.btnLamMoi.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnLamMoi.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.ForeColor = System.Drawing.Color.White;
-            this.btnLamMoi.Image = global::GUI_QLNhaHang.Properties.Resources.loading_arrow;
-            this.btnLamMoi.Location = new System.Drawing.Point(981, 714);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.btnLamMoi.Size = new System.Drawing.Size(166, 51);
-            this.btnLamMoi.TabIndex = 62;
-            this.btnLamMoi.Text = "Làm Mới";
-            this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLamMoi.UseVisualStyleBackColor = false;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            this.btnLuu.AutoSize = true;
+            this.btnLuu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLuu.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Image = global::GUI_QLNhaHang.Properties.Resources.loading_arrow;
+            this.btnLuu.Location = new System.Drawing.Point(981, 714);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnLuu.Size = new System.Drawing.Size(106, 51);
+            this.btnLuu.TabIndex = 62;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnXoa
             // 
@@ -342,7 +342,7 @@ namespace GUI_QLNhaHang
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.groupBox1.BackColor = System.Drawing.Color.PeachPuff;
             this.groupBox1.Controls.Add(this.lblMaNV);
             this.groupBox1.Controls.Add(this.rtxtDiaChi);
             this.groupBox1.Controls.Add(this.radNu);
@@ -373,7 +373,7 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dvThongTinKH);
-            this.Controls.Add(this.btnLamMoi);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
@@ -397,7 +397,7 @@ namespace GUI_QLNhaHang
 
         #endregion
 
-        private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
