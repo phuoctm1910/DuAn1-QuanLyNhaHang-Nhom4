@@ -25,7 +25,7 @@ namespace GUI_QLNhaHang
             InitializeComponent();
             LayNhanVien();
             LayKhachHang();
-            LayBanAn();
+            LayBanAnConTrong();
             vaiTro = vaitro;
         }
         private void LoadDataHD()
@@ -58,6 +58,12 @@ namespace GUI_QLNhaHang
             cboBanAn.DisplayMember = "TenBanAn";
             cboBanAn.ValueMember = "MaBanAn";
         }
+        void LayBanAnConTrong()
+        {
+            cboBanAn.DataSource = busHD.LayBanAnConTrong();
+            cboBanAn.DisplayMember = "TenBanAn";
+            cboBanAn.ValueMember = "MaBanAn";
+        }
         private void ResetValue()
         {
             if (int.Parse(vaiTro) == 0)
@@ -69,26 +75,21 @@ namespace GUI_QLNhaHang
             txtGiamGia.Clear();
             txtTimKiem.Clear();
             txtMaHoaDon.Enabled = false;
-            btnThem.Enabled = true;
+            txtGiamGia.Enabled = false;
+            btnLuu.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             txtTimKiem.Text = "Nhập mã hóa đơn muốn tìm";
             txtTrangThai.Text = "Chưa in";
             txtTrangThai.ReadOnly = true;
             cboBanAn.SelectedIndex = cboKhachHang.SelectedIndex = cboNhanVien.SelectedIndex = -1;
-            cboBanAn.Enabled = true;
-            cboKhachHang.Enabled = true;
-            cboNhanVien.Enabled = true;
-            
+            cboBanAn.Enabled = cboKhachHang.Enabled = cboNhanVien.Enabled = false;
+            dtpNgayLap.Enabled = false;
             this.Refresh();
         }
         private void HoaDon_Load(object sender, EventArgs e)
         {
             LoadDataHD();
-            ResetValue();
-        }
-        private void btnLamMoi_Click(object sender, EventArgs e)
-        {
             ResetValue();
         }
         private void dtvDanhSachHoaDon_DoubleClick(object sender, EventArgs e)
@@ -113,7 +114,11 @@ namespace GUI_QLNhaHang
                     txtMaHoaDon.Enabled = false;
                     btnSua.Enabled = true;
                     btnThem.Enabled = false;
+                    btnLuu.Enabled = false;
                     btnXoa.Enabled = true;
+                    dtpNgayLap.Enabled = true;
+                    txtGiamGia.Enabled = true;
+                    LayBanAn();
                 }
                 int lst = dtvDanhSachHoaDon.CurrentRow.Index;
                 txtMaHoaDon.Text = dtvDanhSachHoaDon.Rows[lst].Cells[0].Value.ToString();
@@ -127,53 +132,12 @@ namespace GUI_QLNhaHang
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            int giamGia;
-            bool isInt = int.TryParse(txtGiamGia.Text, out giamGia);
-
-            if (string.IsNullOrEmpty(cboNhanVien.Text))
-            {
-                MessageBox.Show("Bạn chưa chọn nhân viên");
-                cboNhanVien.Focus();
-            }
-            else if (string.IsNullOrEmpty(cboKhachHang.Text))
-            {
-                MessageBox.Show("Bạn chưa chọn khách hàng");
-                cboKhachHang.Focus();
-            }
-            else if (string.IsNullOrEmpty(cboBanAn.Text))
-            {
-                MessageBox.Show("Bạn chưa chọn bàn ăn");
-                cboBanAn.Focus();
-            }
-            else if (string.IsNullOrEmpty(txtGiamGia.Text))
-            {
-                MessageBox.Show("Bạn chưa nhập giảm giá");
-                txtGiamGia.Focus();
-            }
-            else if (!isInt || int.Parse(txtGiamGia.Text) < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
-            {
-                MessageBox.Show("Giảm giá không hợp lệ. Giảm giá phải là số nguyên dương và không chứa chữ cái hoặc ký tự đặc biệt.");
-                txtGiamGia.Focus();
-            }
-            else
-            {
-                string cbond = cboNhanVien.SelectedValue.ToString();
-                string cbokh = cboKhachHang.SelectedValue.ToString();
-                string cboba = cboBanAn.SelectedValue.ToString();
-                HD = new DTO_HoaDon(cbond, cbokh, cboba, dtpNgayLap.Text, txtTrangThai.Text, giamGia);
-
-                if (busHD.ThemHoaDon(HD, 0))
-                {
-                    MessageBox.Show("Thêm hóa đơn thành công!");
-                    LoadDataHD();
-                    LayBanAn();
-                    ResetValue();
-                }
-                else
-                {
-                    MessageBox.Show("Thêm hóa đơn thất bại!!!");
-                }
-            }
+            ResetValue();
+            cboBanAn.Enabled = cboKhachHang.Enabled = cboNhanVien.Enabled = true;
+            btnLuu.Enabled = true;
+            btnThem.Enabled = false;
+            dtpNgayLap.Enabled = true;
+            txtGiamGia.Enabled = true;
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -306,6 +270,58 @@ namespace GUI_QLNhaHang
                     hdct.OnCapNhatDuLieu += LoadDataHD;
                     hdct.OnHuyHoaDon += LoadDataHD;
                     hdct.Show();
+                }
+            }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+
+        {
+            int giamGia;
+            bool isInt = int.TryParse(txtGiamGia.Text, out giamGia);
+
+            if (string.IsNullOrEmpty(cboNhanVien.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn nhân viên");
+                cboNhanVien.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboKhachHang.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn khách hàng");
+                cboKhachHang.Focus();
+            }
+            else if (string.IsNullOrEmpty(cboBanAn.Text))
+            {
+                MessageBox.Show("Bạn chưa chọn bàn ăn");
+                cboBanAn.Focus();
+            }
+            else if (string.IsNullOrEmpty(txtGiamGia.Text))
+            {
+                MessageBox.Show("Bạn chưa nhập giảm giá");
+                txtGiamGia.Focus();
+            }
+            else if (!isInt || int.Parse(txtGiamGia.Text) < 0 || Regex.IsMatch(txtGiamGia.Text, "[a-zA-Z!@#$%^&*()]"))
+            {
+                MessageBox.Show("Giảm giá không hợp lệ. Giảm giá phải là số nguyên dương và không chứa chữ cái hoặc ký tự đặc biệt.");
+                txtGiamGia.Focus();
+            }
+            else
+            {
+                string cbond = cboNhanVien.SelectedValue.ToString();
+                string cbokh = cboKhachHang.SelectedValue.ToString();
+                string cboba = cboBanAn.SelectedValue.ToString();
+                HD = new DTO_HoaDon(cbond, cbokh, cboba, dtpNgayLap.Text, txtTrangThai.Text, giamGia);
+
+                if (busHD.ThemHoaDon(HD, 0))
+                {
+                    MessageBox.Show("Thêm hóa đơn thành công!");
+                    LoadDataHD();
+                    LayBanAnConTrong();
+                    ResetValue();
+                }
+                else
+                {
+                    MessageBox.Show("Thêm hóa đơn thất bại!!!");
                 }
             }
         }

@@ -43,7 +43,7 @@ namespace GUI_QLNhaHang
             this.label4 = new System.Windows.Forms.Label();
             this.lblMaNV = new System.Windows.Forms.Label();
             this.txtGiamGia = new System.Windows.Forms.TextBox();
-            this.btnLamMoi = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnChiTietHD = new System.Windows.Forms.Button();
             this.dtpNgayLap = new System.Windows.Forms.DateTimePicker();
@@ -149,7 +149,7 @@ namespace GUI_QLNhaHang
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Image = global::GUI_QLNhaHang.Properties.Resources.delete_user;
-            this.btnXoa.Location = new System.Drawing.Point(1219, 743);
+            this.btnXoa.Location = new System.Drawing.Point(1218, 743);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
@@ -168,7 +168,7 @@ namespace GUI_QLNhaHang
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Image = global::GUI_QLNhaHang.Properties.Resources.profile;
-            this.btnSua.Location = new System.Drawing.Point(827, 743);
+            this.btnSua.Location = new System.Drawing.Point(1030, 743);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
@@ -230,24 +230,24 @@ namespace GUI_QLNhaHang
             this.txtGiamGia.Size = new System.Drawing.Size(304, 22);
             this.txtGiamGia.TabIndex = 52;
             // 
-            // btnLamMoi
+            // btnLuu
             // 
-            this.btnLamMoi.AutoSize = true;
-            this.btnLamMoi.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnLamMoi.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.ForeColor = System.Drawing.Color.White;
-            this.btnLamMoi.Image = global::GUI_QLNhaHang.Properties.Resources.loading_arrow;
-            this.btnLamMoi.Location = new System.Drawing.Point(996, 743);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.btnLamMoi.Size = new System.Drawing.Size(166, 51);
-            this.btnLamMoi.TabIndex = 96;
-            this.btnLamMoi.Text = "Làm Mới";
-            this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLamMoi.UseVisualStyleBackColor = false;
-            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            this.btnLuu.AutoSize = true;
+            this.btnLuu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnLuu.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Image = global::GUI_QLNhaHang.Properties.Resources.icons8_save_24__1_;
+            this.btnLuu.Location = new System.Drawing.Point(845, 743);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnLuu.Size = new System.Drawing.Size(106, 51);
+            this.btnLuu.TabIndex = 96;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // label7
             // 
@@ -396,7 +396,7 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThem);
-            this.Controls.Add(this.btnLamMoi);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnChiTietHD);
             this.Controls.Add(this.dtvDanhSachHoaDon);
             this.Controls.Add(this.txtTimKiem);
@@ -433,7 +433,7 @@ namespace GUI_QLNhaHang
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblMaNV;
         private System.Windows.Forms.TextBox txtGiamGia;
-        private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnChiTietHD;
         private System.Windows.Forms.DateTimePicker dtpNgayLap;

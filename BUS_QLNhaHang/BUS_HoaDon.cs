@@ -38,6 +38,11 @@ namespace BUS_QLNhaHang
             return dalHoaDon.LayBanAn();
         }
 
+        public DataTable LayBanAnConTrong()
+        {
+            return dalHoaDon.LayBanAnConTrong();
+        }
+
         public bool ThemHoaDon(DTO_HoaDon HD, int tongtien)
         {
             return dalHoaDon.ThemHoaDon(HD, tongtien);

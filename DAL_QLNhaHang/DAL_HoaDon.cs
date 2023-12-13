@@ -82,6 +82,22 @@ namespace DAL_QLNhaHang
 
         }
 
+        public DataTable LayBanAnConTrong()
+        {
+            try
+            {
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[LayBanAnConTrong]";
+                cmd.Connection = _conn;
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+            finally { _conn.Close(); }
+
+        }
 
         public DataTable DanhSachHoaDon()
         {
