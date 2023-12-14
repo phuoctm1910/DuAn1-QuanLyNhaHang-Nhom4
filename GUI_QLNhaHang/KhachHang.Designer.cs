@@ -109,7 +109,7 @@ namespace GUI_QLNhaHang
             this.btnSua.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnSua.Size = new System.Drawing.Size(109, 51);
             this.btnSua.TabIndex = 60;
-            this.btnSua.Text = "Sữa";
+            this.btnSua.Text = "Sửa";
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);

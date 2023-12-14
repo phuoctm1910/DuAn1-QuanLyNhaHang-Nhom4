@@ -149,7 +149,7 @@ namespace GUI_QLNhaHang
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXoa.ForeColor = System.Drawing.Color.White;
             this.btnXoa.Image = global::GUI_QLNhaHang.Properties.Resources.delete_user;
-            this.btnXoa.Location = new System.Drawing.Point(1218, 743);
+            this.btnXoa.Location = new System.Drawing.Point(1229, 743);
             this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
@@ -168,13 +168,13 @@ namespace GUI_QLNhaHang
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSua.ForeColor = System.Drawing.Color.White;
             this.btnSua.Image = global::GUI_QLNhaHang.Properties.Resources.profile;
-            this.btnSua.Location = new System.Drawing.Point(1030, 743);
+            this.btnSua.Location = new System.Drawing.Point(1041, 743);
             this.btnSua.Margin = new System.Windows.Forms.Padding(4);
             this.btnSua.Name = "btnSua";
             this.btnSua.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnSua.Size = new System.Drawing.Size(109, 51);
             this.btnSua.TabIndex = 94;
-            this.btnSua.Text = "Sữa";
+            this.btnSua.Text = "Sửa";
             this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSua.UseVisualStyleBackColor = false;
             this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
@@ -187,7 +187,7 @@ namespace GUI_QLNhaHang
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Image = global::GUI_QLNhaHang.Properties.Resources.add_user__1_;
-            this.btnThem.Location = new System.Drawing.Point(636, 743);
+            this.btnThem.Location = new System.Drawing.Point(647, 743);
             this.btnThem.Margin = new System.Windows.Forms.Padding(4);
             this.btnThem.Name = "btnThem";
             this.btnThem.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
@@ -238,7 +238,7 @@ namespace GUI_QLNhaHang
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
             this.btnLuu.Image = global::GUI_QLNhaHang.Properties.Resources.icons8_save_24__1_;
-            this.btnLuu.Location = new System.Drawing.Point(845, 743);
+            this.btnLuu.Location = new System.Drawing.Point(856, 743);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
