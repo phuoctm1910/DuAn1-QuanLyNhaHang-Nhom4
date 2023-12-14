@@ -37,7 +37,7 @@ namespace GUI_QLNhaHang
             this.label3 = new System.Windows.Forms.Label();
             this.txtTenMonAn = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtDonViTinh = new System.Windows.Forms.TextBox();
+            this.txtDonGia = new System.Windows.Forms.TextBox();
             this.btnNhomMonAn = new System.Windows.Forms.Button();
             this.dvDanhSachMonAn = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
@@ -128,16 +128,16 @@ namespace GUI_QLNhaHang
             this.label4.Location = new System.Drawing.Point(13, 309);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 25);
+            this.label4.Size = new System.Drawing.Size(97, 25);
             this.label4.TabIndex = 52;
-            this.label4.Text = "Đơn Vị Tính:";
+            this.label4.Text = "Đơn Giá:";
             // 
-            // txtDonViTinh
+            // txtDonGia
             // 
-            this.txtDonViTinh.Location = new System.Drawing.Point(162, 309);
-            this.txtDonViTinh.Name = "txtDonViTinh";
-            this.txtDonViTinh.Size = new System.Drawing.Size(256, 22);
-            this.txtDonViTinh.TabIndex = 53;
+            this.txtDonGia.Location = new System.Drawing.Point(162, 309);
+            this.txtDonGia.Name = "txtDonGia";
+            this.txtDonGia.Size = new System.Drawing.Size(256, 22);
+            this.txtDonGia.TabIndex = 53;
             // 
             // btnNhomMonAn
             // 
@@ -266,7 +266,7 @@ namespace GUI_QLNhaHang
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dvDanhSachMonAn);
             this.Controls.Add(this.btnNhomMonAn);
-            this.Controls.Add(this.txtDonViTinh);
+            this.Controls.Add(this.txtDonGia);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtTenMonAn);
             this.Controls.Add(this.label3);
@@ -297,7 +297,7 @@ namespace GUI_QLNhaHang
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTenMonAn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDonViTinh;
+        private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.Button btnNhomMonAn;
         private System.Windows.Forms.DataGridView dvDanhSachMonAn;
         private System.Windows.Forms.Label label5;

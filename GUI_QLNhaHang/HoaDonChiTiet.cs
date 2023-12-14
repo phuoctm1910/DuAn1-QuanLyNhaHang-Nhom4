@@ -61,11 +61,12 @@ namespace GUI_QLNhaHang
             cboTenMonAn.SelectedIndex = -1;
         }
         private void HoaDonChiTiet_Load(object sender, EventArgs e)
-        {
-            LoadData();
+        {     
             cboTenMonAn.DataSource = busHDCT.LayMonAn();
             cboTenMonAn.DisplayMember = "TenMonAn";
             cboTenMonAn.ValueMember = "MaMonAn";
+            LoadData();
+            ResetValues();
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
@@ -299,16 +300,19 @@ namespace GUI_QLNhaHang
         {
             this.Close();
         }
-
         private void cboTenMonAn_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboTenMonAn.SelectedIndex == 0)
+            if (cboTenMonAn.SelectedIndex == -1)
             {
-                txtDonGia.Text = "40000";
+                txtDonGia.Text = "0";
             }
             else
             {
-                txtDonGia.Text = "55000";
+                DataTable dongia = busHDCT.LayDonGia(cboTenMonAn.Text);
+                if (dongia.Rows.Count > 0)
+                {
+                    txtDonGia.Text = dongia.Rows[0][0].ToString();
+                }
             }
         }
     }

@@ -37,17 +37,16 @@ namespace GUI_QLNhaHang
             if (int.Parse(vaiTro) == 0)
             {
                 btnThem.Visible = btnSua.Visible = btnXoa.Visible = btnLuu.Visible = false;
-                txtTenMonAn.Enabled = txtMaMonAn.Enabled = txtDonViTinh.Enabled = false;
+                txtTenMonAn.Enabled = txtMaMonAn.Enabled = txtDonGia.Enabled = false;
                 cboNhomMonAn.Enabled = false;
                 btnNhomMonAn.Enabled = false;
             }
             else
             {
                 txtMaMonAn.Enabled = false;
-                txtDonViTinh.Enabled = false;
+                txtDonGia.Enabled = false;
                 txtTenMonAn.Clear();
                 txtTenMonAn.Enabled = false;
-                txtDonViTinh.Text = "VNĐ";
                 txtMaMonAn.Clear();
                 cboNhomMonAn.Enabled = false;
                 cboNhomMonAn.SelectedIndex = -1;
@@ -83,7 +82,7 @@ namespace GUI_QLNhaHang
             ResetValues();
             btnThem.Enabled = false;
             btnLuu.Enabled = true;
-            txtTenMonAn.Enabled = cboNhomMonAn.Enabled = true;
+            txtTenMonAn.Enabled = cboNhomMonAn.Enabled = txtDonGia.Enabled = true;
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -100,7 +99,7 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Tên món ăn không hợp lệ. Tên chỉ được chứa ký tự tiếng Việt và khoảng trắng.");
                 txtTenMonAn.Focus();
             }
-            else if (string.IsNullOrEmpty(txtDonViTinh.Text) || txtDonViTinh.TextLength < 3)
+            else if (string.IsNullOrEmpty(txtDonGia.Text) || txtDonGia.TextLength < 3)
             {
                 MessageBox.Show("Bạn chưa nhập đơn vị tính và phải dài hơn 3 kí tự");
                 txtTenMonAn.Focus();
@@ -112,7 +111,7 @@ namespace GUI_QLNhaHang
             }
             else
             {
-                ma = new DTO_MonAn(txtTenMonAn.Text, txtDonViTinh.Text, nhomMA);
+                ma = new DTO_MonAn(txtTenMonAn.Text, int.Parse(txtDonGia.Text), nhomMA);
                 if (busMA.CapNhatMonAn(ma, txtMaMonAn.Text))
                 {
                     MessageBox.Show("Sửa thành công");
@@ -173,12 +172,12 @@ namespace GUI_QLNhaHang
                 {
                     btnThem.Enabled = false;
                     btnLuu.Enabled = false;
-                    txtTenMonAn.Enabled = cboNhomMonAn.Enabled = true;
+                    txtTenMonAn.Enabled = cboNhomMonAn.Enabled = txtDonGia.Enabled = true;
                     btnSua.Enabled = btnXoa.Enabled = true;
                     int lst = dvDanhSachMonAn.CurrentRow.Index;
                     txtMaMonAn.Text = dvDanhSachMonAn.Rows[lst].Cells[0].Value.ToString();
                     txtTenMonAn.Text = dvDanhSachMonAn.Rows[lst].Cells[1].Value.ToString();
-                    txtDonViTinh.Text = dvDanhSachMonAn.Rows[lst].Cells[2].Value.ToString();
+                    txtDonGia.Text = dvDanhSachMonAn.Rows[lst].Cells[2].Value.ToString();
                     string nMA = dvDanhSachMonAn.Rows[lst].Cells[3].Value.ToString();
                     if (nMA == "0")
                     {
@@ -217,10 +216,10 @@ namespace GUI_QLNhaHang
                 MessageBox.Show("Tên món ăn đã tồn tại. Vui lòng nhập tên món ăn khác.");
                 txtTenMonAn.Focus();
             }
-            else if (string.IsNullOrEmpty(txtDonViTinh.Text) || txtDonViTinh.TextLength < 3)
+            else if (string.IsNullOrEmpty(txtDonGia.Text) || txtDonGia.TextLength < 3)
             {
                 MessageBox.Show("Bạn chưa nhập đơn vị tính và phải dài hơn 3 kí tự");
-                txtDonViTinh.Focus();
+                txtDonGia.Focus();
             }
             else if (cboNhomMonAn.SelectedIndex == -1)
             {
@@ -229,7 +228,7 @@ namespace GUI_QLNhaHang
             }
             else
             {
-                ma = new DTO_MonAn(txtTenMonAn.Text, txtDonViTinh.Text, nhomMA);
+                ma = new DTO_MonAn(txtTenMonAn.Text, int.Parse(txtDonGia.Text), nhomMA);
                 if (busMA.ThemMonAn(ma))
                 {
                     MessageBox.Show("Thêm thành công");

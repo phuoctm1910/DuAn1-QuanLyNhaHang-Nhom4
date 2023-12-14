@@ -64,7 +64,7 @@ namespace DAL_QLNhaHang
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "[InsertMonAn]";
                 cmd.Parameters.AddWithValue("TenMonAn", ma.TenMonAn);
-                cmd.Parameters.AddWithValue("DonViTinh", ma.DonViTinh);
+                cmd.Parameters.AddWithValue("DonGia", ma.DonGia);
                 cmd.Parameters.AddWithValue("MaNhomMonAn", ma.MaNhomMonAn);
 
                 if (cmd.ExecuteNonQuery() > 0)
@@ -92,7 +92,7 @@ namespace DAL_QLNhaHang
                 cmd.CommandText = "[UpdateMonAn]";
                 cmd.Parameters.AddWithValue("mamonan", mamonan);
                 cmd.Parameters.AddWithValue("TenMonAn", ma.TenMonAn);
-                cmd.Parameters.AddWithValue("DonViTinh", ma.DonViTinh);
+                cmd.Parameters.AddWithValue("DonGia", ma.DonGia);
                 cmd.Parameters.AddWithValue("MaNhomMonAn", ma.MaNhomMonAn);
 
                 if (cmd.ExecuteNonQuery() > 0)

@@ -31,6 +31,27 @@ namespace DAL_QLNhaHang
                 _conn.Close();
             }
         }
+        public DataTable LayDonGia(string tenMonAn)
+        {
+            try
+            {
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = _conn;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "[LayDonGia]";
+                cmd.Parameters.AddWithValue("@tenMonAn", tenMonAn);
+                cmd.Connection = _conn;
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return dt;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
         public DataTable DanhSachHoaDonChiTiet(string mahd)
         {
             try

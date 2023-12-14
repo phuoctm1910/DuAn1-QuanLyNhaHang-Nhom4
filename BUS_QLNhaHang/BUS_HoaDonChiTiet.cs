@@ -18,6 +18,10 @@ namespace BUS_QLNhaHang
         {
             return dalHDCT.LayMonAn();
         }
+        public DataTable LayDonGia(string tenMonAn)
+        {
+            return dalHDCT.LayDonGia(tenMonAn);
+        }
         public DataTable DanhSachHoaDonChiTiet(string mahd)
         {
             return dalHDCT.DanhSachHoaDonChiTiet(mahd);

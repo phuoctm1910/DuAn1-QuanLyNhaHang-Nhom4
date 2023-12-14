@@ -9,7 +9,7 @@ namespace DTO_QLNhaHang
     public class DTO_MonAn
     {
         private string tenMonAn;
-        private string donViTinh;
+        private int donGia;
         private string maNhomMonAn;
         private string maMonAn;
 
@@ -24,10 +24,10 @@ namespace DTO_QLNhaHang
             set { tenMonAn = value; }
         }
 
-        public string DonViTinh
+        public int DonGia
         {
-            get { return donViTinh; }
-            set { donViTinh = value; }
+            get { return donGia; }
+            set { donGia = value; }
         }
 
         public string MaNhomMonAn
@@ -36,10 +36,10 @@ namespace DTO_QLNhaHang
             set { maNhomMonAn = value; }
         }
 
-        public DTO_MonAn(string tenMonAn, string donViTinh, string maNhomMonAn)
+        public DTO_MonAn(string tenMonAn, int donGia, string maNhomMonAn)
         {
             this.tenMonAn = tenMonAn;
-            this.donViTinh = donViTinh;
+            this.donGia = donGia;
             this.maNhomMonAn = maNhomMonAn;
         }
         public DTO_MonAn()
